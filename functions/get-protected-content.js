@@ -1,7 +1,7 @@
 const content = {
   free: {
     src:
-      'https://portal.sitogo.ch//undraw_Freelancer_re_irh4.png',
+      'images/undraw_Freelancer_re_irh4.png',
     alt: 'corgi in the park with a sunset in the background',
     allowedRoles: ['free', 'pro', 'premium'],
   },
