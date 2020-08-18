@@ -205,4 +205,40 @@ Dein aktuelles Abo
   netlifyIdentity.on('login', handleUserStateChange);
   netlifyIdentity.on('logout', handleUserStateChange);
 </script>
+<script>
+                 // Scrolling Effect
+
+                 $(window).on("scroll", function() {
+                   var scroll = $(window).scrollTop();
+                  if (scroll > 50) {
+                    $(".bg-normal").css("background" , "white");
+                    $(".bg-normal").css("box-shadow" , "0 1px 5px rgba(0, 0, 0, 0.25)");
+                  }
+
+                  else{
+                    $(".bg-normal").css("background" , "transparent");
+                    $(".bg-normal").css("box-shadow" , "0 1px 5px rgba(0, 0, 0, 0)");
+
+                  }
+                 })
+
+
+
+                     var pxShow  = 500,         // height on which the button will show
+                     fadeInTime  = 400,         // how slow/fast you want the button to show
+                     fadeOutTime = 400,         // how slow/fast you want the button to hide
+                     scrollSpeed = 300,         // how slow/fast you want the button to scroll to top. can be a value, 'slow', 'normal' or 'fast'
+                     goTopButton = $(".cl-go-top")
+
+                     // Show or hide the sticky footer button
+                     $(window).on('scroll', function() {
+                         if ($(window).scrollTop() >= pxShow) {
+                             goTopButton.fadeIn(fadeInTime);
+                         } else {
+                             goTopButton.fadeOut(fadeOutTime);
+                         }
+                     });
+
+
+            </script>
 </body>
