@@ -30,7 +30,7 @@ exports.handler = async (event, context) => {
       statusCode: 402,
       body: JSON.stringify({
         src:
-          'https://res.cloudinary.com/jlengstorf/image/upload/q_auto,f_auto/v1592618179/stripe-subscription/subscription-required.jpg',
+          'images/yellow.png',
         alt: 'corgi in a crossed circle with the text “subscription required”',
       }),
     };
