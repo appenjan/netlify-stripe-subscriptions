@@ -1,7 +1,7 @@
 const content = {
   free: {
     src:
-      'https://images.unsplash.com/photo-1519098901909-b1553a1190af?auto=format&fit=crop&w=600&h=600&q=80',
+      '/undraw_Freelancer_re_irh4.png',
     alt: 'corgi in the park with a sunset in the background',
     allowedRoles: ['free', 'pro', 'premium'],
   },
