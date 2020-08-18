@@ -1,38 +1,74 @@
-  <h1>Sign Up for Premium Corgi Content</h1>
+<style>
+  h1 {
+    text-align: center;
+  }
 
-  <div class="user-info">
-    <button id="left">Log In</button>
-    <button id="right">Sign Up</button>
+  .user-info {
+    align-items: center;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(2, 1fr);
+    list-style: none;
+    padding: 0;
+  }
+
+  .user-info button {
+    background: var(--dark-gray);
+    border: 0;
+    border-radius: 0.5rem;
+    color: var(--white);
+    display: block;
+    font-family: var(--font-family);
+    font-size: 1.5rem;
+    font-weight: 900;
+    padding: 1rem;
+    text-align: center;
+    text-decoration: none;
+  }
+
+  .corgi-content {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .content h2 {
+    font-size: 1.25rem;
+    text-align: center;
+  }
+
+  .content-display {
+    margin: 0;
+  }
+
+  .credit {
+    display: block;
+    font-size: 0.75rem;
+  }
+
+  .content img {
+    width: 100%;
+  }
+</style>
+
+<h1>Sign Up for Premium Corgi Content</h1>
+
+<div class="user-info">
+  <button id="left">Log In</button>
+  <button id="right">Sign Up</button>
+</div>
+
+<div class="corgi-content">
+  <div class="content">
+    <h2>Free Content</h2>
+    <div class="free"></div>
   </div>
-
-  <div class="corgi-content">
-    <div class="content">
-      <h2>Free Content</h2>
-      <div class="free"></div>
-    </div>
-    <div class="content">
-      <h2>Pro Content</h2>
-      <div class="pro"></div>
-    </div>
-    <div class="content">
-      <h2>Premium Content</h2>
-      <div class="premium"></div>
-    </div>
+  <div class="content">
+    <h2>Pro Content</h2>
+    <div class="pro"></div>
   </div>
-
-+ <script
-+   type="text/javascript"
-+   src="https://identity.netlify.com/v1/netlify-identity-widget.js"
-+ ></script>
-+
-+ <script>
-+   const button1 = document.getElementById('left');
-+   const button2 = document.getElementById('right');
-+   
-+   const login = () => netlifyIdentity.open('login');
-+   const signup = () => netlifyIdentity.open('signup');
-+   
-+   // by default, add login and signup functionality
-+   button1.addEventListener('click', login);
-+   button2.addEventListener('click', signup);
-+ </script>
+  <div class="content">
+    <h2>Premium Content</h2>
+    <div class="premium"></div>
+  </div>
+</div>
