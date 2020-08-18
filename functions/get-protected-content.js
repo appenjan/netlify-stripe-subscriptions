@@ -1,6 +1,7 @@
 const content = {
   free: {
-    background: blue,
+    src:
+      'https://www.sitogo.ch/undraw_Portfolio_update_re_jqnp.svg',
     alt: 'corgi in the park with a sunset in the background',
     credit: 'Jacob Van Blarcom',
     creditLink: 'https://unsplash.com/photos/lkzjENdWgd8',
