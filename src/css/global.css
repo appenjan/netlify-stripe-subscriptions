@@ -53,12 +53,12 @@ h6 {
   font-weight: 900;
 }
 
-main {
+/* main {
   margin: 4rem auto;
   max-width: 640px;
   min-height: calc(100vh - 242px);
   width: 90vw;
-}
+} */
 
 @keyframes gradient-roll {
   0% {
