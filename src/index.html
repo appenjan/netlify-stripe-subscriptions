@@ -21,7 +21,7 @@
 <br><br>
 <div class="user-info">
   <button id="left">Log In</button>
-
+  <button id="right">Sign Up</button>
 </div>
 <br><br><br>
 <p class="lead">
@@ -29,21 +29,15 @@ Dein aktuelles Abo
 <div class="corgi-content">
   <div class="content">
     <h3>Abo Easy</h3>
-    <div class="free">
-      <button id="right">Sign Up</button>
-    </div>
+    <div class="free"></div>
   </div>
   <div class="content">
     <h3>Abo Business</h3>
-    <div class="pro">
-      <button id="right">Sign Up</button>
-    </div>
+    <div class="pro"></div>
   </div>
   <div class="content">
     <h3>Abo Premium</h3>
-    <div class="premium">
-    <button id="right">Sign Up</button>
-  </div>
+    <div class="premium"></div>
   </div>
 </div>
 <br><br>
@@ -85,7 +79,7 @@ Dein aktuelles Abo
         netlifyIdentity.logout();
       });
 
-      b2.innerText = 'Kundenkonto bearbeiten';
+      b2.innerText = 'Abo ändern';
       b2.addEventListener('click', () => {
         // TODO handle subscription management
         fetch('/.netlify/functions/create-manage-link', {
