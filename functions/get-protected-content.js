@@ -9,7 +9,7 @@ const content = {
     src:
       'images/undraw_business_decisions_gjwy.png',
     alt: 'close-up of a corgi with its tongue hanging out',
-    allowedRoles: ['pro', 'premium'],
+    allowedRoles: ['pro'],
   },
   premium: {
     src:
