@@ -26,6 +26,9 @@
 <br><br><br>
 <p class="lead">
 Dein aktuelles Abo</p>
+<div class="abo-info">
+  <button id="middle">Anmelden</button>
+</div>
 <div class="user-info">
   <button id="middle">Abo ändern</button>
 </div>
@@ -74,7 +77,6 @@ Dein aktuelles Abo</p>
     // cloning the buttons removes existing event listeners
     const b1 = button1.cloneNode(true);
     const b2 = button2.cloneNode(true);
-    const b3 = button3.cloneNode(true);
 
     // empty the user info div
     container.innerHTML = '';
@@ -100,7 +102,30 @@ Dein aktuelles Abo</p>
           })
           .catch((err) => console.error(err));
       });
+    } else {
+      // if no one is logged in, show login/signup options
+      b1.innerText = 'Log In';
+      b1.addEventListener('click', login);
 
+      b2.innerText = 'Sign Up';
+      b2.addEventListener('click', signup);
+    }
+
+    // add the updated buttons back to the user info div
+    container.appendChild(b1);
+    container.appendChild(b2);
+  };
+
+  const updateAboInfo = (user) => {
+    const container = document.querySelector('.abo-info');
+
+    // cloning the buttons removes existing event listeners
+    const b3 = button3.cloneNode(true);
+
+    // empty the user info div
+    container.innerHTML = '';
+
+    if (user) {
       b3.innerText = 'Abo ändern';
       b3.addEventListener('click', () => {
         // TODO handle subscription management
@@ -129,8 +154,6 @@ Dein aktuelles Abo</p>
     }
 
     // add the updated buttons back to the user info div
-    container.appendChild(b1);
-    container.appendChild(b2);
     container.appendChild(b3);
   };
 
