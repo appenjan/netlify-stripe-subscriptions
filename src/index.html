@@ -29,10 +29,6 @@ Dein aktuelles Abo</p>
 <div class="abo-info">
   <button id="middle">Anmelden</button>
 </div>
-<div class="user-info">
-  <button id="middle">Abo ändern</button>
-</div>
-
 <div class="corgi-content">
   <div class="content">
     <h3>Abo Easy</h3>
@@ -70,6 +66,7 @@ Dein aktuelles Abo</p>
   // by default, we want to add login and signup functionality
   button1.addEventListener('click', login);
   button2.addEventListener('click', signup);
+  button3.addEventListener('click', sigup);
 
   const updateUserInfo = (user) => {
     const container = document.querySelector('.user-info');
