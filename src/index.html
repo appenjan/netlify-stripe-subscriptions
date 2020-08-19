@@ -64,7 +64,6 @@ Dein aktuelles Abo</p>
   // by default, we want to add login and signup functionality
   button1.addEventListener('click', login);
   button2.addEventListener('click', signup);
-  button3.addEventListener('click', signup);
 
   const updateUserInfo = (user) => {
     const container = document.querySelector('.user-info');
@@ -121,6 +120,9 @@ Dein aktuelles Abo</p>
 
       b2.innerText = 'Sign Up';
       b2.addEventListener('click', signup);
+
+      b3.innerText = 'Sign Up';
+      b3.addEventListener('click', signup);
     }
 
     // add the updated buttons back to the user info div
