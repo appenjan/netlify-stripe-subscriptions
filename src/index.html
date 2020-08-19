@@ -25,7 +25,8 @@
 </div>
 <br><br><br>
 <p class="lead">
-Dein aktuelles Abo
+Dein aktuelles Abo</p>
+<button id="middle">Abo ändern</button>
 <div class="corgi-content">
   <div class="content">
     <h3>Abo Easy</h3>
@@ -55,6 +56,7 @@ Dein aktuelles Abo
 <script>
   const button1 = document.getElementById('left');
   const button2 = document.getElementById('right');
+  const button3 = document.getElementById('middle');
 
   const login = () => netlifyIdentity.open('login');
   const signup = () => netlifyIdentity.open('signup');
@@ -69,6 +71,7 @@ Dein aktuelles Abo
     // cloning the buttons removes existing event listeners
     const b1 = button1.cloneNode(true);
     const b2 = button2.cloneNode(true);
+    const b3 = button3.cloneNode(true);
 
     // empty the user info div
     container.innerHTML = '';
@@ -79,8 +82,23 @@ Dein aktuelles Abo
         netlifyIdentity.logout();
       });
 
-      b2.innerText = 'Abo ändern';
+      b2.innerText = 'Abo wählen';
       b2.addEventListener('click', () => {
+        // TODO handle subscription management
+        fetch('/.netlify/functions/create-manage-link', {
+          method: 'POST',
+          headers: {
+            Authorization: `Bearer ${user.token.access_token}`,
+          },
+        })
+          .then((res) => res.json())
+          .then((link) => {
+            window.location.href = link;
+          })
+          .catch((err) => console.error(err));
+      });
+      b3.innerText = 'Abo ändern';
+      b3.addEventListener('click', () => {
         // TODO handle subscription management
         fetch('/.netlify/functions/create-manage-link', {
           method: 'POST',
