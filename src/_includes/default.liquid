@@ -20,7 +20,7 @@
 
 
        <script src="jquery.min.js"></script>
-       
+
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet"/>
 
 
@@ -634,7 +634,64 @@
       padding-top: 25px;
       padding-bottom: 25px;
   }
+  .dropdown-menu {
+      margin: 20px 0 0;
+      transform: none!important;
+      will-change: unset!important;
+      font-size: 14px;
+      padding: .5rem 30px;
+  }
+  .wrapper {
 
+      margin: 0 auto -155px; /* the bottom margin is the negative value of the footer's height */
+  }
+  .footer, .push {
+      height: 155px; /* .push must be the same height as .footer */
+  }
+  .user-info {
+    align-items: center;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(2, 1fr);
+    list-style: none;
+    padding: 0;
+  }
+
+  .user-info button {
+      background: black;
+      border-radius: 30px;
+      color: var(--white);
+      display: block;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.5rem;
+      text-align: center;
+      text-decoration: none;
+  }
+
+  .corgi-content {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .content h2 {
+    font-size: 1.25rem;
+    text-align: center;
+  }
+
+  .content-display {
+    margin: 0;
+  }
+
+  .credit {
+    display: block;
+    font-size: 0.75rem;
+  }
+
+  .content img {
+    width: 100%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
   </style>
   <body>
     {% include header.html %}
