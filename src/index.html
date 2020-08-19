@@ -64,6 +64,7 @@ Dein aktuelles Abo</p>
   // by default, we want to add login and signup functionality
   button1.addEventListener('click', login);
   button2.addEventListener('click', signup);
+  button3.addEventListener('click', signup);
 
   const updateUserInfo = (user) => {
     const container = document.querySelector('.user-info');
@@ -97,6 +98,7 @@ Dein aktuelles Abo</p>
           })
           .catch((err) => console.error(err));
       });
+
       b3.innerText = 'Abo ändern';
       b3.addEventListener('click', () => {
         // TODO handle subscription management
