@@ -112,9 +112,10 @@ margin-right: auto;
 <section id="angebot" class="s-about light-gray" id="abo_change">
   <div class="container">
     <div class="row" >
-<p class="lead">
+          <div class="user-info-13">
+<p class="lead" id="abos">
 Mein aktuelles Abo.</p>
-
+</div>
 <div class="corgi-content">
   <div class="content">
     <p>Abo Easy</p>
@@ -180,6 +181,8 @@ Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? W
   const text2 = document.getElementById('mein_konto');
   const text3 = document.getElementById('webseite_bearbeiten');
   const text4 = document.getElementById('hilfe');
+  const text5 = document.getElementById('abos');
+
   const block1 = document.getElementById('block1');
   const block2 = document.getElementById('block2');
   const block3 = document.getElementById('block3');
@@ -511,6 +514,28 @@ Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? W
     container.appendChild(b6);
   };
 
+  const updateUserInfo13 = (user) => {
+    const container = document.querySelector('.user-info-13');
+
+    // cloning the buttons removes existing event listeners
+    const t5 = text5.cloneNode(true);
+
+    // empty the user info div
+    container.innerHTML = '';
+
+    if (user) {
+      t5.innerText = 'Mein aktuelles Abo.';
+    }
+
+    else {
+      // if no one is logged in, show login/signup options
+      t5.innerText = 'Wähle das passende Abo für dich';
+    }
+
+    // add the updated buttons back to the user info div
+    container.appendChild(t5);
+  };
+
   const loadSubscriptionContent = async (user) => {
     const token = user ? await netlifyIdentity.currentUser().jwt(true) : false;
 
@@ -564,6 +589,7 @@ Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? W
     updateUserInfo9(user);
     updateUserInfo10(user);
     updateUserInfo12(user);
+    updateUserInfo13(user);
     loadSubscriptionContent(user);
   };
 
