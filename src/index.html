@@ -354,28 +354,6 @@ Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? W
     container.appendChild(t1);
   };
 
-  const updateUserInfo6 = (user) => {
-    const container = document.querySelector('.user-info-6');
-
-    // cloning the buttons removes existing event listeners
-    const i1 = image1.cloneNode(true);
-
-    // empty the user info div
-    
-
-    if (user) {
-      i1.innerHTML="<img src=\"images/undraw_my_answer_iw6k.svg\">";
-    }
-
-    else {
-      // if no one is logged in, show login/signup options
-      i1.innerHTML = "<img src=\"images/yellow.png\">";
-    }
-
-    // add the updated buttons back to the user info div
-    container.appendChild(i1);
-  };
-
   const loadSubscriptionContent = async (user) => {
     const token = user ? await netlifyIdentity.currentUser().jwt(true) : false;
 
@@ -423,7 +401,6 @@ Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? W
     updateUserInfo3(user);
     updateUserInfo4(user);
     updateUserInfo5(user);
-    updateUserInfo6(user);
     loadSubscriptionContent(user);
   };
 
