@@ -112,6 +112,7 @@ Mein aktuelles Abo.</p>
   <div class="content">
     <p>Abo Easy</p>
     <div class="free"></div>
+        <div class="jan"></div>
   </div>
   <div class="content">
     <p>Abo Business</p>
@@ -254,7 +255,7 @@ Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? W
   const loadSubscriptionContent = async (user) => {
     const token = user ? await netlifyIdentity.currentUser().jwt(true) : false;
 
-    ['free', 'pro', 'premium'].forEach((type) => {
+    ['free','jan','pro', 'premium'].forEach((type) => {
       fetch('/.netlify/functions/get-protected-content', {
         method: 'POST',
         headers: {
