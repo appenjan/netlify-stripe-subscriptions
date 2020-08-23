@@ -342,18 +342,15 @@ Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? W
 
     if (user) {
       t1.innerText = 'Willkommen auf mySitogo. Hier kannst du dein Abo online verwalten, deine Webseite anpassen oder Änderungswünsche mitteilen.';
-      t2.innerText = 'Kundenportal.';
     }
 
     else {
       // if no one is logged in, show login/signup options
       t1.innerText = '';
-      t2.innerText = '';
     }
 
     // add the updated buttons back to the user info div
     container.appendChild(t1);
-    container.appendChild(t2);
   };
 
   const loadSubscriptionContent = async (user) => {
