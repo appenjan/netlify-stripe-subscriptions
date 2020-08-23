@@ -105,9 +105,10 @@ margin-right: auto;
 </div>
 </section>
 
-<div class="user-info-11">
+
 <section id="angebot" class="s-about light-gray">
-  <div class="container">
+  <div class="user-info-11">
+  <div class="container" id="abo_change">
     <div class="row" >
 <p class="lead">
 Mein aktuelles Abo.</p>
@@ -157,8 +158,9 @@ Mein aktuellen Optionen.</p>
 
 </div>
 </div>
-</section>
 </div>
+</section>
+
 <!-- <br><br>
 <p class="lead">Jetzt starten. <span class="badge badge-danger"><i class="fa fa-times"></i> Ausstehend</span><span class="badge badge-success"><i class="fa fa-check"></i> Abgeschlossen</span></p>
 <p> -->
@@ -186,7 +188,7 @@ Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? W
   const text4 = document.getElementById('hilfe');
   const block1 = document.getElementById('block1');
   const block2 = document.getElementById('block2');
-  const block3 = document.getElementById('angebot');
+  const block3 = document.getElementById('abo_change');
 
   const login = () => netlifyIdentity.open('login');
   const signup = () => netlifyIdentity.open('signup');
