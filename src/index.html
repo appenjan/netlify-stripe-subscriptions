@@ -111,18 +111,25 @@ Mein aktuelles Abo.</p>
 <div class="corgi-content">
   <div class="content">
     <p>Abo Easy</p>
+
+    <div class="free"></div>
     <div class="user-info-2">
     <button class="smoothscroll js-scroll-trigger small" id="middle">Abo ändern</button>
     </div>
-    <div class="free"></div>
   </div>
   <div class="content">
     <p>Abo Business</p>
     <div class="pro"></div>
+    <div class="user-info-2">
+    <button class="smoothscroll js-scroll-trigger small" id="middle">Abo ändern</button>
+    </div>
   </div>
   <div class="content">
     <p>Abo Premium</p>
     <div class="premium"></div>
+    <div class="user-info-2">
+    <button class="smoothscroll js-scroll-trigger small" id="middle">Abo ändern</button>
+    </div>
   </div>
 </div>
 <br><br>
@@ -211,7 +218,7 @@ Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? W
     container.innerHTML = '';
 
     if (user) {
-      b3.innerText = 'Abo wählen';
+      b3.innerText = 'Abo ändern';
       b3.addEventListener('click', () => {
         // TODO handle subscription management
         fetch('/.netlify/functions/create-manage-link', {
