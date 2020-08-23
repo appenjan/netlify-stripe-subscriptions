@@ -78,7 +78,9 @@ margin-right: auto;
     <div class="col-md-4">
 
       <div class="thumbnail">
-          <img id="tutorial" src="images/undraw_my_answer_iw6k.svg" alt="" class="center">
+            <div class="user-info-3">
+          <img id="erstes_bild" src="images/undraw_my_answer_iw6k.svg" alt="" class="center">
+          </div>
             <div class="caption">
               <h4>1. Abo auswählen</h4>
           </div>
@@ -177,7 +179,7 @@ Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? W
   const button4 = document.getElementById('middle-2');
   const button5 = document.getElementById('middle-3');
   const text1 = document.getElementById('portal_header');
-  const text2 = document.getElementById('kapitel_header');
+  const image1 = document.getElementById('erstes_bild');
 
 
 
@@ -335,7 +337,6 @@ Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? W
 
     // cloning the buttons removes existing event listeners
     const t1 = text1.cloneNode(true);
-    const t2 = text2.cloneNode(true);
 
     // empty the user info div
     container.innerHTML = '';
@@ -351,6 +352,28 @@ Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? W
 
     // add the updated buttons back to the user info div
     container.appendChild(t1);
+  };
+
+  const updateUserInfo6 = (user) => {
+    const container = document.querySelector('.user-info-6');
+
+    // cloning the buttons removes existing event listeners
+    const i1 = image1.cloneNode(true);
+
+    // empty the user info div
+    container.innerHTML = '';
+
+    if (user) {
+      i1.innerHTML="<img src=\"images/undraw_my_answer_iw6k.svg">";
+    }
+
+    else {
+      // if no one is logged in, show login/signup options
+      i1.innerHTML = '';
+    }
+
+    // add the updated buttons back to the user info div
+    container.appendChild(i1);
   };
 
   const loadSubscriptionContent = async (user) => {
