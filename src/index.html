@@ -69,6 +69,9 @@ margin-right: auto;
                 <div class="user-info-5">
             <h1 class="display-1" id="portal_header">Willkommen auf mySitogo. Hier kannst du dein Abo online verwalten, deine Webseite anpassen oder Änderungswünsche mitteilen.</h1>
             </div>
+            <div class="user-info-12">
+            <button class="smoothscroll js-scroll-trigger small" id="regist">Jetzt registrieren</button>
+            </div>
         </div>
     </div>
 
@@ -150,18 +153,9 @@ Mein aktuelles Abo.</p>
   </figure>
 </template>
 </div>
-<br><br>
-<div class="row content-display" >
-<p class="lead">
-Mein aktuellen Optionen.</p>
-
-</div>
 </div>
 </section>
 </div>
-<!-- <br><br>
-<p class="lead">Jetzt starten. <span class="badge badge-danger"><i class="fa fa-times"></i> Ausstehend</span><span class="badge badge-success"><i class="fa fa-check"></i> Abgeschlossen</span></p>
-<p> -->
 <section class="s-services">
 <div class="container" >
       <div class="user-info-9">
@@ -180,6 +174,8 @@ Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? W
   const button3 = document.getElementById('middle');
   const button4 = document.getElementById('middle-2');
   const button5 = document.getElementById('middle-3');
+  const button6 = document.getElementById('regist');
+
   const text1 = document.getElementById('portal_header');
   const text2 = document.getElementById('mein_konto');
   const text3 = document.getElementById('webseite_bearbeiten');
@@ -493,6 +489,29 @@ Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? W
     container.appendChild(bl2);
   };
 
+  const updateUserInfo12 = (user) => {
+    const container = document.querySelector('.user-info-12');
+
+    // cloning the buttons removes existing event listeners
+    const b6 = button6.cloneNode(true);
+
+    // empty the user info div
+    container.innerHTML = '';
+
+    if (user) {
+      b5.innerText = '';
+    }
+
+    else {
+      // if no one is logged in, show login/signup options
+      b2.innerText = 'Jetzt registrieren';
+      b2.addEventListener('click', signup);
+    }
+
+    // add the updated buttons back to the user info div
+    container.appendChild(b6);
+  };
+
   const loadSubscriptionContent = async (user) => {
     const token = user ? await netlifyIdentity.currentUser().jwt(true) : false;
 
@@ -534,7 +553,7 @@ Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? W
     });
   };
 
-  const handleUserStateChange = (user) => {
+    const handleUserStateChange = (user) => {
     updateUserInfo(user);
     updateUserInfo2(user);
     updateUserInfo3(user);
@@ -545,6 +564,7 @@ Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? W
     updateUserInfo8(user);
     updateUserInfo9(user);
     updateUserInfo10(user);
+    updateUserInfo12(user);
     loadSubscriptionContent(user);
   };
 
