@@ -105,7 +105,8 @@ margin-right: auto;
 </div>
 </section>
 
-<section id="angebot" class="s-about light-gray">
+<div class="user-info-11">
+<section id="angebot" class="s-about light-gray" id="abo_change">
   <div class="container">
     <div class="row" >
 <p class="lead">
@@ -157,6 +158,7 @@ Mein aktuellen Optionen.</p>
 </div>
 </div>
 </section>
+</div>
 <!-- <br><br>
 <p class="lead">Jetzt starten. <span class="badge badge-danger"><i class="fa fa-times"></i> Ausstehend</span><span class="badge badge-success"><i class="fa fa-check"></i> Abgeschlossen</span></p>
 <p> -->
@@ -184,6 +186,7 @@ Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? W
   const text4 = document.getElementById('hilfe');
   const block1 = document.getElementById('block1');
   const block2 = document.getElementById('block2');
+  const block3 = document.getElementById('block3');
 
   const login = () => netlifyIdentity.open('login');
   const signup = () => netlifyIdentity.open('signup');
@@ -490,6 +493,73 @@ Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? W
     container.appendChild(bl2);
   };
 
+  const updateUserInfo11 = (user) => {
+    const container = document.querySelector('.user-info-11');
+
+    // cloning the buttons removes existing event listeners
+    const bl3 = block3.cloneNode(true);
+
+    // empty the user info div
+    container.innerHTML = '';
+
+    if (user) {
+      bl3.innerHTML = '<section id="angebot" class="s-about light-gray" id="abo_change">'+
+'<div class="container">'+
+'<div class="row" >'+
+'<p class="lead">Mein aktuelles Abo.</p>'+
+'<div class="corgi-content">'+
+'<div class="content">'+
+'<p>Abo Easy</p>'+
+'<div class="free"></div>'+
+'<br>'+
+'<div class="user-info-2">'+
+'<button class="smoothscroll js-scroll-trigger small" id="middle">Abo ändern</button>'+
+'</div>'+
+'</div>'+
+'<div class="content">'+
+'<p>Abo Business</p>'+
+'<div class="pro"></div>'+
+'<br>'+
+'<div class="user-info-3">'+
+'<button class="smoothscroll js-scroll-trigger small" id="middle-2">Abo ändern</button>'+
+'</div>'+
+'</div>'+
+'<div class="content">'+
+'<p>Abo Premium</p>v
+'<div class="premium"></div>'+
+'<br>'+
+'<div class="user-info-4">'+
+'<button class="smoothscroll js-scroll-trigger small" id="middle-3">Abo ändern</button>'+
+'</div>'+
+'</div>'+
+'</div>'+
+'<br><br>'+
+'<template id="content">'+
+'<figure class="content-display">'+
+'<img id="mitte" />'+
+'<figcaption>'+
+'<a class="credit"></a>'+
+'</figcaption>'+
+'</figure>'+
+'</template>'+
+'</div>'+
+'<br><br>'+
+'<div class="row content-display" >'+
+'<p class="lead">Mein aktuellen Optionen.</p>'+
+'</div>'+
+'</div>'+
+'</section>';
+    }
+
+    else {
+      // if no one is logged in, show login/signup options
+      bl3.innerHTML = '';
+    }
+
+    // add the updated buttons back to the user info div
+    container.appendChild(bl3);
+  };
+
   const loadSubscriptionContent = async (user) => {
     const token = user ? await netlifyIdentity.currentUser().jwt(true) : false;
 
@@ -542,6 +612,7 @@ Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? W
     updateUserInfo8(user);
     updateUserInfo9(user);
     updateUserInfo10(user);
+    updateUserInfo11(user);
     loadSubscriptionContent(user);
   };
 
