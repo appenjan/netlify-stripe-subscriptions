@@ -176,7 +176,6 @@ Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? W
     // cloning the buttons removes existing event listeners
     const b1 = button1.cloneNode(true);
     const b2 = button2.cloneNode(true);
-    const b3 = button3.cloneNode(true);
 
     // empty the user info div
     container.innerHTML = '';
@@ -187,21 +186,6 @@ Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? W
         netlifyIdentity.logout();
       });
 
-      b3.innerText = 'Abo wählen';
-      b3.addEventListener('click', () => {
-        // TODO handle subscription management
-        fetch('/.netlify/functions/create-manage-link', {
-          method: 'POST',
-          headers: {
-            Authorization: `Bearer ${user.token.access_token}`,
-          },
-        })
-          .then((res) => res.json())
-          .then((link) => {
-            window.location.href = link;
-          })
-          .catch((err) => console.error(err));
-      });
     } else {
       // if no one is logged in, show login/signup options
       b1.innerText = 'Log In';
@@ -210,15 +194,11 @@ Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? W
       b2.innerText = 'Registrieren';
       b2.addEventListener('click', signup);
 
-      b3.innerText = 'Log In';
-      b3.addEventListener('click', login);
-
     }
 
     // add the updated buttons back to the user info div
     container.appendChild(b1);
     container.appendChild(b2);
-    container.appendChild(b3);
   };
 
   const updateUserInfo2 = (user) => {
