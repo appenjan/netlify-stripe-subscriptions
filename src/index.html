@@ -120,14 +120,14 @@ Mein aktuelles Abo.</p>
   <div class="content">
     <p>Abo Business</p>
     <div class="pro"></div>
-    <div class="user-info-2">
+    <div class="user-info-3">
     <button class="smoothscroll js-scroll-trigger small" id="middle-2">Abo ändern</button>
     </div>
   </div>
   <div class="content">
     <p>Abo Premium</p>
     <div class="premium"></div>
-    <div class="user-info-2">
+    <div class="user-info-4">
     <button class="smoothscroll js-scroll-trigger small" id="middle-3">Abo ändern</button>
     </div>
   </div>
@@ -215,8 +215,6 @@ Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? W
 
     // cloning the buttons removes existing event listeners
     const b3 = button3.cloneNode(true);
-    const b4 = button4.cloneNode(true);
-    const b5 = button5.cloneNode(true);
 
     // empty the user info div
     container.innerHTML = '';
@@ -238,52 +236,88 @@ Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? W
           .catch((err) => console.error(err));
       });
     }
-    b4.innerText = 'Abo ändern';
-    b4.addEventListener('click', () => {
-      // TODO handle subscription management
-      fetch('/.netlify/functions/create-manage-link', {
-        method: 'POST',
-        headers: {
-          Authorization: `Bearer ${user.token.access_token}`,
-        },
-      })
-        .then((res) => res.json())
-        .then((link) => {
-          window.location.href = link;
-        })
-        .catch((err) => console.error(err));
-    });
-  }
-  b5.innerText = 'Abo ändern';
-  b5.addEventListener('click', () => {
-    // TODO handle subscription management
-    fetch('/.netlify/functions/create-manage-link', {
-      method: 'POST',
-      headers: {
-        Authorization: `Bearer ${user.token.access_token}`,
-      },
-    })
-      .then((res) => res.json())
-      .then((link) => {
-        window.location.href = link;
-      })
-      .catch((err) => console.error(err));
-  });
 }
     else {
       // if no one is logged in, show login/signup options
       b3.innerText = 'Log In';
       b3.addEventListener('click', login);
-      b4.innerText = 'Log In';
-      b4.addEventListener('click', login);
-      b5.innerText = 'Log In';
-      b5.addEventListener('click', login);
-
     }
 
     // add the updated buttons back to the user info div
     container.appendChild(b3);
+  };
+
+  const updateUserInfo3 = (user) => {
+    const container = document.querySelector('.user-info-3');
+
+    // cloning the buttons removes existing event listeners
+    const b4 = button4.cloneNode(true);
+
+    // empty the user info div
+    container.innerHTML = '';
+
+    if (user) {
+      b4.innerText = 'Abo ändern';
+      b4.addEventListener('click', () => {
+        // TODO handle subscription management
+        fetch('/.netlify/functions/create-manage-link', {
+          method: 'POST',
+          headers: {
+            Authorization: `Bearer ${user.token.access_token}`,
+          },
+        })
+          .then((res) => res.json())
+          .then((link) => {
+            window.location.href = link;
+          })
+          .catch((err) => console.error(err));
+      });
+    }
+}
+    else {
+      // if no one is logged in, show login/signup options
+      b4.innerText = 'Log In';
+      b4.addEventListener('click', login);
+    }
+
+    // add the updated buttons back to the user info div
     container.appendChild(b4);
+  };
+
+  const updateUserInfo4 = (user) => {
+    const container = document.querySelector('.user-info-4');
+
+    // cloning the buttons removes existing event listeners
+    const b5 = button5.cloneNode(true);
+
+    // empty the user info div
+    container.innerHTML = '';
+
+    if (user) {
+      b5.innerText = 'Abo ändern';
+      b5.addEventListener('click', () => {
+        // TODO handle subscription management
+        fetch('/.netlify/functions/create-manage-link', {
+          method: 'POST',
+          headers: {
+            Authorization: `Bearer ${user.token.access_token}`,
+          },
+        })
+          .then((res) => res.json())
+          .then((link) => {
+            window.location.href = link;
+          })
+          .catch((err) => console.error(err));
+      });
+    }
+}
+    else {
+      // if no one is logged in, show login/signup options
+      b5.innerText = 'Log In';
+      b5.addEventListener('click', login);
+    }
+
+    // add the updated buttons back to the user info div
     container.appendChild(b5);
   };
 
