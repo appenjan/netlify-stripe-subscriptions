@@ -178,6 +178,7 @@ Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? W
   const button5 = document.getElementById('middle-3');
   const text1 = document.getElementById('portal_header');
   const text2 = document.getElementById('mein_konto');
+  const text3 = document.getElementById('webseite_bearbeiten');
 
   const login = () => netlifyIdentity.open('login');
   const signup = () => netlifyIdentity.open('signup');
@@ -372,6 +373,28 @@ Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? W
     container.appendChild(t2);
   };
 
+  const updateUserInfo7 = (user) => {
+    const container = document.querySelector('.user-info-7');
+
+    // cloning the buttons removes existing event listeners
+    const t3 = text3.cloneNode(true);
+
+    // empty the user info div
+    container.innerHTML = '';
+
+    if (user) {
+      t3.innerText = 'Webseite bearbeiten';
+    }
+
+    else {
+      // if no one is logged in, show login/signup options
+      t3.innerText = '';
+    }
+
+    // add the updated buttons back to the user info div
+    container.appendChild(t3);
+  };
+
   const loadSubscriptionContent = async (user) => {
     const token = user ? await netlifyIdentity.currentUser().jwt(true) : false;
 
@@ -420,6 +443,7 @@ Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? W
     updateUserInfo4(user);
     updateUserInfo5(user);
     updateUserInfo6(user);
+    updateUserInfo7(user);
     loadSubscriptionContent(user);
   };
 
