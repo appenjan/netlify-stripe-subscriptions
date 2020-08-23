@@ -160,8 +160,8 @@ Mein aktuellen Optionen.</p>
 <p class="lead">Jetzt starten. <span class="badge badge-danger"><i class="fa fa-times"></i> Ausstehend</span><span class="badge badge-success"><i class="fa fa-check"></i> Abgeschlossen</span></p>
 <p> -->
 <section class="s-services">
-<div class="container">
-  <div class="row section-header" >
+<div class="container" >
+  <div class="row section-header updateUserInfo9" id="block1">
 <p class="lead">Hilfe</p>
 <p>
 Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? Wir stehen dir immer gerne unter hello@sitogo.ch zur Verfügung. In der Regel haben wir einen Reaktionszeit von 60 Minuten.</p>
@@ -179,7 +179,8 @@ Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? W
   const text1 = document.getElementById('portal_header');
   const text2 = document.getElementById('mein_konto');
   const text3 = document.getElementById('webseite_bearbeiten');
-    const text4 = document.getElementById('hilfe');
+  const text4 = document.getElementById('hilfe');
+  const block1 = document.getElementById('block1');
 
   const login = () => netlifyIdentity.open('login');
   const signup = () => netlifyIdentity.open('signup');
@@ -418,6 +419,29 @@ Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? W
     container.appendChild(t4);
   };
 
+  const updateUserInfo9 = (user) => {
+    const container = document.querySelector('.user-info-9');
+
+    // cloning the buttons removes existing event listeners
+    const bl1 = block1.cloneNode(true);
+
+    // empty the user info div
+    container.innerHTML = '';
+
+    if (user) {
+      bl1.innerHTML = '<p class="lead">Hilfe</p>' +
+      '<p>Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? Wir stehen dir immer gerne unter hello@sitogo.ch zur Verfügung. In der Regel haben wir einen Reaktionszeit von 60 Minuten.</p>';
+    }
+
+    else {
+      // if no one is logged in, show login/signup options
+      bl1.innerHTML = '';
+    }
+
+    // add the updated buttons back to the user info div
+    container.appendChild(bl1);
+  };
+
   const loadSubscriptionContent = async (user) => {
     const token = user ? await netlifyIdentity.currentUser().jwt(true) : false;
 
@@ -468,6 +492,7 @@ Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? W
     updateUserInfo6(user);
     updateUserInfo7(user);
     updateUserInfo8(user);
+    updateUserInfo9(user);
     loadSubscriptionContent(user);
   };
 
