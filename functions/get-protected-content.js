@@ -5,7 +5,7 @@ const content = {
     alt: 'corgi in the park with a sunset in the background',
     allowedRoles: ['free'],
   },
-  free: {
+  jan: {
     src:
       'images/undraw_Freelancer_re_irh4.png',
     alt: 'corgi in the park with a sunset in the background',
