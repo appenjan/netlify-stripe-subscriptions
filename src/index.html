@@ -111,7 +111,9 @@ Mein aktuelles Abo.</p>
 <div class="corgi-content">
   <div class="content">
     <p>Abo Easy</p>
+    <div class="user-info-2">
     <button class="smoothscroll js-scroll-trigger small" id="middle">Abo ändern</button>
+    </div>
     <div class="free"></div>
   </div>
   <div class="content">
@@ -216,6 +218,42 @@ Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? W
     // add the updated buttons back to the user info div
     container.appendChild(b1);
     container.appendChild(b2);
+    container.appendChild(b3);
+  };
+
+  const updateUserInfo = (user) => {
+    const container = document.querySelector('.user-info-2');
+
+    // cloning the buttons removes existing event listeners
+    const b3 = button3.cloneNode(true);
+
+    // empty the user info div
+    container.innerHTML = '';
+
+    if (user) {
+      b3.innerText = 'Abo wählen';
+      b3.addEventListener('click', () => {
+        // TODO handle subscription management
+        fetch('/.netlify/functions/create-manage-link', {
+          method: 'POST',
+          headers: {
+            Authorization: `Bearer ${user.token.access_token}`,
+          },
+        })
+          .then((res) => res.json())
+          .then((link) => {
+            window.location.href = link;
+          })
+          .catch((err) => console.error(err));
+      });
+    } else {
+      // if no one is logged in, show login/signup options
+      b3.innerText = 'Log In';
+      b3.addEventListener('click', login);
+
+    }
+
+    // add the updated buttons back to the user info div
     container.appendChild(b3);
   };
 
