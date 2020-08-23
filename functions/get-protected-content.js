@@ -5,6 +5,12 @@ const content = {
     alt: 'corgi in the park with a sunset in the background',
     allowedRoles: ['free'],
   },
+  free: {
+    src:
+      'images/undraw_Freelancer_re_irh4.png',
+    alt: 'corgi in the park with a sunset in the background',
+    allowedRoles: ['jan'],
+  },
   pro: {
     src:
       'images/green.png',
