@@ -656,11 +656,6 @@ Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? W
     container.innerHTML = '';
 
     if (user) {
-      bl4.innerText = '';
-    }
-
-    else {
-      // if no one is logged in, show login/signup options
       bl4.innerHTML = '<section class="s-services" id="block4">'+
 '<div class="container" >'+
 '<div class="row section-header">'+
@@ -754,6 +749,11 @@ Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? W
 '</div>'+
 '</div>'+
 '</section>';
+    }
+
+    else {
+      // if no one is logged in, show login/signup options
+    bl4.innerHTML='';
     }
 
     // add the updated buttons back to the user info div
