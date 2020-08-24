@@ -1,6 +1,37 @@
 
 
 <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<script src="js/jquery.easing.min.js"></script>
+
+<style>
+  #tutorial{
+    height: 150px;
+  }
+  .center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.mitte {
+display: block;
+margin-left: auto;
+margin-right: auto;
+}
+#portal_header{
+  font-size: 30px;
+}
+.caption{
+  text-align: center;
+}
+.content{
+  text-align: center;
+}
+#angebot{
+  shape-outside: polygon(25% 0, 100% 0, 100% 100%, 0 100%);
+    clip-path: polygon(0% 100%, 0% 0, 900% 0%, 0% 100%);
+    background-color: yellow;
+}
+</style>
 
 <body>
   <div id="fb-root"></div>
@@ -29,80 +60,144 @@
      logged_in_greeting="Hallo! Wie können wir Dir helfen?"
      logged_out_greeting="Hallo! Wie können wir Dir helfen?">
          </div>
+
   <section class="s-services">
   <div class="container">
     <div class="row section-header" >
         <div class="col-full">
-            <h3 id="black" class="subhead">Portal.</h3>
-            <h1 class="display-1">Verwalte direkt online im Sitogo Portal dein Abo.</h1>
+            <h3 id="kapitel_header" class="subhead">Kundenportal.</h3>
+                <div class="user-info-5">
+            <h1 class="display-1" id="portal_header">Willkommen auf mySitogo. Hier kannst du dein Abo online verwalten, deine Webseite anpassen oder Änderungswünsche mitteilen.</h1>
+            </div>
+            <div class="user-info-12">
+            <button class="smoothscroll js-scroll-trigger small" id="regist">Jetzt registrieren</button>
+            </div>
         </div>
-    </div> <!-- end section-header -->
-    <div class="row" >
-        <div class="col-full">
-            <p class="lead">
-            Registriere Dich und buche dein Abo in wenigen Augenblicken. Du kannst hier dein Abo wechseln, kündigen oder eine neue Zahlungsmethode hinzufügen.
-          </p><br>
-        </div>
-    </div> <!-- end about-desc -->
+    </div>
+
 <br><br>
-<div class="user-info">
-  <button id="left">Log In</button>
-  <button id="right">Registrieren</button>
+      <div class="user-info-10">
+<div class="row" id="block2" >
+    <div class="col-md-4">
+
+      <div class="thumbnail">
+          <img id="tutorial" src="images/undraw_my_answer_iw6k.svg" alt="" class="center">
+            <div class="caption">
+              <h4>1. Abo auswählen</h4>
+          </div>
+          </div>
 </div>
-<br><br><br>
-<p class="lead">
-Dein aktuelles Abo</p>
-<!-- <div class="abo-info">
-  <button id="middle">Anmelden</button>
-</div> -->
+<div class="col-md-4">
+  <div class="thumbnail">
+      <img id="tutorial" src="images/undraw_Mail_sent_re_0ofv.svg" alt="" class="center">
+        <div class="caption">
+          <h4>2. Bestätigung abwarten</h4>
+      </div>
+      </div>
+</div>
+<div class="col-md-4">
+  <div class="thumbnail">
+      <img id="tutorial" src="images/undraw_shared_goals_3d12.svg" alt="" class="center">
+        <div class="caption">
+          <h4>3. Wir kontaktieren dich</h4>
+      </div>
+      </div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="angebot" class="s-about light-gray" id="abo_change">
+  <div class="container">
+    <div class="row" >
+          <div class="user-info-13">
+<p class="lead" id="abos">
+Mein aktuelles Abo.</p>
+</div>
 <div class="corgi-content">
   <div class="content">
     <p>Abo Easy</p>
+
     <div class="free"></div>
+    <br>
+    <div class="user-info-2">
+    <button class="smoothscroll js-scroll-trigger small" id="middle">Abo ändern</button>
+    </div>
   </div>
   <div class="content">
     <p>Abo Business</p>
     <div class="pro"></div>
+    <br>
+    <div class="user-info-3">
+    <button class="smoothscroll js-scroll-trigger small" id="middle-2">Abo ändern</button>
+    </div>
   </div>
   <div class="content">
     <p>Abo Premium</p>
     <div class="premium"></div>
+    <br>
+    <div class="user-info-4">
+    <button class="smoothscroll js-scroll-trigger small" id="middle-3">Abo ändern</button>
+    </div>
   </div>
 </div>
 <br><br>
+
 <template id="content">
   <figure class="content-display">
-    <img />
+    <img id="mitte" />
     <figcaption>
       <a class="credit"></a>
     </figcaption>
   </figure>
 </template>
-<br><br>
+</div>
+</div>
+</section>
+
+<div class="user-info-9">
+<section class="s-services" id="block1">
+<div class="container" >
+<div class="row section-header">
 <p class="lead">Hilfe</p>
 <p>
 Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? Wir stehen dir immer gerne unter hello@sitogo.ch zur Verfügung. In der Regel haben wir einen Reaktionszeit von 60 Minuten.</p>
+
+</div>
 </div>
 </section>
+</div>
 
 <script>
   const button1 = document.getElementById('left');
   const button2 = document.getElementById('right');
   const button3 = document.getElementById('middle');
+  const button4 = document.getElementById('middle-2');
+  const button5 = document.getElementById('middle-3');
+  const button6 = document.getElementById('regist');
+
+  const text1 = document.getElementById('portal_header');
+  const text2 = document.getElementById('mein_konto');
+  const text3 = document.getElementById('webseite_bearbeiten');
+  const text4 = document.getElementById('hilfe');
+  const text5 = document.getElementById('abos');
+
+  const block1 = document.getElementById('block1');
+  const block2 = document.getElementById('block2');
+  const block3 = document.getElementById('block3');
 
   const login = () => netlifyIdentity.open('login');
   const signup = () => netlifyIdentity.open('signup');
 
   // by default, we want to add login and signup functionality
   button1.addEventListener('click', login);
-  button2.addEventListener('click', signup);
 
   const updateUserInfo = (user) => {
     const container = document.querySelector('.user-info');
 
     // cloning the buttons removes existing event listeners
     const b1 = button1.cloneNode(true);
-    const b2 = button2.cloneNode(true);
 
     // empty the user info div
     container.innerHTML = '';
@@ -113,37 +208,18 @@ Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? W
         netlifyIdentity.logout();
       });
 
-      b2.innerText = 'Abo wählen';
-      b2.addEventListener('click', () => {
-        // TODO handle subscription management
-        fetch('/.netlify/functions/create-manage-link', {
-          method: 'POST',
-          headers: {
-            Authorization: `Bearer ${user.token.access_token}`,
-          },
-        })
-          .then((res) => res.json())
-          .then((link) => {
-            window.location.href = link;
-          })
-          .catch((err) => console.error(err));
-      });
     } else {
       // if no one is logged in, show login/signup options
       b1.innerText = 'Log In';
       b1.addEventListener('click', login);
-
-      b2.innerText = 'Registrieren';
-      b2.addEventListener('click', signup);
     }
 
     // add the updated buttons back to the user info div
     container.appendChild(b1);
-    container.appendChild(b2);
   };
 
-  const updateAboInfo = (user) => {
-    const container = document.querySelector('.abo-info');
+  const updateUserInfo2 = (user) => {
+    const container = document.querySelector('.user-info-2');
 
     // cloning the buttons removes existing event listeners
     const b3 = button3.cloneNode(true);
@@ -167,21 +243,300 @@ Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? W
           })
           .catch((err) => console.error(err));
       });
-    } else {
-      // if no one is logged in, show login/signup options
+    }
 
-      b3.innerText = 'Sign Up';
-      b3.addEventListener('click', signup);
+    else {
+      // if no one is logged in, show login/signup options
+      b3.innerText = 'Log In';
+      b3.addEventListener('click', login);
     }
 
     // add the updated buttons back to the user info div
     container.appendChild(b3);
   };
 
+  const updateUserInfo3 = (user) => {
+    const container = document.querySelector('.user-info-3');
+
+    // cloning the buttons removes existing event listeners
+    const b4 = button4.cloneNode(true);
+
+    // empty the user info div
+    container.innerHTML = '';
+
+    if (user) {
+      b4.innerText = 'Abo ändern';
+      b4.addEventListener('click', () => {
+        // TODO handle subscription management
+        fetch('/.netlify/functions/create-manage-link', {
+          method: 'POST',
+          headers: {
+            Authorization: `Bearer ${user.token.access_token}`,
+          },
+        })
+          .then((res) => res.json())
+          .then((link) => {
+            window.location.href = link;
+          })
+          .catch((err) => console.error(err));
+      });
+    }
+
+    else {
+      // if no one is logged in, show login/signup options
+      b4.innerText = 'Log In';
+      b4.addEventListener('click', login);
+    }
+
+    // add the updated buttons back to the user info div
+    container.appendChild(b4);
+  };
+
+  const updateUserInfo4 = (user) => {
+    const container = document.querySelector('.user-info-4');
+
+    // cloning the buttons removes existing event listeners
+    const b5 = button5.cloneNode(true);
+
+    // empty the user info div
+    container.innerHTML = '';
+
+    if (user) {
+      b5.innerText = 'Abo ändern';
+      b5.addEventListener('click', () => {
+        // TODO handle subscription management
+        fetch('/.netlify/functions/create-manage-link', {
+          method: 'POST',
+          headers: {
+            Authorization: `Bearer ${user.token.access_token}`,
+          },
+        })
+          .then((res) => res.json())
+          .then((link) => {
+            window.location.href = link;
+          })
+          .catch((err) => console.error(err));
+      });
+    }
+
+    else {
+      // if no one is logged in, show login/signup options
+      b5.innerText = 'Log In';
+      b5.addEventListener('click', login);
+    }
+
+    // add the updated buttons back to the user info div
+    container.appendChild(b5);
+  };
+
+  const updateUserInfo5 = (user) => {
+    const container = document.querySelector('.user-info-5');
+
+    // cloning the buttons removes existing event listeners
+    const t1 = text1.cloneNode(true);
+
+    // empty the user info div
+    container.innerHTML = '';
+
+    if (user) {
+      t1.innerText = 'Willkommen auf mySitogo. Hier kannst du dein Abo online verwalten, deine Webseite anpassen oder Änderungswünsche mitteilen.';
+    }
+
+    else {
+      // if no one is logged in, show login/signup options
+      t1.innerText = 'Willkommen auf mySitogo. Du musst dich zuerst registrieren oder einloggen um dein Abo verwalten zu können.';
+    }
+
+    // add the updated buttons back to the user info div
+    container.appendChild(t1);
+  };
+
+  const updateUserInfo6 = (user) => {
+    const container = document.querySelector('.user-info-6');
+
+    // cloning the buttons removes existing event listeners
+    const t2 = text2.cloneNode(true);
+
+    // empty the user info div
+    container.innerHTML = '';
+
+    if (user) {
+      t2.innerText = 'Mein Konto';
+    }
+
+    else {
+      // if no one is logged in, show login/signup options
+      t2.innerText = '';
+    }
+
+    // add the updated buttons back to the user info div
+    container.appendChild(t2);
+  };
+
+  const updateUserInfo7 = (user) => {
+    const container = document.querySelector('.user-info-7');
+
+    // cloning the buttons removes existing event listeners
+    const t3 = text3.cloneNode(true);
+
+    // empty the user info div
+    container.innerHTML = '';
+
+    if (user) {
+      t3.innerText = 'Webseite bearbeiten';
+    }
+
+    else {
+      // if no one is logged in, show login/signup options
+      t3.innerText = '';
+    }
+
+    // add the updated buttons back to the user info div
+    container.appendChild(t3);
+  };
+
+  const updateUserInfo8 = (user) => {
+    const container = document.querySelector('.user-info-8');
+
+    // cloning the buttons removes existing event listeners
+    const t4 = text4.cloneNode(true);
+
+    // empty the user info div
+    container.innerHTML = '';
+
+    if (user) {
+      t4.innerText = 'Hilfe';
+    }
+
+    else {
+      // if no one is logged in, show login/signup options
+      t4.innerText = '';
+    }
+
+    // add the updated buttons back to the user info div
+    container.appendChild(t4);
+  };
+
+  const updateUserInfo9 = (user) => {
+    const container = document.querySelector('.user-info-9');
+
+    // cloning the buttons removes existing event listeners
+    const bl1 = block1.cloneNode(true);
+
+    // empty the user info div
+    container.innerHTML = '';
+
+    if (user) {
+      bl1.innerHTML = '<div class="container" >'+
+'<div class="row section-header">'+
+'<p class="lead">Hilfe</p>'+
+'<p>Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? Wir stehen dir immer gerne unter hello@sitogo.ch zur Verfügung. In der Regel haben wir einen Reaktionszeit von 60 Minuten.</p>'+
+'</div>'+
+'</div>';
+    }
+
+    else {
+      // if no one is logged in, show login/signup options
+      bl1.innerHTML = '<style>#block1{padding-top: 0rem!important;padding-bottom: 0rem!important}</style>';
+    }
+
+    // add the updated buttons back to the user info div
+    container.appendChild(bl1);
+  };
+
+  const updateUserInfo10 = (user) => {
+    const container = document.querySelector('.user-info-10');
+
+    // cloning the buttons removes existing event listeners
+    const bl2 = block2.cloneNode(true);
+
+    // empty the user info div
+    container.innerHTML = '';
+
+    if (user) {
+      bl2.innerHTML = '<div class="col-md-4">'+
+'<div class="thumbnail">'+
+'<img id="tutorial" src="images/undraw_my_answer_iw6k.svg" alt="" class="center">'+
+'<div class="caption">'+
+'<h4>1. Abo auswählen</h4>'+
+'</div>'+
+'</div>'+
+'</div>'+
+'<div class="col-md-4">'+
+'<div class="thumbnail">'+
+'<img id="tutorial" src="images/undraw_Mail_sent_re_0ofv.svg" alt="" class="center">'+
+'<div class="caption">'+
+'<h4>2. Bestätigung abwarten</h4>'+
+'</div>'+
+'</div>'+
+'</div>'+
+'<div class="col-md-4">'+
+'<div class="thumbnail">'+
+'<img id="tutorial" src="images/undraw_shared_goals_3d12.svg" alt="" class="center">'+
+'<div class="caption">'+
+'<h4>3. Wir kontaktieren dich</h4>'+
+'</div>'+
+'</div>'+
+'</div>';
+    }
+
+    else {
+      // if no one is logged in, show login/signup options
+      bl2.innerHTML = '';
+    }
+
+    // add the updated buttons back to the user info div
+    container.appendChild(bl2);
+  };
+
+  const updateUserInfo12 = (user) => {
+    const container = document.querySelector('.user-info-12');
+
+    // cloning the buttons removes existing event listeners
+    const b6 = button6.cloneNode(true);
+
+    // empty the user info div
+    container.innerHTML = '';
+
+    if (user) {
+        }
+
+    else {
+      // if no one is logged in, show login/signup options
+      b6.innerText = 'Jetzt Registrieren';
+      b6.addEventListener('click', signup);
+    }
+
+    // add the updated buttons back to the user info div
+    container.appendChild(b6);
+  };
+
+  const updateUserInfo13 = (user) => {
+    const container = document.querySelector('.user-info-13');
+
+    // cloning the buttons removes existing event listeners
+    const t5 = text5.cloneNode(true);
+
+    // empty the user info div
+    container.innerHTML = '';
+
+    if (user) {
+      t5.innerText = 'Mein aktuelles Abo.';
+    }
+
+    else {
+      // if no one is logged in, show login/signup options
+      t5.innerText = 'Wähle das passende Abo für dich';
+    }
+
+    // add the updated buttons back to the user info div
+    container.appendChild(t5);
+  };
+
   const loadSubscriptionContent = async (user) => {
     const token = user ? await netlifyIdentity.currentUser().jwt(true) : false;
 
-    ['free', 'pro', 'premium'].forEach((type) => {
+    ['free','pro', 'premium'].forEach((type) => {
       fetch('/.netlify/functions/get-protected-content', {
         method: 'POST',
         headers: {
@@ -219,8 +574,19 @@ Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? W
     });
   };
 
-  const handleUserStateChange = (user) => {
+    const handleUserStateChange = (user) => {
     updateUserInfo(user);
+    updateUserInfo2(user);
+    updateUserInfo3(user);
+    updateUserInfo4(user);
+    updateUserInfo5(user);
+    updateUserInfo6(user);
+    updateUserInfo7(user);
+    updateUserInfo8(user);
+    updateUserInfo9(user);
+    updateUserInfo10(user);
+    updateUserInfo12(user);
+    updateUserInfo13(user);
     loadSubscriptionContent(user);
   };
 

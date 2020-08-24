@@ -7,7 +7,7 @@ const content = {
   },
   pro: {
     src:
-      'images/undraw_business_decisions_gjwy.png',
+      'images/green.png',
     alt: 'close-up of a corgi with its tongue hanging out',
     allowedRoles: ['pro'],
   },
