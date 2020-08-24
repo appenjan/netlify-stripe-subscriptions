@@ -1,854 +1,4 @@
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!--- basic page needs
-    ================================================== -->
-    <meta charset="utf-8">
-    <title>Kundenportal Sitogo</title>
-    <meta name="description" content="Webdesign und Webentwicklung in Rapperswil-Jona. Webseiten Swissmade. Lassen Sie professionielle Webseiten erstellen und hosten.">
-    <meta name="author" content="zwei-de.ch">
-    <!-- mobile specific metas
-    ================================================== -->
-
-     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-
-
-
-       <script src="js/jquery.min.js"></script>
-
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet"/>
-
-
-    <link href="https://fonts.googleapis.com/css2?family=Domine:wght@700&family=Montserrat&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Fjalla+One&family=Montserrat&family=Raleway:wght@400;600&family=Roboto:wght@700&display=swap" rel="stylesheet">
-
-    <!-- CSS
-    ================================================== -->
-    <link type="text/css" rel="stylesheet" href="css/base.min.css">
-    <link type="text/css" rel="stylesheet" href="css/vendor.min.css">
-    <link type="text/css" rel="stylesheet" href="css/main.min.css">
-
-    <link rel="stylesheet" href="https://use.typekit.net/jwa3agu.css" />
-    <link rel="stylesheet" href="/css/global.css" />
-
-    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
-    <link rel="shortcut icon" href="favicon.png">
-
-
-  </head>
-  <style>
-    .blog > div {
-      padding: 0;
-      padding-top: 5px;
-    }
-    @media (min-width: 992px) {
-      .blog > div {
-        padding-right: 5px;
-      }
-    }
-    .col-md-6 {
-        position: relative;
-        min-height: 1px;
-        padding-right: 15px;
-        padding-left: 15px;
-        float: left;
-        width: 50%;
-      }
-      .col-md-3 {
-        position: relative;
-        min-height: 1px;
-        padding-right: 15px;
-        padding-left: 15px;
-        float: left;
-        width: 25%;
-      }
-    .blog > .col-md-3 > div {
-      background: #e4e9ed;
-      height: 250px;
-    }
-    .process__col::before {
-        background-color: white;
-    }
-    .process__col::before {
-        color: black;
-    }
-    .blog > .col-md-6 > div {
-      background: #abb7b7;
-      height: 250px; /* = 2 * col-md-3 + padding-top */
-    }
-    .blog h4 {
-      font-weight: 300;
-      margin-top: 0;
-      padding-left: 10px;
-      padding-top: 32px;
-    }
-
-    .blog p {
-      font-weight: 300;
-      margin-top: 0;
-      padding-left: 10px;
-      padding-top: 32px;
-      color: black;
-    }
-    .header-logo img {
-        width: 150px;
-        height: 100%;
-        padding-top: 50px;
-    }
-    .home-content {
-        padding-bottom: 0rem;
-        padding-left: 21%;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-image: url(starter.jpg), linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.1));
-        /* background-blend-mode: overlay; */
-
-    }
-    }
-    .s-case {
-        background: #fff;
-        padding: 18rem 0 24rem;
-    }
-    .row {
-        width: 100%;
-    }
-    select.form-control:not([size]):not([multiple]) {
-        height: 6rem;
-        font-size: 1.5rem;
-    }
-    .form-control {
-        font-size: 1.5rem;
-    }
-    @media (min-width: 999px){
-    #mobile{
-      display: none;
-    }
-    }
-    @media (min-width: 576px){
-    .modal-dialog {
-        max-width: 65%;
-
-    }
-    }
-    input[type=email], input[type=number], input[type=search], input[type=text], input[type=tel], input[type=url], input[type=password], select, textarea {
-        background: #e4e9ed;
-    }
-    .grecaptcha-badge {
-                float: right;
-    }
-    .contact-main {
-        margin-top: 4.8rem;
-        margin-bottom: 4.8rem;
-    }
-    .subhead {
-        color: black;
-    }
-    .s-contact {
-
-        color: black;
-    }
-    .light-gray {
-        background-color: #ffdd59!important;
-    }
-    .contact-email, .s-contact a {
-        color: black;
-    }
-    @import url("http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css");
-    .panel-pricing {
-      -moz-transition: all .3s ease;
-      -o-transition: all .3s ease;
-      -webkit-transition: all .3s ease;
-    }
-    .panel-pricing:hover {
-      box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.2);
-    }
-    .panel-pricing .panel-heading {
-      padding: 20px 10px;
-    }
-    .panel-pricing .panel-heading .fa {
-      margin-top: 10px;
-      font-size: 58px;
-    }
-    .panel-pricing .list-group-item {
-      color: black;
-      border-bottom: 1px solid rgba(250, 250, 250, 0.5);
-    }
-    .panel-pricing .list-group-item:last-child {
-      border-bottom-right-radius: 0px;
-      border-bottom-left-radius: 0px;
-    }
-    .panel-pricing .list-group-item:first-child {
-      border-top-right-radius: 0px;
-      border-top-left-radius: 0px;
-    }
-    .panel-pricing .panel-body {
-      background-color: #f0f0f0;
-      font-size: 40px;
-      color: #777777;
-      padding: 20px;
-      margin: 0px;
-    }
-    ol, ul {
-        margin-left: 0rem;
-    }
-    .process__col::before {
-        box-shadow: 0 0 0 18px transparent;
-    }
-    #white{
-      color: black!important;
-    }
-    #black{
-      color: black!important;
-    }
-    .text-center {
-        text-align: left!important;
-    }
-    #price{
-      font-size: 30px;
-    color: black;
-    }
-    #small{
-      font-size: 15px;
-    }
-    #medium{
-      font-size: 20px;
-    }
-    .s-home::before {
-        display: block;
-        opacity: 0!important;
-        background-color: #000;
-    }
-    #button, #btn_bestellen2, #kontaktaufnahme{
-      background-color: black;
-      border-color: black;
-      border-radius: 30px;
-      color: white;
-    }
-    #button3{
-      background-color: black;
-      color: white;
-      border-color: black;
-      border-radius: 30px;
-      margin-left: -20px!important;
-    }
-    #button2 {
-        background-color: black;
-        border-color: black;
-        padding-left: 5px;
-        padding-right: 5px;
-        color: white;
-        border-radius: 30px;
-    }
-    #kontaktaufnahme {
-        background-color: black;
-        border-color: black;
-        color: white;
-        border-radius: 30px;
-    }
-    .cl-go-top::after {
-        color: black;
-    }
-    .cl-go-top::before {
-        background-color: black;
-      }
-      .cl-go-top a {
-        color: black;
-      }
-      .home-content h1+p::before{
-        width: 0rem;
-      }
-      .home-content h1+p {
-        padding-left: 0rem;
-    }
-    .grecaptcha-badge {
-        bottom: 0px;
-    }
-    .s-home {
-        background-color: #e4e9ed;
-    }
-    #svg{
-        width: 450px;
-        position: absolute;
-    }
-    @media (max-width: 999px){
-      #computer {
-
-          display: none;
-      }
-    }
-
-    @media (max-width: 575px){
-      #svg{
-    display: none;
-      }
-      #brandimg {
-        padding-left: 21px;
-    }
-  }
-    .home-content h1+p {
-        font-size: 2rem;
-    }
-      .s-home {
-        background-color: #e4e9ed!important;
-    }
-    .home-content {
-      padding-left: 0%;
-    }
-    @media only screen and (max-width: 600px){
-    .home-scroll {
-
-        bottom: 4rem;
-    }
-
-    }
-    .home-content h1 {
-        font-size: 6.2rem!important;
-    }
-    /* .navbar-nav {
-        background-color: white!important;
-    } */
-    .navbar-dark .navbar-toggler {
-
-        border-color: black;
-    }
-    ul li {
-        padding-top: 10px;
-    }
-    }
-    .header-menu-icon {
-        background-color: black;
-    }
-    .navbar-toggler {
-        background-color: black;
-    }
-    .header-menu-toggle.opaque {
-        background-color: transparent;
-    }
-    #titel{
-      color: black;
-    }
-    /* #team{
-        background-image: url(team.jpg);
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        background-size: cover;
-    } */
-    #teamimg{
-      background-image: url(team.webp);
-      background-repeat: no-repeat;
-      background-size: cover;
-      height: 590px;
-    }
-    #team{
-      padding-bottom: 0px!important;
-    }
-    #rwhite{
-      float: right;
-      color: white;
-    }
-    #big{
-      font-size: 20px;
-    }
-    #brandimg{
-      height: 45px;
-    }
-    ul li {
-        padding-left: 20px;
-    }
-
-    #ohnepadding{
-      padding-left: 0px;
-    }
-    .navbar-toggler {
-        font-size: 2.25rem;
-    }
-    .home-content h1 {
-        font-size: 7rem;
-    }
-    .bg-white {
-        border-radius: 2px;
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-        background-color: #ffdd59!important
-    }
-
-    .text-primary {
-        color: black!important;
-    }
-    .home-scroll {
-        right: 47%;
-    }
-    .home-scroll__text {
-        left: 12.5rem;
-    }
-    #thin {
-        -webkit-text-stroke: 2px #ffdd59!important;
-    }
-    p.lead {
-        color: black;
-    }
-    .grecaptcha-badge {
-        display: none;
-    }
-    .form-control {
-        background-color: #e4e9ed;
-    }
-    .logo {
-          line-height: 60px;
-          position: fixed;
-          float: left;
-          margin: 16px 46px;
-          color: #fff;
-          font-weight: bold;
-          font-size: 20px;
-          letter-spacing: 2px;
-          padding-left: 11%;
-    }
-    .s-header {
-     top: 0px;
-    }
-    .s-contact {
-        background-color: #ffdd59;
-    }
-    .cl-go-top a {
-        background: white;
-    }
-    #knapp{
-      padding-top: 0px;
-      padding-bottom: 0px;
-      line-height: 40px;
-    }
-    .dropdown-menu {
-        margin: 20px 0 0;
-        transform: none!important;
-        will-change: unset!important;
-        font-size: 14px;
-        padding: .5rem 30px;
-    }
-
-    .bg-normal {
-        padding-top: 25px;
-        padding-bottom: 25px;
-    }
-    .inno{
-      background:transparent!important;
-
-    }
-    .inno ul li{
-      color:red;
-    }
-
-    .regular{
-      background:white!important;
-    }
-    .box {
-      background-color: skyblue;
-      margin-top: 50px;
-      padding: 5% 20px; /* Added a percentage value for top/bottom padding to keep the wrapper inside of the parent */
-
-      -webkit-transform: skewY(-5deg);
-      -moz-transform: skewY(-5deg);
-      -ms-transform: skewY(-5deg);
-      -o-transform: skewY(-5deg);
-      transform: skewY(-5deg);
-    }
-
-    .box > .wrapper {
-      -webkit-transform: skewY(5deg);
-      -moz-transform: skewY(5deg);
-      -ms-transform: skewY(5deg);
-      -o-transform: skewY(5deg);
-      transform: skewY(5deg);
-    }
-    .no-js .s-home {
-        background: white;
-        border: 1px solid white;
-    }
-    .home-scroll {
-        bottom: 4.6rem;
-    }
-    #vorteile, #ablauf{
-      shape-outside: polygon(25% 0, 100% 0, 100% 100%, 0 100%);
-        clip-path: polygon(0% 100%, 0% 0, 900% 0%, 0% 100%);
-    }
-    :root {
-    background-color: white;
-    }
-    #social {
-        font-weight: 900;
-        font-size: 30px;
-        padding-right: 20px;
-    }
-    #slogan{
-      font-size: 22px;
-      color: black!important;
-    }
-    b, strong {
-        font-family: 'Montserrat', sans-serif;
-        font-weight: 700;
-    }
-    #tabs {
-      width: 100%;
-      display: flex;
-      position: relative;
-      margin: 0 auto;
-      margin-top: 50px;
-      height: auto;
-      min-height: 200px;
-      max-height: 600px;
-      overflow: hidden;
-    }
-
-    #tabs2 {
-      width: 100%;
-      display: flex;
-      position: relative;
-      margin: 0 auto;
-      margin-top: 50px;
-      height: auto;
-      min-height: 200px;
-      max-height: 600px;
-      overflow: hidden;
-    }
-
-    #tabs3 {
-      width: 100%;
-      display: flex;
-      position: relative;
-      margin: 0 auto;
-      margin-top: 50px;
-      height: auto;
-      min-height: 200px;
-      max-height: 600px;
-      overflow: hidden;
-    }
-
-
-
-    #accordion {
-      position: relative;
-      display: inline-block;
-      margin: 0;
-      padding: 0;
-      list-style-type: none;
-      vertical-align: top;
-      width: 50%;
-    }
-
-    #accordion2 {
-      position: relative;
-          display: inline-block;
-          margin: 0;
-          padding-left: 50%;
-          right: 0;
-          list-style-type: none;
-          vertical-align: top;
-          width: 100%;
-    }
-    #accordion3 {
-      position: relative;
-      display: inline-block;
-      margin: 0;
-      padding: 0;
-      list-style-type: none;
-      vertical-align: top;
-      width: 50%;
-    }
-
-    #slider {
-      position: relative;
-      display: block;
-      width: 100%;
-      text-decoration: none;
-      color: #3b3b3b;
-      border-top: solid 2px #e9e9e9;
-      padding: 20px 0px;
-      z-index: 1;
-      opacity: .5;
-      -webkit-transition: 0.3s ease;
-      -moz-transition: 0.3s ease;
-      -o-transition: 0.3s ease;
-      transition: 0.3s ease;
-    }
-
-    ul li:focus, a:focus {
-      outline: none;
-    }
-
-    ul li:nth-child(1) a {
-      border-top: none;
-    }
-
-    ul li a.active {
-      opacity: 1;
-    }
-
-    .para-a {
-      font-weight: bold;
-      margin-top: 10px;
-      padding: 0;
-      text-transform: uppercase;
-      font-size: 11px;
-      letter-spacing: 1px;
-      border: none;
-      font-family: 'Montserrat';
-      color: #2b2b2b;
-    }
-
-    .tag {
-      position: relative;
-      width: 100%;
-    }
-
-    .icon {
-      position: relative;
-      display: inline-block;
-      width: 50px;
-      height: 50px;
-      background: #c7c7c7;
-      border-radius: 100%;
-      vertical-align: middle;
-    }
-
-    .block {
-      position: absolute;
-      width: 18px;
-      height: 18px;
-      vertical-align: middle;
-      border: solid 2px #7b7b7b;
-      border-radius: 5px;
-      top: 50%;
-      left: 50%;
-      -webkit-transform: translate(-50%, -50%);
-      -moz-transform: translate(-50%, -50%);
-      -o-transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
-      transform: translate(-50%, -50%);
-    }
-    .bg-normal {
-      padding-top: 25px;
-      padding-bottom: 25px;
-  }
-  .dropdown-menu {
-      margin: 20px 0 0;
-      transform: none!important;
-      will-change: unset!important;
-      font-size: 14px;
-      padding: .5rem 30px;
-  }
-  .wrapper {
-
-      margin: 0 auto -155px; /* the bottom margin is the negative value of the footer's height */
-  }
-  .footer, .push {
-      height: 155px; /* .push must be the same height as .footer */
-  }
-  .footer {
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: #ffdd59;
-    color: black;
-    text-align: left;
-}
-#host {
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-  .user-info {
-    align-items: center;
-    display: grid;
-    gap: 1rem;
-    grid-template-columns: repeat(1, 1fr);
-    list-style: none;
-    padding: 0;
-  }
-
-
-  .user-info button {
-      background: black;
-      border-radius: 30px;
-      color: var(--white);
-      display: block;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 1.5rem;
-      text-align: center;
-      text-decoration: none;
-      border: black;
-  }
-
-  .abo-info {
-    align-items: center;
-    display: grid;
-    gap: 1rem;
-    grid-template-columns: repeat(2, 1fr);
-    list-style: none;
-    padding: 0;
-  }
-
-  .abo-info button {
-    background: black;
-    border-radius: 30px;
-    color: var(--white);
-    display: block;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.5rem;
-    text-align: center;
-    text-decoration: none;
-}
-
-  .corgi-content {
-    display: grid;
-    gap: 1rem;
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .content h2 {
-    font-size: 1.25rem;
-    text-align: center;
-  }
-
-  .content-display {
-    margin: 0;
-  }
-
-  .credit {
-    display: block;
-    font-size: 0.75rem;
-  }
-
-  .content img {
-    width: 50%;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    border-radius: 20px;
-  }
-figcaption{
-    display: none;
-}
-  </style>
-  <body>
-    <style>
-  .portal{
-  background-color: black;
-    padding: 10px 25px;
-    color: white;
-    border-radius: 30px;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.2rem;
-    text-transform: none;
-    letter-spacing: .3rem;
-}
-.user-info button {
-  background-color: black;
-    padding: 10px 25px;
-    color: white;
-    border-radius: 30px;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.2rem;
-    text-transform: none;
-    letter-spacing: .3rem;
-    height: 3.4rem;
-line-height: 0rem;
-margin-top: 5px;
-margin-left: 16px;
-}
-
-.user-info-2 button {
-  background-color: black;
-    padding: 10px 25px;
-    color: white;
-    border-radius: 30px;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.2rem;
-    text-transform: none;
-    letter-spacing: .3rem;
-    height: 3.4rem;
-line-height: 0rem;
-margin-top: 5px;
-margin-left: 16px;
-}
-
-.user-info-3 button {
-  background-color: black;
-    padding: 10px 25px;
-    color: white;
-    border-radius: 30px;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.2rem;
-    text-transform: none;
-    letter-spacing: .3rem;
-    height: 3.4rem;
-line-height: 0rem;
-margin-top: 5px;
-margin-left: 16px;
-}
-
-.user-info-4 button {
-  background-color: black;
-    padding: 10px 25px;
-    color: white;
-    border-radius: 30px;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.2rem;
-    text-transform: none;
-    letter-spacing: .3rem;
-    height: 3.4rem;
-line-height: 0rem;
-margin-top: 5px;
-margin-left: 16px;
-}
-.user-info-12 button {
-    background-color: black;
-    padding: 10px 50px;
-    color: white;
-    border-radius: 30px;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.2rem;
-    text-transform: none;
-    letter-spacing: .3rem;
-    height: 5.4rem;
-    height: 6.4rem;
-    line-height: 0rem;
-    margin-top: 5px;
-    margin-left: 16px;
-}
-.small{
-  margin-left: 0px!important;
-}
-#mein_konto{
-  color: black;
-}
-  </style>
-
-<header>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-normal fixed-top" id="mainNav">
-  <div class="container">
-    <a href="/"><img id="brandimg" src="images/logo.final.black_v4.svg" alt="Homepage"></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse inno" id="navbarResponsive">
-      <ul class="navbar-nav ml-auto">
-        <li><a id="hilfe" class="smoothscroll js-scroll-trigger user-info-8"  href="#kompetenzen" title="services">Hilfe</a></li>
-        <li><a id="mein_konto" class="smoothscroll js-scroll-trigger user-info-6"  href="#kompetenzen" title="services">Mein Konto</a></li>
-        <li><a id="webseite_bearbeiten" class="js-scroll-trigger user-info-7" href="https://portal.sitogo.ch/" target="_blank" title="works">Webseite bearbeiten</a></li>
-        <div class="user-info">
-          <li><button class="smoothscroll js-scroll-trigger" id="left">Anmelden</button></li>
-
-        </div>
-
-      </ul>
-    </div>
-  </div>
-</nav>
-</header>
-
 
 <script src="js/netlify-identity-widget.js"></script>
 <script src="js/jquery.easing.min.js"></script>
@@ -927,45 +77,109 @@ margin-right: auto;
 </div>
 </section>
 
-<section id="angebot" class="s-about light-gray" id="abo_change">
-  <div class="container">
-    <div class="row" >
-      <form name="contact" method="POST" data-netlify="true">
-        <p>
-          <label>Your Name: <input type="text" name="name" /></label>
-        </p>
-        <p>
-          <label>Your Email: <input type="email" name="email" /></label>
-        </p>
-        <p>
-          <label>Your Role: <select name="role[]" multiple>
-            <option value="leader">Leader</option>
-            <option value="follower">Follower</option>
-          </select></label>
-        </p>
-        <p>
-          <label>Message: <textarea name="message"></textarea></label>
-        </p>
-        <p>
-          <button type="submit">Send</button>
-        </p>
-      </form>
-</div>
-</div>
-</section>
-
-<div class="user-info-9">
 <section class="s-services" id="block1">
 <div class="container" >
 <div class="row section-header">
-<p class="lead">Hilfe</p>
-<p>
-Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? Wir stehen dir immer gerne unter hello@sitogo.ch zur Verfügung. In der Regel haben wir einen Reaktionszeit von 60 Minuten.</p>
+<p class="lead">Digitales Kickoff</p>
+<form name="contact" method="POST" data-netlify="true">
+  <div class="form-group">
+                               <label for="inputBeziehung">Geschäftsbeziehung</label>
+                             <select class="form-control" id="inputBeziehung" name="inputBeziehung">
+                               <option value="0">Bitte wählen</option>
+                               <option value="Privatkunde">Privatkunde</option>
+                               <option value="Geschaeftskunde">Gesch&auml;ftskunde</option>
+                             </select>
+                             </div>
+
+                             <div class="form-group" id="Geschaeftskunde">
+                             <div class="form-group" >
+                                 <input type="text" name="inputFirma" value="Firma *" class="form-last-name form-control SafariFix" id="inputFirma">
+                               </div>
+                               </div>
+                               <div class="form-group">
+                                 <label for="inputAnrede">Persönliche Angaben</label>
+                               <select class="form-control" id="inputAnrede" name="inputAnrede">
+                                 <option value="Frau">Frau</option>
+                                 <option value="Herr">Herr</option>
+                               </select>
+                               </div>
+                         <div class="form-group">
+                             <input type="text" name="inputVorname" placeholder="Vorname *" class="form-first-name form-control SafariFix" id="inputVorname">
+                           </div>
+                           <div class="form-group">
+                             <input type="text" name="inputName" placeholder="Nachname *" class="form-last-name form-control SafariFix" id="inputName" >
+                           </div>
+                           <div class="col-md-8 number_right">
+                           <div class="form-group">
+                             <input type="text" name="inputStrasse" placeholder="Strasse *" class="form-first-name form-control SafariFix" id="inputStrasse">
+                           </div>
+                           </div>
+                           <div class="col-md-4 number_left">
+                           <div class="form-group">
+                             <input type="text" name="inputNummer" placeholder="Nummer *" class="form-last-name form-control SafariFix" id="inputNummer">
+                           </div>
+                           </div>
+                           <div class="col-md-8 number_right">
+                           <div class="form-group">
+                               <input type="text" name="inputOrt" placeholder="Ort *" class="form-first-name form-control SafariFix" id="inputOrt">
+                           </div>
+                           </div>
+                           <div class="col-md-4 number_left">
+                           <div class="form-group">
+                               <input type="text" name="inputPLZ" placeholder="PLZ *" class="form-last-name form-control SafariFix" id="inputPLZ">
+                           </div>
+
+                         </div>
+                           <div class="form-group">
+                             <input type="text" name="inputLand" placeholder="Land *" class="form-last-name form-control SafariFix" id="inputLand">
+                           </div>
+
+                           <div class="col-md-2 number_right">
+                             <div class="form-group">
+                               <select class="form-control" id="inputVorwahl" name="inputVorwahl" required>
+                                 <option value="+41">+41 (Schweiz)</option>
+                                 <option value="+49">+49 (Deutschland)</option>
+                                 <option value="+43">+43 (Österreich)</option>
+                                 <option value="+423">+423 (Liechtenstein)</option>
+                               </select>
+                               </div>
+
+                         </div>
+                           <div class="col-md-10 number_left">
+                             <div class="form-group">
+                               <input type="text" name="inputTelefon" placeholder="Telefon *" class="form-last-name form-control SafariFix" id="inputTelefon">
+                             </div>
+                           </div>
+
+
+                           <div class="form-group">
+                             <input type="text" name="inputEmail" placeholder="E-Mail *" class="form-last-name form-control SafariFix" id="inputEmail">
+                           </div>
+
+                           <div class="form-group">
+                             <label class="sr-only" for="form-about-yourself">Möchten Sie uns sonst noch etwas mitteilen?</label>
+                             <textarea name="inputMessage4" placeholder="Möchten Sie uns sonst noch etwas mitteilen?"
+                                   class="form-about-yourself form-control SafariFix" id="inputMessage4"></textarea>
+                           </div>
+
+                           <div class="form-group">
+                             <select class="form-control" id="inputKontakt" name="inputKontakt" required>
+                               <option selected="true" value="Frau" disabled>Wie sind Sie auf uns aufmerksam geworden? *</option>
+                               <option value="Google, Bing">Google, Bing</option>
+                               <option value="Empfehlungen">Empfehlungen</option>
+                               <option value="Zeitungen">Zeitungen</option>
+                               <option value="Firmenauto">Firmenauto</option>
+                               <option value="Social Media">Social Media</option>
+                             </select>
+                             </div>
+  <p>
+    <button type="submit">Send</button>
+  </p>
+</form>
 
 </div>
 </div>
 </section>
-</div>
 
 <script>
   const button1 = document.getElementById('left');
@@ -1411,21 +625,4 @@ Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? W
                  })
 
             </script>
-<div class="push"></div>
-
-
-<div class="footer">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                      <p id="host">                <span><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy; 2020 Hosting & Design by <a href="https://www.zwei-de.ch" target="_blank">sitogo</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></span></p>
-            </div>
-
-        </div>
-    </div>
-</div>
-
-  </body>
-</html>
+</body>
