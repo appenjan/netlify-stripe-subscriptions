@@ -787,28 +787,6 @@ Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? W
     container.appendChild(t6);
   };
 
-  const updateUserInfo16 = (user) => {
-    const container = document.querySelector('.user-info-16');
-
-    // cloning the buttons removes existing event listeners
-    const bl5 = block5.cloneNode(true);
-
-    // empty the user info div
-    container.innerHTML = '';
-
-    if (user) {
-      bl5.innerHTML = '';
-    }
-
-    else {
-      // if no one is logged in, show login/signup options
-    bl5.innerHTML='';
-    }
-
-    // add the updated buttons back to the user info div
-    container.appendChild(bl5);
-  };
-
   const loadSubscriptionContent = async (user) => {
     const token = user ? await netlifyIdentity.currentUser().jwt(true) : false;
 
@@ -865,7 +843,7 @@ Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? W
     updateUserInfo13(user);
     updateUserInfo14(user);
     updateUserInfo15(user);
-    updateUserInfo16(user);
+    
     loadSubscriptionContent(user);
   };
 
