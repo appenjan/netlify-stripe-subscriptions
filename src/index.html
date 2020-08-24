@@ -120,7 +120,8 @@ margin-right: auto;
 <p class="lead" id="abos">
 Mein aktuelles Abo.</p>
 </div>
-<div class="corgi-content">
+<div class="user-info-16">
+<div class="corgi-content" id="block5">
   <div class="content">
     <p>Abo Easy</p>
 
@@ -146,6 +147,7 @@ Mein aktuelles Abo.</p>
     <button class="js-scroll-trigger small" id="middle-3">Abo ändern</button>
     </div>
   </div>
+</div>
 </div>
 
 <br><br>
@@ -301,6 +303,7 @@ Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? W
   const block2 = document.getElementById('block2');
   const block3 = document.getElementById('block3');
   const block4 = document.getElementById('block4');
+  const block5 = document.getElementById('block5');
 
   const login = () => netlifyIdentity.open('login');
   const signup = () => netlifyIdentity.open('signup');
@@ -785,6 +788,53 @@ Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? W
     container.appendChild(t6);
   };
 
+  const updateUserInfo16 = (user) => {
+    const container = document.querySelector('.user-info-16');
+
+    // cloning the buttons removes existing event listeners
+    const bl5 = block5.cloneNode(true);
+
+    // empty the user info div
+    container.innerHTML = '';
+
+    if (user) {
+      bl5.innerHTML = '<div class="corgi-content" id="block5">'+
+'<div class="content">'+
+'<p>Abo Easy</p>'+
+'<div class="free"></div>'+
+'<br>'+
+'<div class="user-info-2">'+
+'<button class="js-scroll-trigger small" id="middle">Abo ändern</button>'+
+'</div>'+
+'</div>'+
+'<div class="content">'+
+'<p>Abo Business</p>'+
+'<div class="pro"></div>'+
+'<br>'+
+'<div class="user-info-3">'+
+'<button class="js-scroll-trigger small" id="middle-2">Abo ändern</button>'+
+'</div>'+'+
+'</div>'+
+'<div class="content">'+
+'<p>Abo Premium</p>'+
+'<div class="premium"></div>'+
+'<br>'+
+'<div class="user-info-4">'+
+'<button class="js-scroll-trigger small" id="middle-3">Abo ändern</button>'+
+'/div>'+
+'</div>'+
+'</div>';
+    }
+
+    else {
+      // if no one is logged in, show login/signup options
+      bl5.innerHTML = '<style>#regist{display:none;</style>}';
+    }
+
+    // add the updated buttons back to the user info div
+    container.appendChild(bl5);
+  };
+
   const loadSubscriptionContent = async (user) => {
     const token = user ? await netlifyIdentity.currentUser().jwt(true) : false;
 
@@ -843,6 +893,7 @@ Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? W
     updateUserInfo13(user);
     updateUserInfo14(user);
     updateUserInfo15(user);
+    updateUserInfo16(user);
     loadSubscriptionContent(user);
   };
 
