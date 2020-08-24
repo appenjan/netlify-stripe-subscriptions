@@ -184,7 +184,9 @@ Mein aktuelles Abo.</p>
 <section class="s-services">
 <div class="container" >
 <div class="row section-header">
+    <div class="user-info-16" id="text7">
 <p class="lead">Digitales Kickoff</p>
+</div>
 <form name="contact_secret"  method="POST" data-netlify="true">
   <div class="user-info-14" id="block4">
   <div class="form-group">
@@ -314,6 +316,7 @@ Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? W
   const text4 = document.getElementById('hilfe');
   const text5 = document.getElementById('abos');
   const text6 = document.getElementById('einrichten');
+    const text7 = document.getElementById('text7');
 
   const block1 = document.getElementById('block1');
   const block2 = document.getElementById('block2');
@@ -797,6 +800,28 @@ Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? W
     container.appendChild(t6);
   };
 
+  const updateUserInfo16 = (user) => {
+    const container = document.querySelector('.user-info-16');
+
+    // cloning the buttons removes existing event listeners
+    const t7 = text7.cloneNode(true);
+
+    // empty the user info div
+    container.innerHTML = '';
+
+    if (user) {
+      t7.innerText = 'Digitales Kickoff';
+    }
+
+    else {
+      // if no one is logged in, show login/signup options
+      t7.innerText = '';
+    }
+
+    // add the updated buttons back to the user info div
+    container.appendChild(t7);
+  };
+
   const loadSubscriptionContent = async (user) => {
     const token = user ? await netlifyIdentity.currentUser().jwt(true) : false;
 
@@ -855,6 +880,7 @@ Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? W
     updateUserInfo13(user);
     updateUserInfo14(user);
     updateUserInfo15(user);
+    updateUserInfo16(user);
     loadSubscriptionContent(user);
   };
 
