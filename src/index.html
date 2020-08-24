@@ -185,7 +185,8 @@ Mein aktuelles Abo.</p>
 <div class="container" >
 <div class="row section-header">
 <p class="lead">Digitales Kickoff</p>
-<form name="contact_secret" class="user-info-14" method="POST"  id="block4" data-netlify="true">
+<form name="contact_secret"  method="POST" data-netlify="true">
+  <div class="user-info-14" id="block4">
   <div class="form-group">
                                <label for="inputBeziehung">Geschäftsbeziehung</label>
                              <select class="form-control" id="inputBeziehung" name="inputBeziehung">
@@ -279,6 +280,7 @@ Mein aktuelles Abo.</p>
   <p>
     <button type="submit">Send</button>
   </p>
+  </div>
 </form>
 
 </div>
@@ -676,8 +678,8 @@ Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? W
     container.innerHTML = '';
 
     if (user) {
-      bl4.innerHTML = '<form name="contact_secret" class="user-info-14" method="POST"  id="block4" data-netlify="true">'+
-'<div class="form-group">'+
+      bl4.innerHTML = '  <div class="user-info-14" id="block4">'+
+      '<div class="form-group">'+
 '<label for="inputBeziehung">Geschäftsbeziehung</label>'+
 '<select class="form-control" id="inputBeziehung" name="inputBeziehung">'+
 '<option value="0">Bitte wählen</option>'+
@@ -761,7 +763,7 @@ Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? W
 '<p>'+
 '<button type="submit">Send</button>'+
 '</p>'+
-'</form>';
+'</div>';
     }
 
     else {
