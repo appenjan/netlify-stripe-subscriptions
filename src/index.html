@@ -180,7 +180,7 @@ Mein aktuelles Abo.</p>
 </section>
 
 
-
+<div class="user-info-14">
 <section class="s-services" id="block4">
 <div class="container" >
 <div class="row section-header">
@@ -284,7 +284,7 @@ Mein aktuelles Abo.</p>
 </div>
 </div>
 </section>
-
+</div>
 
 <div class="user-info-9">
 <section class="s-about light-gray" id="block1">
@@ -772,7 +772,7 @@ Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? W
 
     else {
       // if no one is logged in, show login/signup options
-    bl4.innerHTML='';
+    bl4.innerHTML='<style>#block4{display:none;</style>}';
     }
 
     // add the updated buttons back to the user info div
@@ -857,7 +857,7 @@ Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? W
     updateUserInfo10(user);
     updateUserInfo12(user);
     updateUserInfo13(user);
-
+    updateUserInfo14(user);
     updateUserInfo15(user);
     loadSubscriptionContent(user);
   };
