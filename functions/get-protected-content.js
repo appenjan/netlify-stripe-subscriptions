@@ -1,7 +1,7 @@
 const content = {
   free: {
     src:
-      'images/undraw_Freelancer_re_irh4.png',
+      'images/green.png',
     alt: 'corgi in the park with a sunset in the background',
     allowedRoles: ['free'],
   },
@@ -13,7 +13,7 @@ const content = {
   },
   premium: {
     src:
-      'images/undraw_pitching_36ol.png',
+      'images/green.png',
     alt: 'corgi in a tent with string lights in the foreground',
     allowedRoles: ['premium'],
   },
