@@ -156,17 +156,17 @@ Mein aktuelles Abo.</p>
 </div>
 </section>
 
-<section class="s-services">
+<div class="user-info-9">
+<section class="s-services" id="block1">
 <div class="container" >
-      <div class="user-info-9">
-  <div class="row section-header" id="block1">
+<div class="row section-header">
 <p class="lead">Hilfe</p>
 <p>
 Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? Wir stehen dir immer gerne unter hello@sitogo.ch zur Verfügung. In der Regel haben wir einen Reaktionszeit von 60 Minuten.</p>
 </div>
 </div>
-</div>
 </section>
+</div>
 
 <script>
   const button1 = document.getElementById('left');
@@ -426,8 +426,14 @@ Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? W
     container.innerHTML = '';
 
     if (user) {
-      bl1.innerHTML = '<p class="lead">Hilfe</p>' +
-      '<p>Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? Wir stehen dir immer gerne unter hello@sitogo.ch zur Verfügung. In der Regel haben wir einen Reaktionszeit von 60 Minuten.</p>';
+      bl1.innerHTML = '<section class="s-services" id="block1">'+
+'<div class="container" >'+
+'<div class="row section-header">'+
+'<p class="lead">Hilfe</p>'+
+'<p>Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? Wir stehen dir immer gerne unter hello@sitogo.ch zur Verfügung. In der Regel haben wir einen Reaktionszeit von 60 Minuten.</p>'+
+'</div>'+
+'</div>'+
+'</section>';
     }
 
     else {
