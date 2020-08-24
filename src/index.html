@@ -100,12 +100,13 @@ margin-right: auto;
 <div class="row" id="block2" >
     <div class="col-md-4">
 
-      <div class="thumbnail">
+      <a class="smoothscroll js-scroll-trigger"  href="#angebot" title="services"><div class="thumbnail">
           <img id="tutorial" src="images/undraw_my_answer_iw6k.svg" alt="" class="center">
             <div class="caption">
               <h4>1. Abo auswählen</h4>
           </div>
           </div>
+          </a>
 </div>
 <div class="col-md-4">
   <div class="thumbnail">
@@ -591,12 +592,14 @@ Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? W
 
     if (user) {
       bl2.innerHTML = '<div class="col-md-4">'+
+        '<a class="smoothscroll js-scroll-trigger"  href="#angebot" title="services">'+
 '<div class="thumbnail">'+
 '<img id="tutorial" src="images/undraw_my_answer_iw6k.svg" alt="" class="center">'+
 '<div class="caption">'+
 '<h4>1. Abo auswählen</h4>'+
 '</div>'+
 '</div>'+
+'</a>'+
 '</div>'+
 '<div class="col-md-4">'+
 '<div class="thumbnail">'+
