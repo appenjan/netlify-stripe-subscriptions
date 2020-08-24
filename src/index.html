@@ -113,7 +113,8 @@ margin-right: auto;
 </div>
 </section>
 
-<section id="angebot" class="s-about light-gray" id="abo_change">
+<div class="user-info-16">
+<section id="angebot" class="s-about light-gray">
   <div class="container">
     <div class="row" >
           <div class="user-info-13">
@@ -147,6 +148,7 @@ Mein aktuelles Abo.</p>
     </div>
   </div>
 </div>
+
 <br><br>
 
 <template id="content">
@@ -160,6 +162,7 @@ Mein aktuelles Abo.</p>
 </div>
 </div>
 </section>
+</div>
 
 <div class="user-info-14">
 <section class="s-services" id="block4">
@@ -299,6 +302,7 @@ Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? W
   const block2 = document.getElementById('block2');
   const block3 = document.getElementById('block3');
   const block4 = document.getElementById('block4');
+    const block5 = document.getElementById('angebot');
 
   const login = () => netlifyIdentity.open('login');
   const signup = () => netlifyIdentity.open('signup');
@@ -783,6 +787,28 @@ Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? W
     container.appendChild(t6);
   };
 
+  const updateUserInfo16 = (user) => {
+    const container = document.querySelector('.user-info-16');
+
+    // cloning the buttons removes existing event listeners
+    const bl5 = block5.cloneNode(true);
+
+    // empty the user info div
+    container.innerHTML = '';
+
+    if (user) {
+      bl5.innerHTML = '';
+    }
+
+    else {
+      // if no one is logged in, show login/signup options
+    bl5.innerHTML='';
+    }
+
+    // add the updated buttons back to the user info div
+    container.appendChild(bl5);
+  };
+
   const loadSubscriptionContent = async (user) => {
     const token = user ? await netlifyIdentity.currentUser().jwt(true) : false;
 
@@ -839,6 +865,7 @@ Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? W
     updateUserInfo13(user);
     updateUserInfo14(user);
     updateUserInfo15(user);
+    updateUserInfo16(user);
     loadSubscriptionContent(user);
   };
 
