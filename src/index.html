@@ -810,9 +810,11 @@ Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? W
   };
 
   const loadSubscriptionContent = async (user) => {
+            if (user) {
+
     const token = user ? await netlifyIdentity.currentUser().jwt(true) : false;
 
-        if (user) {
+
 
     ['free','pro', 'premium'].forEach((type) => {
       fetch('/.netlify/functions/get-protected-content', {
@@ -852,7 +854,7 @@ Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? W
     });
   }
   else{
-    
+
   }
   };
 
