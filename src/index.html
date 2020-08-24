@@ -811,12 +811,12 @@ Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? W
     container.innerHTML = '';
 
     if (user) {
-      t7.innerText = 'Digitales Kickoff';
+      t7.innerHTML = 'Digitales Kickoff';
     }
 
     else {
       // if no one is logged in, show login/signup options
-      t7.innerText = '<style>#text7{display:none;}</style>';
+      t7.innerHTML = '<style>#text7{display:none;}</style>';
     }
 
     // add the updated buttons back to the user info div
