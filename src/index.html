@@ -810,8 +810,6 @@ Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? W
   };
 
   const loadSubscriptionContent = async (user) => {
-            if (user) {
-
     const token = user ? await netlifyIdentity.currentUser().jwt(true) : false;
 
 
@@ -852,10 +850,6 @@ Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? W
           container.appendChild(content);
         });
     });
-  }
-  else{
-
-  }
   };
 
     const handleUserStateChange = (user) => {
