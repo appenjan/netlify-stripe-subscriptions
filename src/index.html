@@ -676,10 +676,7 @@ Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? W
     container.innerHTML = '';
 
     if (user) {
-      bl4.innerHTML = '<div class="container" >'+
-'<div class="row section-header">'+
-'<p class="lead">Digitales Kickoff</p>'+
-'<form name="contact_secret" method="POST" data-netlify="true">'+
+      bl4.innerHTML = '<form name="contact_secret" class="user-info-14" method="POST"  id="block4" data-netlify="true">'+
 '<div class="form-group">'+
 '<label for="inputBeziehung">Geschäftsbeziehung</label>'+
 '<select class="form-control" id="inputBeziehung" name="inputBeziehung">'+
@@ -764,9 +761,7 @@ Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? W
 '<p>'+
 '<button type="submit">Send</button>'+
 '</p>'+
-'</form>'+
-'</div>'+
-'</div>';
+'</form>';
     }
 
     else {
