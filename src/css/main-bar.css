@@ -456,7 +456,6 @@ button {
 .label {
   font-size: 15px;
   color: #666;
-  text-transform: capitalize;
   display: block;
   margin-bottom: 11px;
 }
