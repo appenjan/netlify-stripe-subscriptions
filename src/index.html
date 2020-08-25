@@ -1430,19 +1430,19 @@ Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? W
         }
     });
 
-    $('input[name="domain_host"]').hide();
+    $('div[name="domain_host"]').hide();
 
     //show it when the checkbox is clicked
     $('input[id="sc-1-5-2"]').on('click', function () {
         if ($(this).prop('checked')) {
-            $('input[name="domain_hostdomain_host"]').fadeIn();
+            $('div[name="domain_hostdomain_host"]').fadeIn();
         } else {
-            $('input[name="domain_host"]').hide();
+            $('div[name="domain_host"]').hide();
         }
     });
     $('input[id="sc-1-5-1"]').on('click', function () {
         if ($(this).prop('checked')) {
-            $('input[name="domain_host"]').hide();
+            $('div[name="domain_host"]').hide();
         } else {
 
         }
