@@ -1722,4 +1722,318 @@ Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? W
                  })
 
             </script>
+
+            <script>
+
+function bar_progress(progress_line_object, direction) {
+var number_of_steps = progress_line_object.data('number-of-steps');
+var now_value = progress_line_object.data('now-value');
+var new_value = 0;
+if (direction == 'right') {
+    new_value = now_value + (100 / number_of_steps);
+} else if (direction == 'left') {
+    new_value = now_value - (100 / number_of_steps);
+}
+progress_line_object.attr('style', 'width: ' + new_value + '%;').data('now-value', new_value);
+}
+
+jQuery(document).ready(function() {
+
+/*
+    Form
+*/
+$('.f1 fieldset:first').fadeIn('slow');
+
+$('.f1 input[type="text"], .f1 input[type="password"], .f1 textarea').on('focus', function() {
+    $(this).removeClass('input-error');
+});
+
+// next step
+$('.f1 .btn-next').on('click', function() {
+    var parent_fieldset = $(this).parents('fieldset');
+    var next_step = true;
+    // navigation steps / progress steps
+    var current_active_step = $(this).parents('.f1').find('.f1-step.active');
+    var progress_line = $(this).parents('.f1').find('.f1-progress-line');
+
+    // fields validation
+    parent_fieldset.find('input[type="text"], input[type="password"], textarea').each(function() {
+        if ($(this).val() == "") {
+            $(this).addClass('input-error');
+            next_step = true;
+        } else {
+            $(this).removeClass('input-error');
+        }
+    });
+    // fields validation
+
+    if (next_step) {
+        parent_fieldset.fadeOut(400, function() {
+            // change icons
+            current_active_step.removeClass('active').addClass('activated').next().addClass('active');
+            // progress bar
+            bar_progress(progress_line, 'right');
+            // show next step
+            $(this).next().fadeIn();
+            // scroll window to beginning of the form
+            scroll_to_class($('.f1'), 20);
+        });
+    }
+
+});
+
+// previous step
+$('.f1 .btn-previous').on('click', function() {
+    // navigation steps / progress steps
+    var current_active_step = $(this).parents('.f1').find('.f1-step.active');
+    var progress_line = $(this).parents('.f1').find('.f1-progress-line');
+
+    $(this).parents('fieldset').fadeOut(400, function() {
+        // change icons
+        current_active_step.removeClass('active').prev().removeClass('activated').addClass('active');
+        // progress bar
+        bar_progress(progress_line, 'left');
+        // show previous step
+        $(this).prev().fadeIn();
+        // scroll window to beginning of the form
+        scroll_to_class($('.f1'), 20);
+    });
+});
+
+// submit
+$('.f1').on('submit', function(e) {
+
+    // fields validation
+    $(this).find('input[type="text"], input[type="password"], textarea').each(function() {
+        if ($(this).val() == "") {
+            e.preventDefault();
+            $(this).addClass('input-error');
+        } else {
+            $(this).removeClass('input-error');
+        }
+    });
+    // fields validation
+
+});
+
+// Creating Threshold clones
+
+$('.deleteRowThreshold').closest('.form-group').hide();
+$('.addRowThreshold').on('click', function(e) {
+    var len = $('.child-border-threshold').length;
+    $('.parent-border-threshold').clone().find(':input').each(function(idx, ele) {
+            ele.name = ele.name;
+            ele.id = ele.id;
+            ele.value = '';
+        }).end().find('.form-group').toggle(true).end()
+        .toggleClass('parent-border-threshold child-border-threshold').hide()
+        .appendTo('.containerThreshold').slideDown('slow');
+});
+
+
+// Creating Input clones
+$('.deleteRowInput').closest('.form-group').hide();
+$('.addRowInput').on('click', function(e) {
+    var len = $('.child-border-input').length;
+    $('.parent-border-input').clone().find(':input').each(function(idx, ele) {
+            ele.name = ele.name;
+            ele.id = ele.id;
+            ele.value = '';
+        }).end().find('.form-group').toggle(true).end()
+        .toggleClass('parent-border-input child-border-input').hide()
+        .appendTo('.containerInput').slideDown('slow');
+});
+
+//Delete Threshold clones
+
+$('.containerThreshold').on('click', '[id^=deleteRowThreshold]', function(e) {
+    var jsonData = $(this).closest('.child-border-threshold, .parent-border-threshold')
+        .find(':input:not(button)').get()
+        .reduce(function(acc, ele) {
+            acc[ele.name || ele.id] = ele.value;
+            return acc;
+        }, {});
+    $(this).closest('.child-border-threshold, .parent-border-threshold').remove();
+});
+
+//Delete Input clones
+
+$('.containerInput').on('click', '[id^=deleteRowInput]', function(e) {
+    var jsonData = $(this).closest('.child-border-input, .parent-border-input')
+        .find(':input:not(button)').get()
+        .reduce(function(acc, ele) {
+            acc[ele.name || ele.id] = ele.value;
+            return acc;
+        }, {});
+    $(this).closest('.child-border-input, .parent-border-input').remove();
+});
+
+$('.f1-step').on('click', function() {
+    var current_active_step = $(this).parents('.f1').find('.f1-step.active');
+    var progress_line = $(this).parents('.f1').find('.f1-progress-line');
+    console.log(progress_line);
+    fieldsetToActivate = $(this).data('step');
+    $("form.f1 fieldset").hide();
+    current_active_step.removeClass('active');
+    bar_progress(progress_line, 'left');
+    $('.f1').find(`fieldset[data-step='${fieldsetToActivate}']`).fadeIn('slow');
+    // change icons
+
+    $(this).removeClass('activated').addClass('active');
+
+});
+
+$('.goToBtn').on('click', function() {
+    var current_active_step = $('.f1-step').parents('.f1').find('.f1-step.active');
+    var progress_line = $('.f1-step').parents('.f1').find('.f1-progress-line');
+    console.log(progress_line);
+    fieldsetToActivate = $(this).data('step');
+    $("form.f1 fieldset").hide();
+    current_active_step.removeClass('active');
+    bar_progress(progress_line, 'left');
+    $('.f1').find(`fieldset[data-step='${fieldsetToActivate}']`).fadeIn('slow');
+    // change icons
+
+    $(`.f1-step[data-step='${fieldsetToActivate}']`).removeClass('activated').addClass('active');
+});
+
+});
+
+
+$(document).ready(function() {
+$.viewMap = {
+'FDM' : $('#FDM_Material, #FDM_Genauigkeit'),
+'SLA' : $('#SLA_Material, #SLA_Genauigkeit'),
+'SLS' : $('#SLS_Material'),
+'MJF' : $('#MJF_Material'),
+'SLM' : $('#SLM_Material'),
+'PLY' : $('#PLY_Material'),
+};
+$.viewMap2 = {
+'PLA Standard' : $('#PLAS'),
+'PLA Elastisch' : $('#PLAE'),
+'ABS Standard' : $('#ABSST'),
+'ABS S' : $('#AB_S'),
+'ABS PC' : $('#ABSPC'),
+'ASAS' : $('#ASAS'),
+'Nylon PA12/PA6' : $('#Nylon'),
+'PETG' : $('#PETG'),
+'Holz-Kunststoff Mischung' : $('#Holz'),
+};
+$.viewMap3 = {
+'Kunstharz Standard' : $('#KS'),
+'Kunstharz Belastbar' : $('#KB'),
+'Kunstharz Flexibel' : $('#KF'),
+'Kunstharz Polypropylenähnlich' : $('#KPP'),
+'Kunstharz Hochtemperatur (289°C)' : $('#KHT'),
+'Kunstharz Dental Modell' : $('#KDM'),
+'Kunstharz Dental SG' : $('#KDSG'),
+};
+$.viewMap6 = {
+'PA12 (fest und felxibel)' : $('#PA12'),
+'PA-GF (Glasfaserverstärkt)' : $('#PA-GF'),
+};
+$.viewMap7 = {
+'Primecast101 (Polystyrol)' : $('#Primecast101'),
+'PA-AL (aluverstärkt)' : $('#PA-AL'),
+'PP (chemisch beständig)' : $('#PP'),
+'HST (faserverstärkt)' : $('#HST'),
+'PA12 (fest und felxibel)' : $('#PA12'),
+'PA-GF (Glasfaserverstärkt)' : $('#PA-GF'),
+'TPU (Gummiartig-Flexibel)' : $('#TPU'),
+};
+
+$.viewMap8 = {
+'Aluminium (AlSi10Mg)' : $('#AlSi10Mg'),
+'S1.2709' : $('#S1.2709'),
+'S1.4404' : $('#S1.4404'),
+'SCorrax' : $('#SCorrax'),
+};
+
+$.viewMap9 = {
+'VeroColor' : $('#VeroColor'),
+'Agilus' : $('#Agilus'),
+'DigitalABS' : $('#DigitalABS'),
+'DigitalPP' : $('#DigitalPP'),
+'VeroClear' : $('#VeroClear'),
+'VeroClearB' : $('#VeroClearB'),
+};
+
+// hide all
+$.each($.viewMap, function() { this.hide(); });
+$.each($.viewMap2, function() { this.hide(); });
+$.each($.viewMap3, function() { this.hide(); });
+$.each($.viewMap6, function() { this.hide(); });
+$.each($.viewMap7, function() { this.hide(); });
+$.each($.viewMap8, function() { this.hide(); });
+$.each($.viewMap9, function() { this.hide(); });
+
+$('#inputErfahrung').change(function() {
+$.each($.viewMap, function() { this.hide(); });
+$.each($.viewMap2, function() { this.hide(); });
+$.each($.viewMap3, function() { this.hide(); });
+$.each($.viewMap6, function() { this.hide(); });
+$.each($.viewMap7, function() { this.hide(); });
+$.each($.viewMap8, function() { this.hide(); });
+$.each($.viewMap9, function() { this.hide(); });
+// show current
+
+$.viewMap0[$(this).val()].show();
+});
+
+$('#inputTechnologie').change(function() {
+$.each($.viewMap, function() { this.hide(); });
+$.each($.viewMap2, function() { this.hide(); });
+$.each($.viewMap3, function() { this.hide(); });
+$.each($.viewMap6, function() { this.hide(); });
+$.each($.viewMap7, function() { this.hide(); });
+$.each($.viewMap8, function() { this.hide(); });
+$.each($.viewMap9, function() { this.hide(); });
+// show current
+
+$.viewMap[$(this).val()].show();
+});
+
+$('#inputMaterial').change(function() {
+$.each($.viewMap2, function() { this.hide(); });
+// show current
+$.viewMap2[$(this).val()].show();
+});
+
+$('#inputMaterialMJF').change(function() {
+$.each($.viewMap6, function() { this.hide(); });
+// show current
+$.viewMap6[$(this).val()].show();
+});
+
+$('#inputMaterialSLA').change(function() {
+$.each($.viewMap3, function() { this.hide(); });
+// show current
+$.viewMap3[$(this).val()].show();
+});
+
+
+$('#inputMaterialSLS').change(function() {
+$.each($.viewMap7, function() { this.hide(); });
+// show current
+$.viewMap7[$(this).val()].show();
+});
+
+$('#inputMaterialSLM').change(function() {
+$.each($.viewMap8, function() { this.hide(); });
+// show current
+$.viewMap8[$(this).val()].show();
+});
+
+$('#inputMaterialPLY').change(function() {
+$.each($.viewMap9, function() { this.hide(); });
+// show current
+$.viewMap9[$(this).val()].show();
+});
+
+
+});
+
+
+</script>
 </body>
