@@ -714,6 +714,9 @@ Mein aktuelles Abo.</p>
                     <input class="input--style-1" type="text" name="domain" placeholder="z.B. www.sitogo.ch">
                 </div>
                 <div class="input-group">
+                    <input class="input--style-1" type="text" name="domain_wunsch" placeholder="Habst du bereits eine Wunschdomain?">
+                </div>
+                <div class="input-group">
                     <label class="label">Hast du einen Referenzseite, welche dir besonders gefällt?*</label>
                     <div class="segmented-control" style="width: 100%; ">
                       <input type="radio" name="sc-1-7" value="Referenzseite vorhanden" id="sc-1-7-1" >
@@ -1399,18 +1402,22 @@ Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? W
     });
 
     $('input[name="domain"]').hide();
+    $('input[name="domain_wunsch"]').hide();
 
     //show it when the checkbox is clicked
     $('input[id="sc-1-6-1"]').on('click', function () {
         if ($(this).prop('checked')) {
             $('input[name="domain"]').fadeIn();
+            $('input[name="domain_wunsch"]').hide();
         } else {
             $('input[name="domain"]').hide();
+
         }
     });
     $('input[id="sc-1-6-2"]').on('click', function () {
         if ($(this).prop('checked')) {
             $('input[name="domain"]').hide();
+            $('input[name="domain_wunsch"]').fadeIn();
         } else {
 
         }
