@@ -73,6 +73,107 @@ background-color: black;
     margin-top: 5px;
     margin-left: 0px;
   }
+  .f1 {
+    padding: 0px;
+    background: #fff;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    margin-left: -15px;
+}
+
+.f1 h3 {
+    margin-top: 0;
+    margin-bottom: 5px;
+    text-transform: none;
+}
+
+.f1-steps {
+    overflow: hidden;
+    position: relative;
+    margin-top: 20px;
+}
+
+.f1-progress {
+    position: absolute;
+    top: 24px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: #ddd;
+}
+
+.f1-progress-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 1px;
+    background: #f35b3f;
+}
+
+.f1-step {
+    position: relative;
+    float: left;
+    width: 16.66%;
+    padding: 0 5px;
+}
+
+.f1-step-icon {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    margin-top: 4px;
+    background: #ddd;
+    font-size: 16px;
+    color: #fff;
+    line-height: 40px;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+}
+
+.f1-step.activated .f1-step-icon {
+    background: #fff;
+    border: 1px solid #f35b3f;
+    color: #f35b3f;
+    line-height: 38px;
+}
+
+.f1-step.active .f1-step-icon {
+    width: 48px;
+    height: 48px;
+    margin-top: 0;
+    background: black;
+    font-size: 22px;
+    line-height: 48px;
+}
+
+.f1-step p {
+    color: #ccc;
+}
+
+.f1-step.activated p {
+    color: #f35b3f;
+}
+
+.f1-step.active p {
+    color: #f35b3f;
+}
+
+.f1 fieldset {
+    display: none;
+    text-align: left;
+}
+
+.f1-buttons {
+    text-align: right;
+    margin-top: 50px;
+}
+
+.f1 .input-error {
+    border-color: #f35b3f;
+}
+
 </style>
 
 <body>
@@ -209,103 +310,619 @@ Mein aktuelles Abo.</p>
 <p class="lead">Digitales Kickoff</p>
 </div>
 
-<form name="contact_secret"  method="POST" data-netlify="true">
-  <div class="user-info-14" id="block4">
-  <div class="form-group">
-                               <label for="inputBeziehung">Geschäftsbeziehung</label>
-                             <select class="form-control" id="inputBeziehung" name="inputBeziehung">
-                               <option value="0">Bitte wählen</option>
-                               <option value="Privatkunde">Privatkunde</option>
-                               <option value="Geschaeftskunde">Gesch&auml;ftskunde</option>
-                             </select>
-                             </div>
+<form class="f1" name="contactform" id="kontaktform" method="post" action="mailer.php"enctype="multipart/form-data">
 
-                             <div class="form-group" id="Geschaeftskunde">
-                             <div class="form-group" >
-                                 <input type="text" name="inputFirma" value="Firma *" class="form-last-name form-control SafariFix" id="inputFirma">
-                               </div>
-                               </div>
-                               <div class="form-group">
-                                 <label for="inputAnrede">Persönliche Angaben</label>
-                               <select class="form-control" id="inputAnrede" name="inputAnrede">
-                                 <option value="Frau">Frau</option>
-                                 <option value="Herr">Herr</option>
-                               </select>
-                               </div>
-                         <div class="form-group">
-                             <input type="text" name="inputVorname" placeholder="Vorname *" class="form-first-name form-control SafariFix" id="inputVorname">
-                           </div>
-                           <div class="form-group">
-                             <input type="text" name="inputName" placeholder="Nachname *" class="form-last-name form-control SafariFix" id="inputName" >
-                           </div>
-                           <div class="col-md-8 number_right">
-                           <div class="form-group">
-                             <input type="text" name="inputStrasse" placeholder="Strasse *" class="form-first-name form-control SafariFix" id="inputStrasse">
-                           </div>
-                           </div>
-                           <div class="col-md-4 number_left">
-                           <div class="form-group">
-                             <input type="text" name="inputNummer" placeholder="Nummer *" class="form-last-name form-control SafariFix" id="inputNummer">
-                           </div>
-                           </div>
-                           <div class="col-md-8 number_right">
-                           <div class="form-group">
-                               <input type="text" name="inputOrt" placeholder="Ort *" class="form-first-name form-control SafariFix" id="inputOrt">
-                           </div>
-                           </div>
-                           <div class="col-md-4 number_left">
-                           <div class="form-group">
-                               <input type="text" name="inputPLZ" placeholder="PLZ *" class="form-last-name form-control SafariFix" id="inputPLZ">
-                           </div>
-
-                         </div>
-                           <div class="form-group">
-                             <input type="text" name="inputLand" placeholder="Land *" class="form-last-name form-control SafariFix" id="inputLand">
-                           </div>
-
-                           <div class="col-md-2 number_right">
-                             <div class="form-group">
-                               <select class="form-control" id="inputVorwahl" name="inputVorwahl" required>
-                                 <option value="+41">+41 (Schweiz)</option>
-                                 <option value="+49">+49 (Deutschland)</option>
-                                 <option value="+43">+43 (Österreich)</option>
-                                 <option value="+423">+423 (Liechtenstein)</option>
-                               </select>
-                               </div>
-
-                         </div>
-                           <div class="col-md-10 number_left">
-                             <div class="form-group">
-                               <input type="text" name="inputTelefon" placeholder="Telefon *" class="form-last-name form-control SafariFix" id="inputTelefon">
-                             </div>
-                           </div>
+    <fieldset data-step="1">
+        <h3>Entscheiden Sie, wie Sie Ihr Angebot wünschen.</h3><br>
+        <div class="row">
 
 
-                           <div class="form-group">
-                             <input type="text" name="inputEmail" placeholder="E-Mail *" class="form-last-name form-control SafariFix" id="inputEmail">
-                           </div>
+        <div id="window" class="col-md-6">
+          <p><br>Ich möchte ein individuelles Angebot.<br><br><br></p><br>
+        <input type="button" id="bigbtn" class="goToBtn btn btn-primary" data-step="6" value="Ich habe 3D Daten." onclick="msg2()" />
+        <br><br>
+        <input type="button" id="bigbtn" class="goToBtn btn btn-primary" data-step="3" value="Ich habe nur Bilder oder Skizzen." onclick="msg2()" />
+        <br><br>
+        <input type="button" id="bigbtn" class="goToBtn btn btn-primary" data-step="5" value="Ich habe keine Daten."  onclick="msg2()"/><br><br>
+        </div>
 
-                           <div class="form-group">
-                             <label class="sr-only" for="form-about-yourself">Möchten Sie uns sonst noch etwas mitteilen?</label>
-                             <textarea name="inputMessage4" placeholder="Möchten Sie uns sonst noch etwas mitteilen?"
-                                   class="form-about-yourself form-control SafariFix" id="inputMessage4"></textarea>
-                           </div>
+        <div class="col-md-6">
+          <p><br>Ich möchte sofort online einen Preis erhalten, da ich keine komplexen Anforderungen an meine 3D Druck Teile habe.</p><br>
+        <input type="button" id="bigbtn" class="goToBtn btn btn-primary" onclick="window.location.href='calculator.html'" value="Ich habe 3D Daten (nur .stl Dateien)." />  <br><br><br><br>
+        </div>
+        </div>
 
-                           <div class="form-group">
-                             <select class="form-control" id="inputKontakt" name="inputKontakt" required>
-                               <option selected="true" value="Frau" disabled>Wie sind Sie auf uns aufmerksam geworden? *</option>
-                               <option value="Google, Bing">Google, Bing</option>
-                               <option value="Empfehlungen">Empfehlungen</option>
-                               <option value="Zeitungen">Zeitungen</option>
-                               <option value="Firmenauto">Firmenauto</option>
-                               <option value="Social Media">Social Media</option>
-                             </select>
-                             </div>
-  <p>
-    <button type="submit">Send</button>
-  </p>
+    </fieldset>
+
+
+    <fieldset data-step="6">
+      <h3>Haben Sie Erfahrungen im 3D Druck?</h3>
+      <br><br><br>
+      <div class="row">
+      <div class="col-md-12">
+
+      <input type="button" id="bigbtn" class="goToBtn btn btn-primary" data-step="2" value="Ja, ich bin Experte und konfiguriere mein 3D Modell selbst" onclick="msg2()" />
+      <br><br>
+      <input type="button" id="bigbtn" class="goToBtn btn btn-primary" data-step="4" value="Nein, entscheiden Sie was das richtige für mein 3D Modell ist"  onclick="msg2()"/>
+      <br><br><br><br>
+      <input type="button" id="bigbtn" class="goToBtn btn btn-primary" data-step="1" value="Zurück" onclick="msg2()" />
+      </div>
+      </div>
+    </fieldset>
+
+
+    <fieldset data-step="4">
+      <br><br>
+      <h3>Haben Sie bereits .stl Daten?</h3>
+      <br>
+      <div class="segmented-control" style="width: 100%; ">
+      <input type="radio" name="sc-1-5" value="stlyes" id="sc-1-5-1" >
+      <input type="radio" name="sc-1-5" value="stlno" id="sc-1-5-2" >
+      <label for="sc-1-5-1" data-value="Ja, ich habe .stl Daten">Ja, ich habe .stl Daten</label>
+      <label for="sc-1-5-2" data-value="Nein, ich habe aber andere Exportdaten *">Nein, ich habe aber andere Exportdaten *</label>
+    </div>
+    <p>* zum Beispiel .step, .dxf, .dwg</p>
+      <br>
+    <h3>Muss Ihr Bauteil belastbar sein?</h3>
+    <br>
+    <div class="segmented-control" style="width: 100%; ">
+    <input type="radio" name="sc-1-2" value="weniger" id="sc-1-2-1" >
+    <input type="radio" name="sc-1-2" value="mehr" id="sc-1-2-2">
+    <label for="sc-1-2-1" data-value="Nein, weniger als 10 KG">Nein, weniger als 10 KG</label>
+    <label for="sc-1-2-2" data-value="Ja, mehr als 10 KG">Ja, mehr als 10 KG</label>
   </div>
-</form>
+  <br><br>
+  <h3>Welchen Temperaturen muss standgehalten werden?</h3>
+  <br>
+  <div class="segmented-control" style="width: 100%; ">
+  <input type="radio" name="sc-1-3" value="wenigertemp" id="sc-1-3-1" >
+  <input type="radio" name="sc-1-3" value="mehrtemp" id="sc-1-3-2" >
+  <label for="sc-1-3-1" data-value="Weniger als 60 Grad">Weniger als 60 Grad</label>
+  <label for="sc-1-3-2" data-value="Mehr als 60 Grad">Mehr als 60 Grad</label>
+</div>
+  <br><br>
+  <h3>Welche Farbe wünschen Sie?</h3>
+  <br>
+  <div class="form-group" id="Budgetfarbe">
+  <label for="inputFarbe">Farbe</label>
+  <select class="form-control" id="inputBudgetfarbe" name="inputBudgetfarbe">
+    <option value="Keinen Farbwunsch">Keinen Farbwunsch</option>
+    <option value="Weiss">Weiss</option>
+    <option value="Schwarz">Schwarz</option>
+    <option value="Grau">Grau</option>
+    <option value="Hellgruen">Hellgrün</option>
+    <option value="Dunkelgruen">Dunkelgrün</option>
+    <option value="Hellblau">Hellblau</option>
+    <option value="Dunkelblau">Dunkelblau</option>
+    <option value="Braun">Braun</option>
+    <option value="Orange">Orange</option>
+    <option value="Gelb">Gelb</option>
+    <option value="Rot">Rot</option>
+    </select>
+   </div>
+   <br>
+<h3>Wann benötigen Sie die Teile?</h3>
+<br>
+<div class="segmented-control" style="width: 100%; ">
+<input type="radio" name="sc-1-4" value="35" id="sc-1-4-1">
+<input type="radio" name="sc-1-4" value="12" id="sc-1-4-2">
+<label for="sc-1-4-1" data-value="In 3-5 Tagen *">In 3-5 Tagen *</label>
+<label for="sc-1-4-2" data-value="In 1-2 Tage *">In 1-2 Tagen *</label>
+</div>
+<br><p>* Änderungen vorbehalten. Nach Prüfung Ihrer Anfrage senden wir Ihnen eine unverbindliche Offerte mit dem genauen Liefertermin. Wenn Sie die Teile innerhalb von 1-2 Tagen benötigen, können Mehrkosten entstehen.</p>
+  <br><br><br>
+<div class="col-sm-3 without-padding">
+<input type="button" id="bigbtn" class="goToBtn btn btn-primary" data-step="1" value="Zurück" onclick="msg2()" />
+</div>
+
+<div class="col-sm-9 without-double-padding">
+<input type="button" id="bigbtn" class="btn btn-primary" data-step="3" value="Weiter" onclick="msg()" />
+</div>
+
+<script>
+function msg() {
+                document.body.scrollTop = document.documentElement.scrollTop = 0;
+
+                var lieferung = document.getElementById("sc-1-4-1")
+                var stl = document.getElementById("sc-1-5-1")
+                var belastbar = document.getElementById("sc-1-2-1")
+                var temperatur = document.getElementById("sc-1-3-1")
+                var oberflaeche = document.getElementById("sc-1-9-1")
+
+                  var current_active_step = $('.f1-step').parents('.f1').find('.f1-step.active');
+                  var progress_line = $('.f1-step').parents('.f1').find('.f1-progress-line');
+                  console.log(progress_line);
+                  fieldsetToActivate = $(this).data('step');
+                  $("form.f1 fieldset").hide();
+                  current_active_step.removeClass('active');
+                  bar_progress(progress_line, 'left');
+                  $('.f1').find(`fieldset[data-step=3]`).fadeIn('slow');
+                  // change icons
+
+                  $(`.f1-step[data-step=3]`).removeClass('activated').addClass('active');
+
+                }
+</script>
+
+    </fieldset>
+
+    <fieldset data-step="2">
+        <h3>Welche Technologie wünschen Sie?</h3><br>
+
+          <div class="form-group" id="Technologie">
+                 <label for="inputTechnologie">Technologie</label>
+                   <select class="form-control" id="inputTechnologie" name="inputTechnologie">
+                     <option value="0">Bitte wählen</option>
+                      <option value="FDM">Fused Deposition Modeling (FDM)</option>
+                      <option value="MJF">Multijet Fusion (MJF)</option>
+                      <option value="SLS">Selektives Lasersintern (SLS)</option>
+                      <option value="PLY">Polyjet (PLY)</option>
+                      <option value="SLA">Stereolithografie (SLA)</option>
+                      <option value="SLM">Selective Laser Melting (SLM)</option>
+                   </select>
+               </div>
+
+             <div class="form-group" id="FDM_Material">
+            <label for="inputMaterial">Material</label>
+               <select class="form-control" id="inputMaterial" name="inputMaterial" hidden>
+                 <option value="0">Bitte wählen</option>
+                 <option value="PLA Standard">PLA Standard</option>
+                 <option value="PLA Elastisch">PLA Elastisch</option>
+                 <option value="ABS Standard">ABS Standard</option>
+                 <option value="ABS S">ABS S</option>
+                 <option value="ABS PC">ABS PC</option>
+                 <option value="ASA Standard">ASA Standard</option>
+                 <option value="Nylon PA12/PA6">Nylon</option>
+                 <option value="PETG">PETG</option>
+                 <option value="Holz-Kunststoff Mischung">Holz-Kunststoff Mischung</option>
+                 <option value="Metall-Kunststoff Mischung">Metall-Kunststoff Mischung</option>
+                 <option value="Kupfer-Kunststoff Mischung">Kupfer-Kunststoff Mischung</option>
+                 <option value="Carbon-Kunststoff Mischung">Carbon-Kunststoff Mischung</option>
+            </select>
+            </div>
+
+            <div class="form-group" id="SLS_Material">
+           <label for="inputMaterialSLS">Material</label>
+              <select class="form-control" id="inputMaterialSLS" name="inputMaterialSLS" hidden>
+                <option value="0">Bitte wählen</option>
+                <option value="Primecast101">Primecast101 (Polystyrol)</option>
+                <option value="PA-AL">PA-AL (aluverstärkt)</option>
+                <option value="PP">PP (chemisch beständig)</option>
+                <option value="HST">HST (faserverstärkt)</option>
+                <option value="PA12">PA12 (fest oder flexibel)</option>
+                <option value="PA-GF">PA-GF (Glasfaserverstärkt)</option>
+                <option value="TPU">TPU (Gummiartig-Flexibel)</option>
+           </select>
+           </div>
+
+           <div class="form-group" id="MJF_Material">
+          <label for="inputMaterialMJF">Material</label>
+             <select class="form-control" id="inputMaterialMJF" name="inputMaterialMJF" hidden>
+               <option value="0">Bitte wählen</option>
+               <option value="PA12">PA12 (fest und felxibel)</option>
+               <option value="PA-GF">PA-GF (Glasfaserverstärkt)</option>
+          </select>
+          </div>
+
+          <div class="form-group" id="SLM_Material">
+         <label for="inputMaterialSLM">Material</label>
+            <select class="form-control" id="inputMaterialMJF" name="inputMaterialSLM" hidden>
+              <option value="0">Bitte wählen</option>
+              <option value="AlSi10Mg">Aluminium (AlSi10Mg)</option>
+              <option value="S1.2709">Stahl (1.2709)</option>
+              <option value="S1.4404">Stahl (1.4404)</option>
+              <option value="SCorrax">Stahl (Corrax)</option>
+         </select>
+         </div>
+
+         <div class="form-group" id="PLY_Material">
+        <label for="inputMaterialPLY">Material</label>
+           <select class="form-control" id="inputMaterialPLY" name="inputMaterialPLY" hidden>
+             <option value="0">Bitte wählen</option>
+             <option value="VeroColor">VeroColor / Vero White</option>
+             <option value="Agilus">TG+ & Agilus</option>
+             <option value="DigitalPP">Digital PP/PA</option>
+             <option value="DigitalABS">Digital ABS</option>
+             <option value="VeroClear">Vero Clear</option>
+             <option value="VeroClearB">ClearB</option>
+        </select>
+        </div>
+
+            <div class="form-group" id="SLA_Material">
+           <label for="inputMaterialSLA">Material</label>
+              <select class="form-control" id="inputMaterialSLA" name="inputMaterialSLA" hidden>
+               <option value="0">Bitte wählen</option>
+                <option value="Kunstharz Standard">Kunstharz Standard</option>
+                <option value="Kunstharz Belastbar">Kunstharz Belastbar</option>
+                <option value="Kunstharz Flexibel">Kunstharz Flexibel</option>
+                <option value="Kunstharz Polypropylenähnlich">Kunstharz Polypropylenähnlich</option>
+                <option value="Kunstharz Hochtemperatur (289°C)">Kunstharz Hochtemperatur (289°C)</option>
+                <option value="Kunstharz Dental Modell">Kunstharz Dental Modell</option>
+                <option value="Kunstharz Dental SG">Kunstharz Dental SG</option>
+           </select>
+           </div>
+
+             <div class="form-group" id="PLAS">
+
+             <label for="inputFarbe">Farbe</label>
+
+             <select class="form-control" id="inputFarbePLA" name="inputFarbePLA">
+
+               <option value="0">Bitte wählen</option>
+               <option value="PLAS_Weiss">Weiss</option>
+               <option value="PLAS_Schwarz">Schwarz</option>
+               <option value="PLAS_Grau">Grau</option>
+               <option value="PLAS_Hellgrün">Hellgrün</option>
+               <option value="PLAS_Dunkelgrün">Dunkelgrün</option>
+               <option value="PLAS_Hellblau">Hellblau</option>
+               <option value="PLAS_Dunkelblau">Dunkelblau</option>
+               <option value="PLAS_Braun">Braun</option>
+               <option value="PLAS_Orange">Orange</option>
+               <option value="PLAS_Gelb">Gelb</option>
+               <option value="PLAS_Rot">Rot</option>
+               </select>
+
+
+              </div>
+
+
+             <div class="form-group" id="PLAE">
+             <label for="inputFarbe">Farbe</label>
+             <select class="form-control" id="inputFarbePLAE" name="inputFarbePLAE">
+               <option value="0">Bitte wählen</option>
+               <option value="PLAE_Weiss">Weiss</option>
+               <option value="PLAE_Schwarz">Schwarz</option>
+             </select>
+             </div>
+
+             <div class="form-group" id="ABSST">
+             <label for="inputFarbe">Farbe</label>
+             <select class="form-control" id="inputFarbeABSST" name="inputFarbeABSST">
+               <option value="0">Bitte wählen</option>
+               <option value="ABSST_Weiss">Weiss</option>
+               <option value="ABSST_Schwarz">Schwarz</option>
+               <option value="ABSST_Grau">Grau</option>
+               <option value="ABSST_Hellgrün">Hellgrün</option>
+               <option value="ABSST_Dunkelgrün">Dunkelgrün</option>
+               <option value="ABSST_Hellblau">Hellblau</option>
+               <option value="ABSST_Dunkelblau">Dunkelblau</option>
+               <option value="ABSST_Braun">Braun</option>
+               <option value="ABSST_Orange">Orange</option>
+               <option value="ABSST_Gelb">Gelb</option>
+               <option value="ABSST_Rot">Rot</option>
+             </select>
+             </div>
+
+             <div class="form-group" id="AB_S">
+             <label for="inputFarbe">Farbe</label>
+             <select class="form-control" id="inputFarbeAB_S" name="inputFarbeAB_S">
+               <option value="0">Bitte wählen</option>
+               <option value="AB_S_Weiss">Weiss</option>
+               <option value="AB_S_Schwarz">Schwarz</option>
+               <option value="AB_S_Grau">Grau</option>
+               <option value="AB_S_Rot">Rot</option>
+               <option value="AB_S_Blau">Blau</option>
+             </select>
+             </div>
+
+             <div class="form-group" id="ABSPC">
+             <label for="inputFarbe">Farbe</label>
+             <select class="form-control" id="inputFarbeABSPC" name="inputFarbeABSPC">
+               <option value="0">Bitte wählen</option>
+               <option value="ABSPC_Schwarz">Schwarz</option>
+             </select>
+             </div>
+
+             <div class="form-group" id="ASAS">
+             <label for="inputFarbe">Farbe</label>
+             <select class="form-control" id="inputFarbeASAS" name="inputFarbeASAS">
+               <option value="0">Bitte wählen</option>
+               <option value="ASAS_Weiss">Weiss</option>
+               <option value="ASAS_Schwarz">Schwarz</option>
+               <option value="ASAS_Grau">Grau</option>
+               <option value="ASAS_Rot">Rot</option>
+               <option value="ASAS_Natur">Natur</option>
+             </select>
+             </div>
+
+             <div class="form-group" id="Nylon">
+             <label for="inputFarbe">Farbe</label>
+             <select class="form-control" id="inputFarbeNylon" name="inputFarbeNylon">
+               <option value="0">Bitte wählen</option>
+               <option value="Nylon_Schwarz">Schwarz</option>
+               <option value="Nylon_Natur">Natur</option>
+             </select>
+             </div>
+
+             <div class="form-group" id="PETG">
+             <label for="inputFarbe">Farbe</label>
+             <select class="form-control" id="inputFarbePETG" name="inputFarbePETG">
+               <option value="0">Bitte wählen</option>
+               <option value="PETG_Weiss">Weiss</option>
+               <option value="PETG_Schwarz">Schwarz</option>
+               <option value="PETG_Rot">Rot</option>
+               <option value="PETG_Hellblau">Hellblau</option>
+               <option value="PETG_Blau">Blau</option>
+               <option value="PETG_TWeiss">Transparent Weiss</option>
+               <option value="PETG_TSchwarz">Transparent Schwarz</option>
+               <option value="PETG_TRot">Transparent Rot</option>
+               <option value="PETG_TGelb">Transparent Gelb</option>
+               <option value="PETG_TBlau">Transparent Blau</option>
+               <option value="PETG_TGrün">Transparent Grün</option>
+             </select>
+             </div>
+
+             <div class="form-group" id="KS">
+             <label for="inputFarbe">Farbe</label>
+             <select class="form-control" id="inputFarbeKS" name="inputFarbeKS">
+               <option value="0">Bitte wählen</option>
+               <option value="KS_Transparent">Transparent</option>
+               <option value="KS_Schwarz">Schwarz</option>
+               <option value="KS_Weiss">Weiss</option>
+               <option value="KS_Grau">Grau</option>
+             </select>
+             </div>
+
+             <div class="form-group" id="KB">
+               <label for="inputFarbe">Farbe</label>
+             <select class="form-control" id="inputFarbeKB" name="inputFarbeKB">
+               <option value="0">Bitte wählen</option>
+               <option value="Standard">Keine Farbauswahl möglich. Grünlicher Farbton.</option>
+             </select>
+             </div>
+
+             <div class="form-group" id="KF">
+               <label for="inputFarbe">Farbe</label>
+             <select class="form-control" id="inputFarbeKF" name="inputFarbeKF">
+               <option value="0">Bitte wählen</option>
+               <option value="Standard">Keine Farbauswahl möglich. Schwarzer Farbton.</option>
+             </select>
+             </div>
+
+             <div class="form-group" id="KPP">
+               <label for="inputFarbe">Farbe</label>
+             <select class="form-control" id="inputFarbeKPP" name="inputFarbeKPP">
+               <option value="0">Bitte wählen</option>
+               <option value="Standard">Keine Farbauswahl möglich. Weisser Frabton.</option>
+             </select>
+             </div>
+
+             <div class="form-group" id="KHT">
+               <label for="inputFarbe">Farbe</label>
+             <select class="form-control" id="inputFarbeKHT" name="inputFarbeKHT">
+               <option value="0">Bitte wählen</option>
+               <option value="Standard">Keine Farbauswahl möglich. Rötlicher Farbton.</option>
+             </select>
+             </div>
+
+             <div class="form-group" id="KDM">
+               <label for="inputFarbe">Farbe</label>
+             <select class="form-control" id="inputFarbeKDM" name="inputFarbeKDM">
+               <option value="0">Bitte wählen</option>
+               <option value="Standard">Keine Farbauswahl möglich. Brauner Farbton.</option>
+             </select>
+             </div>
+
+             <div class="form-group" id="KDSG">
+               <label for="inputFarbe">Farbe</label>
+             <select class="form-control" id="inputFarbeKDSG" name="inputFarbeKDSG">
+               <option value="0">Bitte wählen</option>
+               <option value="Standard">Keine Farbauswahl möglich. Transparenter Farbton.</option>
+             </select>
+             </div>
+
+             <div class="form-group" id="Holz">
+             <label for="inputFarbe">Farbe</label>
+             <select class="form-control" id="inputFarbeHolz" name="inputFarbeHolz">
+               <option value="0">Bitte wählen</option>
+               <option value="Fichte">Fichte</option>
+               <option value="Hellbrau">Hellbrau</option>
+               <option value="Dunkelbraun">Dunkelbraun</option>
+             </select>
+             </div>
+
+            <br>
+
+            <h3>Haben Sie bereits .stl Daten?</h3>
+            <br>
+            <div class="segmented-control" style="width: 100%; ">
+            <input type="radio" name="sc-1-8" value="stlyes" id="sc-1-8-1" >
+            <input type="radio" name="sc-1-8" value="stlno" id="sc-1-8-2">
+            <label for="sc-1-8-1" data-value="Ja, ich habe .stl Daten">Ja, ich habe .stl Daten</label>
+            <label for="sc-1-8-2" data-value="Nein, ich habe aber andere Exportdaten *">Nein, ich habe aber andere Exportdaten *</label>
+          </div>
+          <p>* zum Beispiel .step, .dxf, .dwg</p>
+            <br>
+
+
+        <h3>Wann benötigen Sie die Teile?</h3>
+        <br>
+        <div class="segmented-control" style="width: 100%; ">
+        <input type="radio" name="sc-1-7" value="35" id="sc-1-7-1">
+        <input type="radio" name="sc-1-7" value="12" id="sc-1-7-2">
+        <label for="sc-1-7-1" data-value="In 3-5 Tagen *">In 3-5 Tagen *</label>
+        <label for="sc-1-7-2" data-value="In 1-2 Tage *">In 1-2 Tagen *</label>
+        </div>
+        <br><p>* Änderungen vorbehalten. Nach Prüfung Ihrer Anfrage senden wir Ihnen eine unverbindliche Offerte mit dem genauen Liefertermin. Wenn Sie die Teile innerhalb von 1-2 Tagen benötigen, können Mehrkosten entstehen.</p>
+        <br><br>
+        <div class="col-sm-3 without-padding">
+        <input type="button" id="bigbtn" class="goToBtn btn btn-primary" data-step="6" value="Zurück" onclick="msg2()"/>
+        </div>
+        <div class="col-sm-9 without-double-padding">
+        <input type="button" id="bigbtn" class="btn btn-primary" data-step="3" value="Weiter" onclick="msg1()" />
+        </div>
+
+    </fieldset>
+
+
+    <script>
+    function msg1() {
+                      document.body.scrollTop = document.documentElement.scrollTop = 0;
+
+                      var lieferung = document.getElementById("sc-1-7-1");
+                      var stl = document.getElementById("sc-1-8-1");
+
+                      var e = document.getElementById("inputMaterial");
+                      var strUser = e.options[e.selectedIndex].value;
+
+
+                      var current_active_step = $('.f1-step').parents('.f1').find('.f1-step.active');
+                      var progress_line = $('.f1-step').parents('.f1').find('.f1-progress-line');
+                      console.log(progress_line);
+                      fieldsetToActivate = $(this).data('step');
+                      $("form.f1 fieldset").hide();
+                      current_active_step.removeClass('active');
+                      bar_progress(progress_line, 'left');
+                      $('.f1').find(`fieldset[data-step=3]`).fadeIn('slow');
+                      // change icons
+
+                      $(`.f1-step[data-step=3]`).removeClass('activated').addClass('active');
+
+                    }
+    </script>
+
+
+
+
+    <fieldset data-step="3">
+      <br><br>
+        <h3>Laden Sie hier Ihre Daten hoch.</h3><br>
+        <div class="form-group">
+                            <button type="button" id="green" class="btn" data-toggle="modal" data-target="#myModal2">Zum Upload *</button>
+                            <br><br><p>* Sie können hier alle Ihre CAD Daten, Skizzen, Fotos oder Pläne hochladen</p>
+                      </div>
+                      <br>
+                        <h3>Wie viele Stück benötigen Sie?</h3><br>
+                      <div class="form-group">
+                          <input id="form_stueck" min="0" max="9999" oninput="validity.valid||(value='');" type="number"  name="stueckzahl" class="form-control" placeholder="Stückzahl">
+                      </div>
+                        <br><br>
+                      <!-- <div class="form-group">
+                        <label class="sr-only" for="form-about-yourself">Sollen wir beim Druck etwas speziell beachten? Stückzahlen, Farbe (Wenn nichts angegeben Standard Farbe Weiss) Position, etc.</label>
+                        <textarea name="inputMessage3" placeholder="Sollen wir beim Druck etwas speziell beachten? Stückzahlen, Farbe (Wenn nichts angegeben Farbe Weiss), Position, etc."
+                              class="form-about-yourself form-control SafariFix" id="inputMessage3"></textarea>
+                      </div> -->
+                      <div class="col-sm-3 without-padding">
+                      <input type="button" id="bigbtn" class="goToBtn btn btn-primary" data-step="1" value="Zurück" onclick="msg2()" />
+                      </div>
+                      <div class="col-sm-9 without-double-padding">
+                      <input type="button" id="bigbtn" class="goToBtn btn btn-primary" data-step="5" value="Weiter" onclick="msg2()"/>
+                      </div>
+    </fieldset>
+
+
+    <script>
+    function msg2() {
+                      document.body.scrollTop = document.documentElement.scrollTop = 0;
+
+                    }
+    </script>
+
+    <fieldset data-step="5">
+      <br><br>
+        <h3>Zum Abschluss geben Sie hier bitte Ihre Kontaktdaten an.</h3><br>
+      <div class="form-group">
+         <label for="inputBeziehung">Geschäftsbeziehung</label>
+       <select class="form-control" id="inputBeziehung" name="inputBeziehung">
+         <option value="0">Bitte wählen</option>
+         <option value="Privatkunde">Privatkunde</option>
+         <option value="Geschaeftskunde">Gesch&auml;ftskunde</option>
+       </select>
+       </div>
+
+       <div class="form-group" id="Geschaeftskunde">
+       <div class="form-group" >
+           <input type="text" name="inputFirma" value="Firma *" class="form-last-name form-control SafariFix" id="inputFirma">
+         </div>
+         </div>
+         <div class="form-group">
+           <label for="inputAnrede">Persönliche Angaben</label>
+         <select class="form-control" id="inputAnrede" name="inputAnrede">
+           <option value="Frau">Frau</option>
+           <option value="Herr">Herr</option>
+         </select>
+         </div>
+   <div class="form-group">
+       <input type="text" name="inputVorname" placeholder="Vorname *" class="form-first-name form-control SafariFix" id="inputVorname">
+     </div>
+     <div class="form-group">
+       <input type="text" name="inputName" placeholder="Nachname *" class="form-last-name form-control SafariFix" id="inputName" >
+     </div>
+     <div class="col-md-8 number_right">
+     <div class="form-group">
+       <input type="text" name="inputStrasse" placeholder="Strasse *" class="form-first-name form-control SafariFix" id="inputStrasse">
+     </div>
+     </div>
+     <div class="col-md-4 number_left">
+     <div class="form-group">
+       <input type="text" name="inputNummer" placeholder="Nummer *" class="form-last-name form-control SafariFix" id="inputNummer">
+     </div>
+     </div>
+     <div class="col-md-8 number_right">
+     <div class="form-group">
+         <input type="text" name="inputOrt" placeholder="Ort *" class="form-first-name form-control SafariFix" id="inputOrt">
+     </div>
+     </div>
+     <div class="col-md-4 number_left">
+     <div class="form-group">
+         <input type="text" name="inputPLZ" placeholder="PLZ *" class="form-last-name form-control SafariFix" id="inputPLZ">
+     </div>
+
+   </div>
+     <div class="form-group">
+       <input type="text" name="inputLand" placeholder="Land *" class="form-last-name form-control SafariFix" id="inputLand">
+     </div>
+
+     <div class="col-md-2 number_right">
+       <div class="form-group">
+         <select class="form-control" id="inputVorwahl" name="inputVorwahl" required>
+           <option value="+41">+41 (Schweiz)</option>
+           <option value="+49">+49 (Deutschland)</option>
+           <option value="+43">+43 (Österreich)</option>
+           <option value="+423">+423 (Liechtenstein)</option>
+         </select>
+         </div>
+
+   </div>
+     <div class="col-md-10 number_left">
+       <div class="form-group">
+         <input type="text" name="inputTelefon" placeholder="Telefon *" class="form-last-name form-control SafariFix" id="inputTelefon">
+       </div>
+     </div>
+
+
+     <div class="form-group">
+       <input type="text" name="inputEmail" placeholder="E-Mail *" class="form-last-name form-control SafariFix" id="inputEmail">
+     </div>
+
+     <div class="form-group">
+       <label class="sr-only" for="form-about-yourself">Möchten Sie uns sonst noch etwas mitteilen?</label>
+       <textarea name="inputMessage4" placeholder="Möchten Sie uns sonst noch etwas mitteilen?"
+             class="form-about-yourself form-control SafariFix" id="inputMessage4"></textarea>
+     </div>
+
+     <div class="form-group">
+       <select class="form-control" id="inputKontakt" name="inputKontakt" required>
+         <option selected="true" value="Frau" disabled>Wie sind Sie auf uns aufmerksam geworden? *</option>
+         <option value="Google, Bing">Google, Bing</option>
+         <option value="Empfehlungen">Empfehlungen</option>
+         <option value="Zeitungen">Zeitungen</option>
+         <option value="Firmenauto">Firmenauto</option>
+         <option value="Social Media">Social Media</option>
+       </select>
+       </div>
+
+       <div class="row"><br><br>
+         <div class="col-sm-3">
+         <input type="button" id="bigbtn" class="goToBtn btn btn-primary" data-step="3" value="Zurück" onclick="msg2()"/>
+         </div>
+           <div class="col-md-9">
+             <button data-callback='onSubmit' id="green" class="g-recaptcha btn SafariFix" data-sitekey="6Ld0ZFYUAAAAAAhYWbArOZnrwP97JDy68OeCSSVf" data-badge="bottomright">Unverbindlich und kostenlos Anfragen!</button>
+           </div>
+           </div>
+
+    </fieldset>
+  </form>
 
 </div>
 </div>
