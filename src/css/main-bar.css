@@ -345,7 +345,7 @@ a:active {
   -webkit-border-radius: 22.5px;
   -moz-border-radius: 22.5px;
   border-radius: 22.5px;
-  background: #36c240;
+  background: #ffdd59;
   font-size: 16px;
   color: #fff;
   font-family: inherit;
@@ -506,7 +506,7 @@ button {
 }
 
 .input--style-1:focus {
-  border-color: #36c240;
+  border-color: #ffdd59;
 }
 
 @media (max-width: 767px) {
@@ -620,7 +620,7 @@ input[type=number]::-webkit-outer-spin-button {
   -webkit-border-radius: 17.5px;
   -moz-border-radius: 17.5px;
   border-radius: 17.5px;
-  background-color: #36c240;
+  background-color: #ffdd59;
   -webkit-transition: width .6s ease;
   -o-transition: width .6s ease;
   -moz-transition: width .6s ease;
