@@ -1,0 +1,524 @@
+
+
+<script src="https://portal.sitogo.ch/js/netlify-identity-widget.js"></script>
+<script src="https://portal.sitogo.ch/js/jquery.easing.min.js"></script>
+
+<style>
+  #tutorial{
+    height: 150px;
+  }
+  .center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.mitte {
+display: block;
+margin-left: auto;
+margin-right: auto;
+}
+#portal_header{
+  font-size: 30px;
+}
+.caption{
+  text-align: center;
+}
+.content{
+  text-align: center;
+}
+#angebot{
+  shape-outside: polygon(25% 0, 100% 0, 100% 100%, 0 100%);
+    clip-path: polygon(0% 100%, 0% 0, 900% 0%, 0% 100%);
+    background-color: yellow;
+}
+</style>
+
+<body>
+  <div id="fb-root"></div>
+         <script>
+           window.fbAsyncInit = function() {
+             FB.init({
+               xfbml            : true,
+               version          : 'v8.0'
+             });
+           };
+
+           (function(d, s, id) {
+           var js, fjs = d.getElementsByTagName(s)[0];
+           if (d.getElementById(id)) return;
+           js = d.createElement(s); js.id = id;
+           js.src = 'https://connect.facebook.net/de_DE/sdk/xfbml.customerchat.js';
+           fjs.parentNode.insertBefore(js, fjs);
+         }(document, 'script', 'facebook-jssdk'));</script>
+
+
+         <div class="fb-customerchat"
+           attribution=setup_tool
+           page_id="642866886354938"
+     theme_color="#0084ff"
+     greeting_dialog_display='hide'
+     logged_in_greeting="Hallo! Wie können wir Dir helfen?"
+     logged_out_greeting="Hallo! Wie können wir Dir helfen?">
+         </div>
+
+  <section class="s-services">
+  <div class="container">
+    <div class="row section-header" >
+        <div class="col-full">
+            <h3 id="kapitel_header" class="subhead">Bestätigung.</h3>
+                <div class="user-info-5">
+            <h1 class="display-1" id="portal_header">Gratulieren, die ersten beiden Schritte abegschlossen. Jetzt kannst du dich zurücklehnen. Innerhalb der nächsten 24 Stunden wird sich jemand von Sitogo sich persönlich bei dir melden.</h1>
+            </div>
+            <div class="user-info-12">
+            <button class="js-scroll-trigger small" href="https://portal.sitogo.ch/">Zurück zu mySitogo</button>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+<script>
+  const button1 = document.getElementById('left');
+  const button2 = document.getElementById('right');
+  const button3 = document.getElementById('middle');
+  const button4 = document.getElementById('middle-2');
+  const button5 = document.getElementById('middle-3');
+  const button6 = document.getElementById('regist');
+
+  const text1 = document.getElementById('portal_header');
+  const text2 = document.getElementById('mein_konto');
+  const text3 = document.getElementById('webseite_bearbeiten');
+  const text4 = document.getElementById('hilfe');
+  const text5 = document.getElementById('abos');
+
+  const block1 = document.getElementById('block1');
+  const block2 = document.getElementById('block2');
+  const block3 = document.getElementById('block3');
+
+  const login = () => netlifyIdentity.open('login');
+  const signup = () => netlifyIdentity.open('signup');
+
+  // by default, we want to add login and signup functionality
+  button1.addEventListener('click', login);
+
+  const updateUserInfo = (user) => {
+    const container = document.querySelector('.user-info');
+
+    // cloning the buttons removes existing event listeners
+    const b1 = button1.cloneNode(true);
+
+    // empty the user info div
+    container.innerHTML = '';
+
+    if (user) {
+      b1.innerText = 'Abmelden';
+      b1.addEventListener('click', () => {
+        netlifyIdentity.logout();
+      });
+
+    } else {
+      // if no one is logged in, show login/signup options
+      b1.innerText = 'Anmelden';
+      b1.addEventListener('click', login);
+    }
+
+    // add the updated buttons back to the user info div
+    container.appendChild(b1);
+  };
+
+  const updateUserInfo2 = (user) => {
+    const container = document.querySelector('.user-info-2');
+
+    // cloning the buttons removes existing event listeners
+    const b3 = button3.cloneNode(true);
+
+    // empty the user info div
+    container.innerHTML = '';
+
+    if (user) {
+      b3.innerText = 'Abo ändern';
+      b3.addEventListener('click', () => {
+        // TODO handle subscription management
+        fetch('/.netlify/functions/create-manage-link', {
+          method: 'POST',
+          headers: {
+            Authorization: `Bearer ${user.token.access_token}`,
+          },
+        })
+          .then((res) => res.json())
+          .then((link) => {
+            window.location.href = link;
+          })
+          .catch((err) => console.error(err));
+      });
+    }
+
+    else {
+      // if no one is logged in, show login/signup options
+      b3.innerText = 'Anmelden';
+      b3.addEventListener('click', login);
+    }
+
+    // add the updated buttons back to the user info div
+    container.appendChild(b3);
+  };
+
+  const updateUserInfo3 = (user) => {
+    const container = document.querySelector('.user-info-3');
+
+    // cloning the buttons removes existing event listeners
+    const b4 = button4.cloneNode(true);
+
+    // empty the user info div
+    container.innerHTML = '';
+
+    if (user) {
+      b4.innerText = 'Abo ändern';
+      b4.addEventListener('click', () => {
+        // TODO handle subscription management
+        fetch('/.netlify/functions/create-manage-link', {
+          method: 'POST',
+          headers: {
+            Authorization: `Bearer ${user.token.access_token}`,
+          },
+        })
+          .then((res) => res.json())
+          .then((link) => {
+            window.location.href = link;
+          })
+          .catch((err) => console.error(err));
+      });
+    }
+
+    else {
+      // if no one is logged in, show login/signup options
+      b4.innerText = 'Anmelden';
+      b4.addEventListener('click', login);
+    }
+
+    // add the updated buttons back to the user info div
+    container.appendChild(b4);
+  };
+
+  const updateUserInfo4 = (user) => {
+    const container = document.querySelector('.user-info-4');
+
+    // cloning the buttons removes existing event listeners
+    const b5 = button5.cloneNode(true);
+
+    // empty the user info div
+    container.innerHTML = '';
+
+    if (user) {
+      b5.innerText = 'Abo ändern';
+      b5.addEventListener('click', () => {
+        // TODO handle subscription management
+        fetch('/.netlify/functions/create-manage-link', {
+          method: 'POST',
+          headers: {
+            Authorization: `Bearer ${user.token.access_token}`,
+          },
+        })
+          .then((res) => res.json())
+          .then((link) => {
+            window.location.href = link;
+          })
+          .catch((err) => console.error(err));
+      });
+    }
+
+    else {
+      // if no one is logged in, show login/signup options
+      b5.innerText = 'Anmelden';
+      b5.addEventListener('click', login);
+    }
+
+    // add the updated buttons back to the user info div
+    container.appendChild(b5);
+  };
+
+  const updateUserInfo5 = (user) => {
+    const container = document.querySelector('.user-info-5');
+
+    // cloning the buttons removes existing event listeners
+    const t1 = text1.cloneNode(true);
+
+    // empty the user info div
+    container.innerHTML = '';
+
+    if (user) {
+      t1.innerText = 'Willkommen auf mySitogo. Hier kannst du dein Abo online verwalten, deine Webseite anpassen oder Änderungswünsche mitteilen.';
+    }
+
+    else {
+      // if no one is logged in, show login/signup options
+      t1.innerText = 'Willkommen auf mySitogo. Du musst dich zuerst registrieren oder einloggen um dein Abo verwalten zu können.';
+    }
+
+    // add the updated buttons back to the user info div
+    container.appendChild(t1);
+  };
+
+  const updateUserInfo6 = (user) => {
+    const container = document.querySelector('.user-info-6');
+
+    // cloning the buttons removes existing event listeners
+    const t2 = text2.cloneNode(true);
+
+    // empty the user info div
+    container.innerHTML = '';
+
+    if (user) {
+      t2.innerText = 'Mein Konto';
+    }
+
+    else {
+      // if no one is logged in, show login/signup options
+      t2.innerText = '';
+    }
+
+    // add the updated buttons back to the user info div
+    container.appendChild(t2);
+  };
+
+  const updateUserInfo7 = (user) => {
+    const container = document.querySelector('.user-info-7');
+
+    // cloning the buttons removes existing event listeners
+    const t3 = text3.cloneNode(true);
+
+    // empty the user info div
+    container.innerHTML = '';
+
+    if (user) {
+      t3.innerText = 'Webseite bearbeiten';
+    }
+
+    else {
+      // if no one is logged in, show login/signup options
+      t3.innerText = '';
+    }
+
+    // add the updated buttons back to the user info div
+    container.appendChild(t3);
+  };
+
+  const updateUserInfo8 = (user) => {
+    const container = document.querySelector('.user-info-8');
+
+    // cloning the buttons removes existing event listeners
+    const t4 = text4.cloneNode(true);
+
+    // empty the user info div
+    container.innerHTML = '';
+
+    if (user) {
+      t4.innerText = 'Hilfe';
+    }
+
+    else {
+      // if no one is logged in, show login/signup options
+      t4.innerText = '';
+    }
+
+    // add the updated buttons back to the user info div
+    container.appendChild(t4);
+  };
+
+  const updateUserInfo9 = (user) => {
+    const container = document.querySelector('.user-info-9');
+
+    // cloning the buttons removes existing event listeners
+    const bl1 = block1.cloneNode(true);
+
+    // empty the user info div
+    container.innerHTML = '';
+
+    if (user) {
+      bl1.innerHTML = '<div class="container" >'+
+'<div class="row section-header">'+
+'<p class="lead">Hilfe</p>'+
+'<p>Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? Wir stehen dir immer gerne unter hello@sitogo.ch zur Verfügung. In der Regel haben wir einen Reaktionszeit von 60 Minuten.</p>'+
+'</div>'+
+'</div>';
+    }
+
+    else {
+      // if no one is logged in, show login/signup options
+      bl1.innerHTML = '<style>#block1{padding-top: 0rem!important;padding-bottom: 0rem!important}</style>';
+    }
+
+    // add the updated buttons back to the user info div
+    container.appendChild(bl1);
+  };
+
+  const updateUserInfo10 = (user) => {
+    const container = document.querySelector('.user-info-10');
+
+    // cloning the buttons removes existing event listeners
+    const bl2 = block2.cloneNode(true);
+
+    // empty the user info div
+    container.innerHTML = '';
+
+    if (user) {
+      bl2.innerHTML = '<div class="col-md-4">'+
+'<div class="thumbnail">'+
+'<img id="tutorial" src="images/undraw_my_answer_iw6k.svg" alt="" class="center">'+
+'<div class="caption">'+
+'<h4>1. Abo auswählen</h4>'+
+'</div>'+
+'</div>'+
+'</div>'+
+'<div class="col-md-4">'+
+'<div class="thumbnail">'+
+'<img id="tutorial" src="images/undraw_Mail_sent_re_0ofv.svg" alt="" class="center">'+
+'<div class="caption">'+
+'<h4>2. Bestätigung abwarten</h4>'+
+'</div>'+
+'</div>'+
+'</div>'+
+'<div class="col-md-4">'+
+'<div class="thumbnail">'+
+'<img id="tutorial" src="images/undraw_shared_goals_3d12.svg" alt="" class="center">'+
+'<div class="caption">'+
+'<h4>3. Wir kontaktieren dich</h4>'+
+'</div>'+
+'</div>'+
+'</div>';
+    }
+
+    else {
+      // if no one is logged in, show login/signup options
+      bl2.innerHTML = '';
+    }
+
+    // add the updated buttons back to the user info div
+    container.appendChild(bl2);
+  };
+
+  const updateUserInfo12 = (user) => {
+    const container = document.querySelector('.user-info-12');
+
+    // cloning the buttons removes existing event listeners
+    const b6 = button6.cloneNode(true);
+
+    // empty the user info div
+    container.innerHTML = '';
+
+    if (user) {
+      b6.innerHTML = '<style>#regist{display:none;</style>}';
+        }
+
+    else {
+      // if no one is logged in, show login/signup options
+      b6.innerText = 'Jetzt Registrieren';
+      b6.addEventListener('click', signup);
+    }
+
+    // add the updated buttons back to the user info div
+    container.appendChild(b6);
+  };
+
+  const updateUserInfo13 = (user) => {
+    const container = document.querySelector('.user-info-13');
+
+    // cloning the buttons removes existing event listeners
+    const t5 = text5.cloneNode(true);
+
+    // empty the user info div
+    container.innerHTML = '';
+
+    if (user) {
+      t5.innerText = 'Mein aktuelles Abo.';
+    }
+
+    else {
+      // if no one is logged in, show login/signup options
+      t5.innerText = 'Wähle das passende Abo für dich';
+    }
+
+    // add the updated buttons back to the user info div
+    container.appendChild(t5);
+  };
+
+  const loadSubscriptionContent = async (user) => {
+    const token = user ? await netlifyIdentity.currentUser().jwt(true) : false;
+
+    ['free','pro', 'premium'].forEach((type) => {
+      fetch('/.netlify/functions/get-protected-content', {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({ type }),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          const template = document.querySelector('#content');
+          const container = document.querySelector(`.${type}`);
+
+          // remove any existing content from the content containers
+          const oldContent = container.querySelector('.content-display');
+          if (oldContent) {
+            container.removeChild(oldContent);
+          }
+
+          const content = template.content.cloneNode(true);
+
+          const img = content.querySelector('img');
+          img.src = data.src;
+          img.alt = data.alt;
+
+          const credit = content.querySelector('.credit');
+          credit.href = data.creditLink;
+          credit.innerText = `Credit: ${data.credit}`;
+
+          const caption = content.querySelector('figcaption');
+          caption.innerText = data.message;
+          caption.appendChild(credit);
+
+          container.appendChild(content);
+        });
+    });
+  };
+
+    const handleUserStateChange = (user) => {
+    updateUserInfo(user);
+    updateUserInfo2(user);
+    updateUserInfo3(user);
+    updateUserInfo4(user);
+    updateUserInfo5(user);
+    updateUserInfo6(user);
+    updateUserInfo7(user);
+    updateUserInfo8(user);
+    updateUserInfo9(user);
+    updateUserInfo10(user);
+    updateUserInfo12(user);
+    updateUserInfo13(user);
+    loadSubscriptionContent(user);
+  };
+
+  netlifyIdentity.on('init', handleUserStateChange);
+  netlifyIdentity.on('login', handleUserStateChange);
+  netlifyIdentity.on('logout', handleUserStateChange);
+</script>
+<script>
+                 // Scrolling Effect
+
+                 $(window).on("scroll", function() {
+                   var scroll = $(window).scrollTop();
+                  if (scroll > 50) {
+                    $(".bg-normal").css("background" , "white");
+                    $(".bg-normal").css("box-shadow" , "0 1px 5px rgba(0, 0, 0, 0.25)");
+                  }
+
+                  else{
+                    $(".bg-normal").css("background" , "transparent");
+                    $(".bg-normal").css("box-shadow" , "0 1px 5px rgba(0, 0, 0, 0)");
+
+                  }
+                 })
+
+            </script>
+</body>
