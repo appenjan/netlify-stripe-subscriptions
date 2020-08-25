@@ -1002,52 +1002,55 @@ Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? W
                   }
                  })
 
-                 (function ($) {
-                     'use strict';
-                     /*[ Wizard Config ]
-                         ===========================================================*/
+</script>
 
-                     try {
+<script>
+
+  jQuery(document).ready(function() {
+     'use strict';
+     /*[ Wizard Config ]
+         ===========================================================*/
+
+     try {
 
 
-                         $("#js-wizard-form").bootstrapWizard({
-                             'tabClass' : 'nav-tab',
-                             'nextSelector': '.btn-next',
-                             'previousSelector' : '.btn-back',
-                             'lastSelector': '.btn-last',
-                             'onNext': function(tab, navigation, index) {
-                                 var progressBar = $('#js-progress').find('.progress-bar');
-                                 var progressVal = $('#js-progress').find('.progress-val');
-                                 var current = index + 1;
-                                 if (current > 1) {
-                                     var val = parseInt(progressBar.text());
-                                     val += 30;
-                                     progressBar.css('width', val+ '%');
-                                     progressVal.text(val+'%');
-                                 }
+         $("#js-wizard-form").bootstrapWizard({
+             'tabClass' : 'nav-tab',
+             'nextSelector': '.btn-next',
+             'previousSelector' : '.btn-back',
+             'lastSelector': '.btn-last',
+             'onNext': function(tab, navigation, index) {
+                 var progressBar = $('#js-progress').find('.progress-bar');
+                 var progressVal = $('#js-progress').find('.progress-val');
+                 var current = index + 1;
+                 if (current > 1) {
+                     var val = parseInt(progressBar.text());
+                     val += 30;
+                     progressBar.css('width', val+ '%');
+                     progressVal.text(val+'%');
+                 }
 
-                             },
-                             'onPrevious' : function(tab, navigation, index) {
-                                 var progressBar = $('#js-progress').find('.progress-bar');
-                                 var progressVal = $('#js-progress').find('.progress-val');
-                                 var current = index - 1;
-                                 if (current !== 1) {
-                                     var val = parseInt(progressBar.text());
-                                     val -= 30;
-                                     progressBar.css('width', val+ '%');
-                                     progressVal.text(val+'%');
-                                 }
+             },
+             'onPrevious' : function(tab, navigation, index) {
+                 var progressBar = $('#js-progress').find('.progress-bar');
+                 var progressVal = $('#js-progress').find('.progress-val');
+                 var current = index - 1;
+                 if (current !== 1) {
+                     var val = parseInt(progressBar.text());
+                     val -= 30;
+                     progressBar.css('width', val+ '%');
+                     progressVal.text(val+'%');
+                 }
 
-                             }
+             }
 
-                         });
+         });
 
-                     }
-                     catch (e) {
-                         console.log(e)
-                     }
+     }
+     catch (e) {
+         console.log(e)
+     }
 
-                 })(jQuery);
-
+ });  
 </script>
 </body>
