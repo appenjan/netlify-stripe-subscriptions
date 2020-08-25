@@ -746,15 +746,15 @@ Mein aktuelles Abo.</p>
                 </div>
                   <div class="input-group">
                       <label class="label">Strasse, Nr.:</label>
-                      <input class="input--style-1" type="text" name="street" placeholder="ex: Philadelphia Avenue">
+                      <input class="input--style-1" type="text" name="street" placeholder="z.B. Dorfstrasse 46">
                   </div>
                   <div class="input-group">
                       <label class="label">Stadt:</label>
-                      <input class="input--style-1" type="text" name="town" placeholder="The Town">
+                      <input class="input--style-1" type="text" name="town" placeholder="z.B. Rüti ZH">
                   </div>
                   <div class="input-group">
                       <label class="label">PLZ:</label>
-                      <input class="input--style-1" type="text" name="code">
+                      <input class="input--style-1" type="text" name="code" placeholder="z.B. 8630">
                   </div>
                   <div class="btn-next-con">
                       <a class="btn-back" href="#kickoff">back</a>
@@ -777,6 +777,22 @@ Mein aktuelles Abo.</p>
                   <div class="input-group">
                       <label class="label">Telefonnummer*:</label>
                       <input class="input--style-1" type="text" name="phone" placeholder="">
+                  </div>
+                  <div class="form-group">
+                  <label class="sr-only" for="form-about-yourself">Möchtest du uns sonst noch etwas mitteilen?</label>
+                  <textarea name="inputMessage4" placeholder="Möchten Sie uns sonst noch etwas mitteilen?"
+                        class="form-about-yourself form-control SafariFix" id="inputMessage4"></textarea>
+                  </div>
+
+                <div class="form-group">
+                  <select class="form-control" id="inputKontakt" name="inputKontakt" required>
+                    <option selected="true" value="Frau" disabled>Wie bist du auf uns aufmerksam geworden? *</option>
+                    <option value="Google, Bing">Google, Bing</option>
+                    <option value="Empfehlungen">Empfehlungen</option>
+                    <option value="Zeitungen">Zeitungen</option>
+                    <option value="Firmenauto">Firmenauto</option>
+                    <option value="Social Media">Social Media</option>
+                  </select>
                   </div>
                   <div class="btn-next-con">
                     <a class="btn-back" href="#kickoff">back</a>
