@@ -749,7 +749,7 @@ textarea {
                   <div class="row justify-content-center">
                       <div class="col-lg-3 col-md-1 col-0"></div>
                       <div class="col-lg-9 col-md-11 col-12 list text-left">
-                          <button id="next1" class="button_tuto next">Jetzt starten</button>
+                          <button id="next0" class="button_tuto next">Jetzt starten</button>
                       </div>
 
                   </div>
@@ -781,7 +781,7 @@ textarea {
 
                     </div>
                     <br><br>
-                    <button name="next" id="next2" class="button_tuto next">Weiter zur Einrichtung</button>
+                    <button name="next" id="next1" class="button_tuto next">Weiter zur Einrichtung</button>
                 </div>
             </div>
 
@@ -1900,7 +1900,7 @@ val1 = true;
 val21 = true;
 val22 = true;
 
-if((!str1.localeCompare($(this).attr('id')) && val1 == true) || (!str2.localeCompare($(this).attr('id')) && val21 == true && val22 == true)) {
+if((!str0.localeCompare($(this).attr('id'))) || (!str1.localeCompare($(this).attr('id')) && val1 == true) || (!str2.localeCompare($(this).attr('id')) && val21 == true && val22 == true)) {
 current_fs = $(this).parent().parent();
 next_fs = $(this).parent().parent().next();
 
