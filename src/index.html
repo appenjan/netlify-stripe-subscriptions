@@ -730,8 +730,10 @@ textarea {
                             <button class="js-scroll-trigger button_tuto" id="middle-4">Abo's buchen</button>
                             </div>
                         </div>
-                        <br><br>
-                    </div> <button name="next" id="next1" class="button_tuto next">Weiter zur Einrichtung</button>
+
+                    </div>
+                    <br><br>
+                    <button name="next" id="next1" class="button_tuto next">Weiter zur Einrichtung</button>
                 </div>
             </div>
 
@@ -945,13 +947,15 @@ textarea {
                         </form>
                   </div>
 
-                        <div class="col-xl-7 col-lg-8 col-10 list text-left"> <label class="text-danger mb-3">* Required</label>
+                        <!-- <div class="col-xl-7 col-lg-8 col-10 list text-left">
                             <div class="form-group"> <label class="form-control-label">Subject * :</label>
                               <input type="text" id="sub" name="subject" placeholder="Subject" class="form-control" onblur="validate(1)"> </div>
                             <div class="form-group"> <label class="form-control-label">Message * :</label>
                               <textarea type="textarea" id="msg" name="message" placeholder="Message" class="form-control" onblur="validate(2)"></textarea> </div>
-                        </div>
-                    </div> <button class="btn btn-success rounded-0 mb-5 prev">Back</button> <button id="next2" class="btn btn-success rounded-0 mb-5 next" onclick="validate(0)">Submit</button>
+                        </div> -->
+                    </div>
+                    <!-- <button class="btn btn-success rounded-0 mb-5 prev">Back</button>
+                    <button id="next2" class="btn btn-success rounded-0 mb-5 next" onclick="validate(0)">Submit</button> -->
                 </div>
             </div>
 
@@ -1840,48 +1844,7 @@ str1 = "next1";
 str2 = "next2";
 str3 = "next3";
 
-if(!str1.localeCompare($(this).attr('id')) && document.getElementById("customCheck1").checked == 1) {
-val1 = true;
-}
-else {
-val1 = false;
-}
-
-if(!str2.localeCompare($(this).attr('id')) && document.getElementById("sub").value != "") {
-val21 = true;
-}
-else {
-val21 = false;
-}
-
-if(!str2.localeCompare($(this).attr('id')) && document.getElementById("msg").value != "") {
-val22 = true;
-}
-else {
-val22 = false;
-}
-
-if((!str1.localeCompare($(this).attr('id')) && val1 == true) || (!str2.localeCompare($(this).attr('id')) && val21 == true && val22 == true) || !str3.localeCompare($(this).attr('id'))) {
-current_fs = $(this).parent().parent();
-next_fs = $(this).parent().parent().next();
-
-$(current_fs).removeClass("show");
-$(next_fs).addClass("show");
-
-current_fs.animate({}, {
-step: function() {
-
-current_fs.css({
-'display': 'none',
-'position': 'relative'
 });
-
-next_fs.css({
-'display': 'block'
-});
-}
-});
-}
 });
 
 $(".prev").click(function(){
