@@ -781,7 +781,7 @@ textarea {
                                 </li>
                             </ul>
                             <div class="tab-content">
-                                <div class="tab-pane" id="tab1">
+                                <div class="tab-pane active" id="tab1">
                                   <div class="input-group">
                                       <label class="label">Hast du bereits eine Webseite?*</label>
                                       <div class="segmented-control" style="width: 100%; ">
@@ -1527,7 +1527,7 @@ Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? W
     container.innerHTML = '';
 
     if (user) {
-      b7.innerText = 'Abo Easy wählen';
+      b7.innerText = 'Abo buchen';
       b7.addEventListener('click', () => {
         // TODO handle subscription management
         fetch('/.netlify/functions/create-manage-link', {
