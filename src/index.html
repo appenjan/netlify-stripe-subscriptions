@@ -662,9 +662,28 @@ Mein aktuelles Abo.</p>
               <li>
                   <a href="#tab4" data-toggle="tab">1</a>
               </li>
+              <li>
+                  <a href="#tab5" data-toggle="tab">1</a>
+              </li>
           </ul>
           <div class="tab-content">
-              <div class="tab-pane active" id="tab1">
+            <div class="tab-pane active" id="tab1">
+              <div class="input-group">
+                <div class="user-info-17">
+                <button class="js-scroll-trigger small" id="middle-4">Abo Easy wählen</button>
+                </div>
+                <div class="user-info-18">
+                <button class="js-scroll-trigger small" id="middle-5">Abo Business wählen</button>
+                </div>
+                <div class="user-info-19">
+                <button class="js-scroll-trigger small" id="middle-6">Abo Professional wählen</button>
+                </div>
+                <div class="btn-next-con">
+
+                    <a class="btn-next" href="#kickoff">Weiter</a>
+                </div>
+            </div>
+              <div class="tab-pane active" id="tab2">
                 <div class="input-group">
                     <label class="label">Hast du bereits eine Webseite?*</label>
                     <div class="segmented-control" style="width: 100%; ">
@@ -713,18 +732,18 @@ Mein aktuelles Abo.</p>
                       <input type="radio" name="sc-1-9" value="Webseitestil Frech" id="sc-1-9-4">
                       <label for="sc-1-9-1" data-value="Minimalistisch">Minimalistisch.</label>
                       <label for="sc-1-9-2" data-value="Traditionell">Traditionell</label>
-                      <label for="sc-1-9-1" data-value="Formell">Formell</label>
-                      <label for="sc-1-9-2" data-value="Frech">Frech</label>
+                      <label for="sc-1-9-3" data-value="Formell">Formell</label>
+                      <label for="sc-1-9-4" data-value="Frech">Frech</label>
                     </div>
                 </div>
 
                   <div class="btn-next-con">
-
+                      <a class="btn-back" href="#kickoff">Zurück</a>
                       <a class="btn-next" href="#kickoff">Weiter</a>
                   </div>
               </div>
 
-              <div class="tab-pane" id="tab2">
+              <div class="tab-pane" id="tab3">
                 <div class="input-group">
                     <label class="label">Hast du eine gewünschte Primärfarbe?*</label>
                     <div class="segmented-control" style="width: 100%; ">
@@ -764,7 +783,7 @@ Mein aktuelles Abo.</p>
                       <a class="btn-next" href="#kickoff">Weiter</a>
                   </div>
               </div>
-              <div class="tab-pane" id="tab3">
+              <div class="tab-pane" id="tab4">
                 <div class="input-group">
                     <div class="segmented-control" style="width: 100%; ">
                       <input type="radio" name="sc-1-8" value="Geschäftskunde" id="sc-1-8-1" checked>
@@ -794,7 +813,7 @@ Mein aktuelles Abo.</p>
                       <a class="btn-next" href="#kickoff">Weiter</a>
                   </div>
               </div>
-              <div class="tab-pane" id="tab4">
+              <div class="tab-pane" id="tab5">
                   <div class="input-group">
                       <label class="label">Vorname*:</label>
                       <input class="input--style-1" type="text" name="fullname" placeholder="z.B. Max">
@@ -863,6 +882,10 @@ Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? W
   const button4 = document.getElementById('middle-2');
   const button5 = document.getElementById('middle-3');
   const button6 = document.getElementById('regist');
+
+  const button7 = document.getElementById('middle-4');
+  const button8 = document.getElementById('middle-5');
+  const button9 = document.getElementById('middle-6');
 
   const text1 = document.getElementById('portal_header');
   const text2 = document.getElementById('mein_konto');
@@ -1231,8 +1254,6 @@ Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? W
     container.appendChild(t5);
   };
 
-
-
   const updateUserInfo15 = (user) => {
     const container = document.querySelector('.user-info-15');
 
@@ -1278,6 +1299,118 @@ Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? W
     // add the updated buttons back to the user info div
     container.appendChild(t7);
   };
+
+  const updateUserInfo17 = (user) => {
+    const container = document.querySelector('.user-info-17');
+
+    // cloning the buttons removes existing event listeners
+    const b7 = button4.cloneNode(true);
+
+    // empty the user info div
+    container.innerHTML = '';
+
+    if (user) {
+      b7.innerText = 'Abo Easy wählen';
+      b7.addEventListener('click', () => {
+        // TODO handle subscription management
+        fetch('/.netlify/functions/create-manage-link', {
+          method: 'POST',
+          headers: {
+            Authorization: `Bearer ${user.token.access_token}`,
+          },
+        })
+          .then((res) => res.json())
+          .then((link) => {
+            window.location.href = link;
+          })
+          .catch((err) => console.error(err));
+      });
+    }
+
+    else {
+      // if no one is logged in, show login/signup options
+      b7.innerText = 'Anmelden';
+      b7.addEventListener('click', login);
+    }
+
+    // add the updated buttons back to the user info div
+    container.appendChild(b4);
+  };
+
+  const updateUserInfo18 = (user) => {
+    const container = document.querySelector('.user-info-18');
+
+    // cloning the buttons removes existing event listeners
+    const b8 = button4.cloneNode(true);
+
+    // empty the user info div
+    container.innerHTML = '';
+
+    if (user) {
+      b8.innerText = 'Abo Business wählen';
+      b8.addEventListener('click', () => {
+        // TODO handle subscription management
+        fetch('/.netlify/functions/create-manage-link', {
+          method: 'POST',
+          headers: {
+            Authorization: `Bearer ${user.token.access_token}`,
+          },
+        })
+          .then((res) => res.json())
+          .then((link) => {
+            window.location.href = link;
+          })
+          .catch((err) => console.error(err));
+      });
+    }
+
+    else {
+      // if no one is logged in, show login/signup options
+      b8.innerText = 'Anmelden';
+      b8.addEventListener('click', login);
+    }
+
+    // add the updated buttons back to the user info div
+    container.appendChild(b4);
+  };
+
+  const updateUserInfo19 = (user) => {
+    const container = document.querySelector('.user-info-19');
+
+    // cloning the buttons removes existing event listeners
+    const b9 = button4.cloneNode(true);
+
+    // empty the user info div
+    container.innerHTML = '';
+
+    if (user) {
+      b9.innerText = 'Abo Professional wählen';
+      b9.addEventListener('click', () => {
+        // TODO handle subscription management
+        fetch('/.netlify/functions/create-manage-link', {
+          method: 'POST',
+          headers: {
+            Authorization: `Bearer ${user.token.access_token}`,
+          },
+        })
+          .then((res) => res.json())
+          .then((link) => {
+            window.location.href = link;
+          })
+          .catch((err) => console.error(err));
+      });
+    }
+
+    else {
+      // if no one is logged in, show login/signup options
+      b9.innerText = 'Anmelden';
+      b9.addEventListener('click', login);
+    }
+
+    // add the updated buttons back to the user info div
+    container.appendChild(b4);
+  };
+
 
   const loadSubscriptionContent = async (user) => {
     const token = user ? await netlifyIdentity.currentUser().jwt(true) : false;
@@ -1338,6 +1471,10 @@ Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? W
 
     updateUserInfo15(user);
     updateUserInfo16(user);
+    updateUserInfo17(user);
+    updateUserInfo18(user);
+    updateUserInfo19(user);
+
     loadSubscriptionContent(user);
   };
 
