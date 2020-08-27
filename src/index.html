@@ -707,7 +707,60 @@ Mein aktuelles Abo.</p>
                       <a class="btn-next" href="#kickoff">Weiter</a>
                   </div>
               </div>
-              <div class="tab-pane" id="tab2">
+              <div class="tab-pane active" id="tab2">
+                <div class="input-group">
+                    <label class="label">Welchen Stil bevorzugst du?*</label>
+                    <div class="segmented-control" style="width: 100%; ">
+                      <input type="radio" name="sc-1-9" value="Webseitestil Minimalistisch" id="sc-1-9-1" >
+                      <input type="radio" name="sc-1-9" value="Webseitestil Traditionell" id="sc-1-9-2">
+                      <input type="radio" name="sc-1-9" value="Webseitestil Formell" id="sc-1-9-3" >
+                      <input type="radio" name="sc-1-9" value="Webseitestil Frech" id="sc-1-9-4">
+                      <label for="sc-1-5-1" data-value="Webseitestil Minimalistisch">Minimalistisch.</label>
+                      <label for="sc-1-5-2" data-value="Webseitestil Traditionell">Traditionell</label>
+                      <label for="sc-1-5-1" data-value="Webseitestil Formell">Formell</label>
+                      <label for="sc-1-5-2" data-value="Webseitestil Frech">Frech</label>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label class="label">Hast du eine gewünschte Primärfarbe?*</label>
+                    <div class="segmented-control" style="width: 100%; ">
+                      <input type="radio" name="sc-1-10" value="Primärfarbe vorhanden" id="sc-1-10-1" >
+                      <input type="radio" name="sc-1-10" value="Primärfarbe nicht vorhanden" id="sc-1-10-2" >
+                      <label for="sc-1-10-1" data-value="Primärfarbe vorhanden">Ja, ich habe eine.</label>
+                      <label for="sc-1-10-2" data-value="Primärfarbe nicht vorhanden">Nein, ich habe keine</label>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <input class="input--style-1" type="text" name="primärfarbe" placeholder="z.B. Farbe, HEX, RAL, etc.">
+                </div>
+                <div class="input-group">
+                    <label class="label">Hast du eine gewünschte Sekundärfarbe?*</label>
+                    <div class="segmented-control" style="width: 100%; ">
+                      <input type="radio" name="sc-1-11" value="Sekundärfarbe vorhanden" id="sc-1-11-1" >
+                      <input type="radio" name="sc-1-11" value="Sekundärfarbe nicht vorhanden" id="sc-1-11-2" >
+                      <label for="sc-1-11-1" data-value="Sekundärfarbe vorhanden">Ja, ich habe eine.</label>
+                      <label for="sc-1-11-2" data-value="Sekundärfarbe nicht vorhanden">Nein, ich habe keine</label>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <input class="input--style-1" type="text" name="sekundärfarbe" placeholder="z.B. Farbe, HEX, RAL, etc.">
+                </div>
+                <div class="input-group">
+                    <label class="label">Sind deine Texte für die Webseite schon vorhanden?*</label>
+                    <div class="segmented-control" style="width: 100%; ">
+                      <input type="radio" name="sc-1-11" value="Ja vorhanden" id="sc-1-12-1" >
+                      <input type="radio" name="sc-1-11" value="Nein nicht vorhanden" id="sc-1-12-2" >
+                      <label for="sc-1-12-1" data-value="Ja vorhanden">Ja, ich habe diese bereits.</label>
+                      <label for="sc-1-12-2" data-value="Nein nicht vorhanden">Nein, ich habe noch keine</label>
+                    </div>
+                </div>
+
+                  <div class="btn-next-con">
+
+                      <a class="btn-next" href="#kickoff">Weiter</a>
+                  </div>
+              </div>
+              <div class="tab-pane" id="tab3">
                 <div class="input-group">
                     <div class="segmented-control" style="width: 100%; ">
                       <input type="radio" name="sc-1-8" value="Geschäftskunde" id="sc-1-8-1" checked>
@@ -737,7 +790,7 @@ Mein aktuelles Abo.</p>
                       <a class="btn-next" href="#kickoff">Weiter</a>
                   </div>
               </div>
-              <div class="tab-pane" id="tab3">
+              <div class="tab-pane" id="tab4">
                   <div class="input-group">
                       <label class="label">Vorname*:</label>
                       <input class="input--style-1" type="text" name="fullname" placeholder="z.B. Max">
@@ -1434,6 +1487,36 @@ Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? W
     $('input[id="sc-1-8-2"]').on('click', function () {
         if ($(this).prop('checked')) {
             $('div[name="firma_in"]').hide();
+        } else {
+
+        }
+    });
+
+    $('input[id="sc-1-10-1"]').on('click', function () {
+        if ($(this).prop('checked')) {
+            $('input[name="primärfarbe"]').fadeIn();
+        } else {
+            $('input[name="primärfarbe"]').hide();
+        }
+    });
+    $('input[id="sc-1-10-2"]').on('click', function () {
+        if ($(this).prop('checked')) {
+            $('input[name="primärfarbe"]').hide();
+        } else {
+
+        }
+    });
+
+    $('input[id="sc-1-11-1"]').on('click', function () {
+        if ($(this).prop('checked')) {
+            $('input[name="sekundärfarbe"]').fadeIn();
+        } else {
+            $('input[name="sekundärfarbe"]').hide();
+        }
+    });
+    $('input[id="sc-1-11-2"]').on('click', function () {
+        if ($(this).prop('checked')) {
+            $('input[name="sekundärfarbe"]').hide();
         } else {
 
         }
