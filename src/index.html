@@ -611,6 +611,10 @@ background-color: black;
       <div class="tab-content">
         <div class="tab-pane active" id="tab1">
 
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+  Open modal
+</button>
+
             <div class="btn-next-con">
 
                 <a class="btn-next" href="#kickoff">Weiter</a>
@@ -794,15 +798,7 @@ background-color: black;
 
 
 
-                          <div class="user-info-17">
-                          <button class="js-scroll-trigger small" id="middle-4">Abo Easy wählen</button>
-                          </div>
-                          <div class="user-info-18">
-                          <button class="js-scroll-trigger small" id="middle-5">Abo Business wählen</button>
-                          </div>
-                          <div class="user-info-19">
-                          <button class="js-scroll-trigger small" id="middle-6">Abo Professional wählen</button>
-                          </div>
+
 
 </section>
 
@@ -880,6 +876,39 @@ Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? W
 </div>
 </div>
 </section>
+
+<div class="modal" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Modal Heading</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <div class="user-info-17">
+        <button class="js-scroll-trigger small" id="middle-4">Abo Easy wählen</button>
+        </div>
+        <div class="user-info-18">
+        <button class="js-scroll-trigger small" id="middle-5">Abo Business wählen</button>
+        </div>
+        <div class="user-info-19">
+        <button class="js-scroll-trigger small" id="middle-6">Abo Professional wählen</button>
+        </div>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
 </div>
 
 <script>
