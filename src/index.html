@@ -1844,7 +1844,31 @@ str1 = "next1";
 str2 = "next2";
 str3 = "next3";
 
+val1 = true;
+val21 = true;
+val22 = true;
+
+if((!str1.localeCompare($(this).attr('id')) && val1 == true) || (!str2.localeCompare($(this).attr('id')) && val21 == true && val22 == true) || !str3.localeCompare($(this).attr('id'))) {
+current_fs = $(this).parent().parent();
+next_fs = $(this).parent().parent().next();
+
+$(current_fs).removeClass("show");
+$(next_fs).addClass("show");
+
+current_fs.animate({}, {
+step: function() {
+
+current_fs.css({
+'display': 'none',
+'position': 'relative'
 });
+
+next_fs.css({
+'display': 'block'
+});
+}
+});
+}
 });
 
 $(".prev").click(function(){
