@@ -1552,81 +1552,6 @@ Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? W
     container.appendChild(b7);
   };
 
-  const updateUserInfo18 = (user) => {
-    const container = document.querySelector('.user-info-18');
-
-    // cloning the buttons removes existing event listeners
-    const b8 = button8.cloneNode(true);
-
-    // empty the user info div
-    container.innerHTML = '';
-
-    if (user) {
-      b8.innerText = 'Abo Business wählen';
-      b8.addEventListener('click', () => {
-        // TODO handle subscription management
-        fetch('/.netlify/functions/create-manage-link', {
-          method: 'POST',
-          headers: {
-            Authorization: `Bearer ${user.token.access_token}`,
-          },
-        })
-          .then((res) => res.json())
-          .then((link) => {
-            window.location.href = link;
-          })
-          .catch((err) => console.error(err));
-      });
-    }
-
-    else {
-      // if no one is logged in, show login/signup options
-      b8.innerText = 'Anmelden';
-      b8.addEventListener('click', login);
-    }
-
-    // add the updated buttons back to the user info div
-    container.appendChild(b8);
-  };
-
-  const updateUserInfo19 = (user) => {
-    const container = document.querySelector('.user-info-19');
-
-    // cloning the buttons removes existing event listeners
-    const b9 = button9.cloneNode(true);
-
-    // empty the user info div
-    container.innerHTML = '';
-
-    if (user) {
-      b9.innerText = 'Abo Professional wählen';
-      b9.addEventListener('click', () => {
-        // TODO handle subscription management
-        fetch('/.netlify/functions/create-manage-link', {
-          method: 'POST',
-          headers: {
-            Authorization: `Bearer ${user.token.access_token}`,
-          },
-        })
-          .then((res) => res.json())
-          .then((link) => {
-            window.location.href = link;
-          })
-          .catch((err) => console.error(err));
-      });
-    }
-
-    else {
-      // if no one is logged in, show login/signup options
-      b9.innerText = 'Anmelden';
-      b9.addEventListener('click', login);
-    }
-
-    // add the updated buttons back to the user info div
-    container.appendChild(b9);
-  };
-
-
   const loadSubscriptionContent = async (user) => {
     const token = user ? await netlifyIdentity.currentUser().jwt(true) : false;
 
@@ -1687,8 +1612,6 @@ Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? W
     updateUserInfo15(user);
     updateUserInfo16(user);
     updateUserInfo17(user);
-    updateUserInfo18(user);
-    updateUserInfo19(user);
 
     loadSubscriptionContent(user);
   };
