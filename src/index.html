@@ -1900,7 +1900,7 @@ val1 = true;
 val21 = true;
 val22 = true;
 
-if((!str0.localeCompare($(this).attr('id'))) || (!str1.localeCompare($(this).attr('id')) && val1 == true) || (!str2.localeCompare($(this).attr('id')) && val21 == true && val22 == true) || !str3.localeCompare($(this).attr('id'))) {
+if((!str1.localeCompare($(this).attr('id')) && val1 == true) || (!str2.localeCompare($(this).attr('id')) && val21 == true && val22 == true) {
 current_fs = $(this).parent().parent();
 next_fs = $(this).parent().parent().next();
 
