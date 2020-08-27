@@ -541,9 +541,10 @@ background-color: black;
 }
 
 .card {
-  background-color: white;
-  border: 1px solid white;
-  box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.2);
+    display: none;
+    background-color: #E0F7FA;
+    border: 1px solid #E0F7FA;
+    box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.2)
 }
 
 .step-container {
@@ -637,14 +638,6 @@ textarea {
     height: 100px
 }
 .button_tuto {
-  display: inline-block;
-    font-family: 'Gothic A1', sans-serif;
-    font-size: 17px;
-    letter-spacing: -0.1px;
-    height: 5.4rem;
-    line-height: 5rem;
-    padding: 0 3rem;
-    margin: 0 .3rem 1.2rem 0;
     background-color: #22313f;
     border-color: #22313f;
     padding-left: 5px;
@@ -733,29 +726,29 @@ textarea {
                     <div class="row justify-content-center">
                         <div class="col-lg-3 col-md-1 col-0"></div>
                         <div class="col-lg-9 col-md-11 col-12 list text-left">
-                            <div class="custom-control custom-checkbox mb-4"> <input id="customCheck1" type="checkbox" class="custom-control-input" checked="1"> <label for="customCheck1" class="custom-control-label">I have read and agree to the following 1. Abo auswählen</label> </div>
+                            <div class="custom-control custom-checkbox mb-4"> <input id="customCheck1" type="checkbox" class="custom-control-input" checked="1"> <label for="customCheck1" class="custom-control-label">I have read and agree to the following Terms and Conditions</label> </div>
                             <div class="user-info-17">
                             <button class="js-scroll-trigger button_tuto" id="middle-4">Abo wählen</button>
                             </div>
                         </div>
-                    </div> <button name="next" id="next1" class="button_tuto next">Jetzt beginnen</button>
+                    </div> <button name="next" id="next1" class="button_tuto next">START</button>
                 </div>
             </div>
 
             <div class="card b-0 rounded-0">
                 <div class="row justify-content-center mx-auto step-container">
                     <div class="col-md-3 col-4 step-box">
-                        <h6 class="step-title-0"> <span class="fa fa-check"></span> <span class="break-line"></span> <span class="step-title">1. Abo auswählen</span> </h6>
+                        <h6 class="step-title-0"> <span class="fa fa-check"></span> <span class="break-line"></span> <span class="step-title">TERMS AND CONDITIONS</span> </h6>
                     </div>
                     <div class="col-md-3 col-4 step-box active">
-                        <h6 class="step-title-0"> <span class="fa fa-circle"></span> <span class="break-line"></span> <span class="step-title">2. Einrichtung abschliessen</span> </h6>
+                        <h6 class="step-title-0"> <span class="fa fa-circle"></span> <span class="break-line"></span> <span class="step-title">FEEDBACK</span> </h6>
                     </div>
                     <div class="col-md-3 col-4 step-box">
-                        <h6 class="step-title-0"> <span class="fa fa-circle"></span> <span class="break-line"></span> <span class="step-title">3. Wir kontaktieren dich</span> </h6>
+                        <h6 class="step-title-0"> <span class="fa fa-circle"></span> <span class="break-line"></span> <span class="step-title">CONFIRMATION</span> </h6>
                     </div>
                 </div>
                 <div class="p-3 justify-content-center text-center">
-                    <h4 class="heading">2. Einrichtung abschliessen</h4>
+                    <h4 class="heading">Feedback</h4>
                     <div class="row justify-content-center mb-4">
                       <div class="col-md-12">
                         <form name="contact_kickoff"  method="POST" data-netlify="true" action="/confirm.html" class="wizard-container" id="js-wizard-form" enctype='multipart/form-data' >
@@ -777,9 +770,24 @@ textarea {
                                 <li>
                                     <a href="#tab4" data-toggle="tab">1</a>
                                 </li>
+                                <li>
+                                    <a href="#tab5" data-toggle="tab">1</a>
+                                </li>
                             </ul>
                             <div class="tab-content">
-                                <div class="tab-pane" id="tab1">
+                              <div class="tab-pane active" id="tab1">
+                                  <div class="user-info-18">
+                                  <button class="js-scroll-trigger small" id="middle-5">Abo Business wählen</button>
+                                  </div>
+                                  <div class="user-info-19">
+                                  <button class="js-scroll-trigger small" id="middle-6">Abo Professional wählen</button>
+                                  </div>
+                                  <div class="btn-next-con">
+
+                                      <a class="btn-next" href="#kickoff">Weiter</a>
+                                  </div>
+                                  </div>
+                                <div class="tab-pane" id="tab2">
                                   <div class="input-group">
                                       <label class="label">Hast du bereits eine Webseite?*</label>
                                       <div class="segmented-control" style="width: 100%; ">
@@ -839,7 +847,7 @@ textarea {
                                     </div>
                                 </div>
 
-                                <div class="tab-pane" id="tab2">
+                                <div class="tab-pane" id="tab3">
                                   <div class="input-group">
                                       <label class="label">Hast du eine gewünschte Primärfarbe?*</label>
                                       <div class="segmented-control" style="width: 100%; ">
@@ -879,7 +887,7 @@ textarea {
                                         <a class="btn-next" href="#kickoff">Weiter</a>
                                     </div>
                                 </div>
-                                <div class="tab-pane" id="tab3">
+                                <div class="tab-pane" id="tab4">
                                   <div class="input-group">
                                       <div class="segmented-control" style="width: 100%; ">
                                         <input type="radio" name="sc-1-8" value="Geschäftskunde" id="sc-1-8-1" checked>
@@ -909,7 +917,7 @@ textarea {
                                         <a class="btn-next" href="#kickoff">Weiter</a>
                                     </div>
                                 </div>
-                                <div class="tab-pane" id="tab4">
+                                <div class="tab-pane" id="tab5">
                                     <div class="input-group">
                                         <label class="label">Vorname*:</label>
                                         <input class="input--style-1" type="text" name="fullname" placeholder="z.B. Max">
@@ -968,17 +976,17 @@ textarea {
             <div class="card b-0 rounded-0">
                 <div class="row justify-content-center mx-auto step-container">
                     <div class="col-md-3 col-4 step-box">
-                        <h6 class="step-title-0"> <span class="fa fa-check"></span> <span class="break-line"></span> <span class="step-title">1. Abo auswählen</span> </h6>
+                        <h6 class="step-title-0"> <span class="fa fa-check"></span> <span class="break-line"></span> <span class="step-title">TERMS AND CONDITIONS</span> </h6>
                     </div>
                     <div class="col-md-3 col-4 step-box">
-                        <h6 class="step-title-0"> <span class="fa fa-check"></span> <span class="break-line"></span> <span class="step-title">2. Einrichtung abschliessen</span> </h6>
+                        <h6 class="step-title-0"> <span class="fa fa-check"></span> <span class="break-line"></span> <span class="step-title">FEEDBACK</span> </h6>
                     </div>
                     <div class="col-md-3 col-4 step-box active">
-                        <h6 class="step-title-0"> <span class="fa fa-circle"></span> <span class="break-line"></span> <span class="step-title">3. Wir kontaktieren dich</span> </h6>
+                        <h6 class="step-title-0"> <span class="fa fa-circle"></span> <span class="break-line"></span> <span class="step-title">CONFIRMATION</span> </h6>
                     </div>
                 </div>
                 <div class="p-3 justify-content-center text-center">
-                    <h4 class="heading">3. Wir kontaktieren dich</h4>
+                    <h4 class="heading">Confirmation</h4>
                     <div class="row d-flex justify-content-center">
                         <div class="mb-4">
                             <h6 class="confirm">Verify all entered details and press confirm</h6>
@@ -990,17 +998,17 @@ textarea {
             <div class="card b-0 rounded-0">
                 <div class="row justify-content-center mx-auto step-container">
                     <div class="col-md-3 col-4 step-box">
-                        <h6 class="step-title-0"> <span class="fa fa-check"></span> <span class="break-line"></span> <span class="step-title">1. Abo auswählen</span> </h6>
+                        <h6 class="step-title-0"> <span class="fa fa-check"></span> <span class="break-line"></span> <span class="step-title">TERMS AND CONDITIONS</span> </h6>
                     </div>
                     <div class="col-md-3 col-4 step-box">
-                        <h6 class="step-title-0"> <span class="fa fa-check"></span> <span class="break-line"></span> <span class="step-title">2. Einrichtung abschliessen</span> </h6>
+                        <h6 class="step-title-0"> <span class="fa fa-check"></span> <span class="break-line"></span> <span class="step-title">FEEDBACK</span> </h6>
                     </div>
                     <div class="col-md-3 col-4 step-box">
-                        <h6 class="step-title-0"> <span class="fa fa-check"></span> <span class="break-line"></span> <span class="step-title">3. Wir kontaktieren dich</span> </h6>
+                        <h6 class="step-title-0"> <span class="fa fa-check"></span> <span class="break-line"></span> <span class="step-title">CONFIRMATION</span> </h6>
                     </div>
                 </div>
                 <div class="p-3 justify-content-center text-center">
-                    <h3 class="heading">Thank You for your 2. Einrichtung abschliessen!</h3>
+                    <h3 class="heading">Thank You for your Feedback!</h3>
                     <div class="row justify-content-center">
                         <div class=""> <img src="https://i.imgur.com/4Y9xMCF.gif" class="fit-image mb-5"> </div>
                     </div>
@@ -1552,6 +1560,81 @@ Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? W
     container.appendChild(b7);
   };
 
+  const updateUserInfo18 = (user) => {
+    const container = document.querySelector('.user-info-18');
+
+    // cloning the buttons removes existing event listeners
+    const b8 = button8.cloneNode(true);
+
+    // empty the user info div
+    container.innerHTML = '';
+
+    if (user) {
+      b8.innerText = 'Abo Business wählen';
+      b8.addEventListener('click', () => {
+        // TODO handle subscription management
+        fetch('/.netlify/functions/create-manage-link', {
+          method: 'POST',
+          headers: {
+            Authorization: `Bearer ${user.token.access_token}`,
+          },
+        })
+          .then((res) => res.json())
+          .then((link) => {
+            window.location.href = link;
+          })
+          .catch((err) => console.error(err));
+      });
+    }
+
+    else {
+      // if no one is logged in, show login/signup options
+      b8.innerText = 'Anmelden';
+      b8.addEventListener('click', login);
+    }
+
+    // add the updated buttons back to the user info div
+    container.appendChild(b8);
+  };
+
+  const updateUserInfo19 = (user) => {
+    const container = document.querySelector('.user-info-19');
+
+    // cloning the buttons removes existing event listeners
+    const b9 = button9.cloneNode(true);
+
+    // empty the user info div
+    container.innerHTML = '';
+
+    if (user) {
+      b9.innerText = 'Abo Professional wählen';
+      b9.addEventListener('click', () => {
+        // TODO handle subscription management
+        fetch('/.netlify/functions/create-manage-link', {
+          method: 'POST',
+          headers: {
+            Authorization: `Bearer ${user.token.access_token}`,
+          },
+        })
+          .then((res) => res.json())
+          .then((link) => {
+            window.location.href = link;
+          })
+          .catch((err) => console.error(err));
+      });
+    }
+
+    else {
+      // if no one is logged in, show login/signup options
+      b9.innerText = 'Anmelden';
+      b9.addEventListener('click', login);
+    }
+
+    // add the updated buttons back to the user info div
+    container.appendChild(b9);
+  };
+
+
   const loadSubscriptionContent = async (user) => {
     const token = user ? await netlifyIdentity.currentUser().jwt(true) : false;
 
@@ -1612,6 +1695,8 @@ Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? W
     updateUserInfo15(user);
     updateUserInfo16(user);
     updateUserInfo17(user);
+    updateUserInfo18(user);
+    updateUserInfo19(user);
 
     loadSubscriptionContent(user);
   };
