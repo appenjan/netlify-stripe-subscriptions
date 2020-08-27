@@ -726,6 +726,8 @@ button:focus {
                           <button class="js-scroll-trigger small" id="middle-6">Abo Professional wählen</button>
                           </div>
 
+                          <div class="custom-control custom-checkbox mb-4"> <input id="customCheck1" type="checkbox" class="custom-control-input" checked="1"> <label for="customCheck1" class="custom-control-label">I have read and agree to the following Terms and Conditions</label> </div>
+
                     </div> <button name="next" id="next1" class="btn btn-success rounded-0 mb-5 next">START</button>
                 </div>
             </div>
@@ -1918,6 +1920,13 @@ $(".next").click(function(){
 str1 = "next1";
 str2 = "next2";
 str3 = "next3";
+
+if(!str1.localeCompare($(this).attr('id')) && document.getElementById("customCheck1").checked == 1) {
+val1 = true;
+}
+else {
+val1 = false;
+}
 
 
 if(!str2.localeCompare($(this).attr('id')) && document.getElementById("sub").value != "") {
