@@ -1313,7 +1313,7 @@ Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? W
       b7.addEventListener('click', () => {
         // TODO handle subscription management
         fetch('/.netlify/functions/create-manage-link', {
-          method: 'POST',
+          method: 'GET',
           headers: {
             Authorization: `Bearer ${user.token.access_token}`,
           },
