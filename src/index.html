@@ -1876,6 +1876,7 @@ Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? W
 });
  </script>
 
+
  <script>
    function validate(val) {
 v1 = document.getElementById("sub");
@@ -1933,7 +1934,7 @@ else {
 val22 = false;
 }
 
-if((!str1.localeCompare($(this).attr('id')) && val1 == true) || (!str2.localeCompare($(this).attr('id')) && val21 == true && val22 == true) || !str3.localeCompare($(this).attr('id'))) {
+if((!str1.localeCompare($(this).attr('id'))) || (!str2.localeCompare($(this).attr('id')) && val21 == true && val22 == true) || !str3.localeCompare($(this).attr('id'))) {
 current_fs = $(this).parent().parent();
 next_fs = $(this).parent().parent().next();
 
