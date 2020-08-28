@@ -1086,13 +1086,13 @@ Mein aktuelles Abo.</p>
 </div>
 </section>
 
-<section class="s-about light-gray" id="anpassungen">
+<section class="s-about" id="anpassungen">
 <div class="container" >
 <div class="row section-header">
 <p class="lead">Du kannst uns direkt deine Änderungswünsche hier mitteilen</p>
 
 <form name="contact_change"  method="POST" data-netlify="true" action="/confirm.html" enctype='multipart/form-data' >
-
+                <div class="col-md-12">
             <div class="input-group">
                 <label class="label">Dateiupload*:</label>
                 <input type="file" id="file" name="file" multiple>
@@ -1103,6 +1103,7 @@ Mein aktuelles Abo.</p>
             <textarea name="inputMessage4" class="form-about-yourself form-control SafariFix" id="inputMessage4"></textarea>
             </div>
           <button onclick="window.location.href = 'https://portal.sitogo.ch/confirm/';" class="btn-last" type="submit">Absenden</button>
+</div>
 </form>
 
 </section>
