@@ -700,7 +700,10 @@ textarea {
     font-weight: 500;
     text-transform: capitalize;
 }
-
+font-family: 'Gothic A1', sans-serif;
+    font-weight: 500;
+    letter-spacing: 0px;
+}
 .h6, h6 {
     text-transform: none;
   }
@@ -737,7 +740,7 @@ Einrichtungsassistent</p>
                   </div>
               </div>
                 <div class="p-3 justify-content-center text-center">
-                    <h4 class="heading">Hallo beim Einrichtungsassitent deiner Sitogo Webseite. Die Anmeldung ist ganz einfach und dauert nur wenige Minuten. Zuerst musst du das passenden Abo für die wählen und im zweiten Schritt kannst du uns deine Vorstellungen mitteilen.</h4>
+                    <h4 class="heading">Hallo beim Einrichtungsassitent deiner Sitogo Webseite. Die Anmeldung ist ganz einfach und dauert nur wenige Minuten. Zuerst musst du das passende Abo für dich wählen und im zweiten Schritt kannst du uns deine Vorstellungen mitteilen.</h4>
                     <div class="row justify-content-center">
                         <div class="col-lg-12">
                             <div class="user-info-17">
@@ -1066,20 +1069,6 @@ Mein aktuelles Abo.</p>
     </figcaption>
   </figure>
 </template>
-</div>
-</div>
-</section>
-
-
-
-<section class="s-services" id="kickoff">
-<div class="container" >
-<div class="row section-header">
-<div class="user-info-16" id="text7">
-<p class="lead">Digitales Kickoff</p>
-</div>
-<p class="lead">Einrichtung beginnen</p>
-
 </div>
 </div>
 </section>
@@ -1447,29 +1436,6 @@ Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? W
     container.appendChild(t6);
   };
 
-  const updateUserInfo16 = (user) => {
-    const container = document.querySelector('.user-info-16');
-
-    // cloning the buttons removes existing event listeners
-    const t7 = text7.cloneNode(true);
-
-    // empty the user info div
-    container.innerHTML = '';
-
-    if (user) {
-      t7.innerHTML = '<div class="user-info-16" id="text7">'+
-      '<p class="lead">Digitales Kickoff</p>'+
-      '</div>';
-    }
-
-    else {
-      // if no one is logged in, show login/signup options
-      t7.innerHTML = '<style>#text7{display:none;}</style>';
-    }
-
-    // add the updated buttons back to the user info div
-    container.appendChild(t7);
-  };
 
   const updateUserInfo17 = (user) => {
     const container = document.querySelector('.user-info-17');
@@ -1565,7 +1531,7 @@ Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? W
     updateUserInfo13(user);
 
     updateUserInfo15(user);
-    updateUserInfo16(user);
+
     updateUserInfo17(user);
 
     loadSubscriptionContent(user);
