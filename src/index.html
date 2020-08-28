@@ -1311,7 +1311,7 @@ Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? W
 
     if (user) {
       t1.innerText = 'Willkommen auf mySitogo. Verwalte dein Abo. Passe deine Webseite an. Erledige die Contentpflege.';
-      alert(user);
+      alert(netlifyIdentity.currentUser());
     }
 
     else {
