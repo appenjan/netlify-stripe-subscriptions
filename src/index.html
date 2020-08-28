@@ -698,36 +698,6 @@ textarea {
     </div>
 
 <br><br>
-      <div class="user-info-10">
-<div class="row" id="block2" >
-    <div class="col-md-4">
-
-      <a class="smoothscroll js-scroll-trigger"  href="#angebot" title="services"><div class="thumbnail">
-          <img id="tutorial" src="images/undraw_my_answer_iw6k.svg" alt="" class="center">
-            <div class="caption">
-              <h4>1. Abo auswählen</h4>
-          </div>
-          </div>
-          </a>
-</div>
-<div class="col-md-4">
-  <div class="thumbnail">
-      <img id="tutorial" src="images/undraw_Mail_sent_re_0ofv.svg" alt="" class="center">
-        <div class="caption">
-          <h4>2. Einrichtung abschliessen</h4>
-      </div>
-      </div>
-</div>
-<div class="col-md-4">
-  <div class="thumbnail">
-      <img id="tutorial" src="images/undraw_shared_goals_3d12.svg" alt="" class="center">
-        <div class="caption">
-          <h4>3. Wir kontaktieren dich</h4>
-      </div>
-      </div>
-</div>
-</div>
-</div>
 <br><br>
 <div class="container-fluid px-1 py-5 mx-auto">
     <div class="row d-flex justify-content-center text-center">
@@ -1388,57 +1358,6 @@ Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? W
     container.appendChild(bl1);
   };
 
-  const updateUserInfo10 = (user) => {
-    const container = document.querySelector('.user-info-10');
-
-    // cloning the buttons removes existing event listeners
-    const bl2 = block2.cloneNode(true);
-
-    // empty the user info div
-    container.innerHTML = '';
-
-    if (user) {
-      bl2.innerHTML = '<div class="col-md-4">'+
-        '<a class="smoothscroll js-scroll-trigger"  href="#angebot" title="services">'+
-'<div class="thumbnail">'+
-'<img id="tutorial" src="images/undraw_my_answer_iw6k.svg" alt="" class="center">'+
-'<div class="caption">'+
-'<h4>1. Abo auswählen</h4>'+
-'</div>'+
-'</div>'+
-'</a>'+
-'</div>'+
-'<div class="col-md-4">'+
-'<a class="smoothscroll js-scroll-trigger"  href="#kickoff" title="services">'+
-'<div class="thumbnail">'+
-'<img id="tutorial" src="images/undraw_accept_tasks_po1c.svg" alt="" class="center">'+
-'<div class="caption">'+
-'<h4>2. Einrichtung abschliessen</h4>'+
-'</div>'+
-'</div>'+
-'</a>'+
-'</div>'+
-'<div class="col-md-4">'+
-'<a class="smoothscroll js-scroll-trigger"  href="#block1" title="services">'+
-'<div class="thumbnail">'+
-'<img id="tutorial" src="images/undraw_shared_goals_3d12.svg" alt="" class="center">'+
-'<div class="caption">'+
-'<h4>3. Wir kontaktieren dich</h4>'+
-'</div>'+
-'</div>'+
-'</a>'+
-'</div>';
-    }
-
-    else {
-      // if no one is logged in, show login/signup options
-      bl2.innerHTML = '';
-    }
-
-    // add the updated buttons back to the user info div
-    container.appendChild(bl2);
-  };
-
   const updateUserInfo12 = (user) => {
     const container = document.querySelector('.user-info-12');
 
@@ -1620,7 +1539,6 @@ Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? W
     updateUserInfo7(user);
     updateUserInfo8(user);
     updateUserInfo9(user);
-    updateUserInfo10(user);
     updateUserInfo12(user);
     updateUserInfo13(user);
 
