@@ -1,3 +1,6 @@
+
+		<link rel="stylesheet" href="css/style.css">
+
 <style>
   .portal{
   background-color: black;
@@ -100,26 +103,71 @@ margin-left: 16px;
   </style>
 
 <header>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-normal fixed-top" id="mainNav">
-  <div class="container">
-    <a href="/"><img id="brandimg" src="https://portal.sitogo.ch/images/logo.final.black_v4.svg" alt="Homepage"></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse inno" id="navbarResponsive">
-      <ul class="navbar-nav ml-auto">
-
-        <li><a id="einrichten" class="smoothscroll js-scroll-trigger user-info-15"  href="#kickoff" title="services">Einrichten</a></li>
-                <li><a id="mein_konto" class="smoothscroll js-scroll-trigger user-info-6"  href="#angebot" title="services">Mein Abo</a></li>
-        <li><a id="webseite_bearbeiten" class="js-scroll-trigger user-info-7" href="#content" title="works">Webseite bearbeiten</a></li>
-        <li><a id="hilfe" class="smoothscroll js-scroll-trigger user-info-8"  href="#kompetenzen" title="services">Hilfe</a></li>
-        <div class="user-info">
-          <li><button class="smoothscroll js-scroll-trigger" id="left">Anmelden</button></li>
-
-        </div>
-
-      </ul>
+  <nav id="sidebar">
+    <div class="custom-menu">
+      <button type="button" id="sidebarCollapse" class="btn btn-primary">
+        <i class="fa fa-bars"></i>
+        <span class="sr-only">Toggle Menu</span>
+      </button>
     </div>
-  </div>
-</nav>
+    <div class="p-4 pt-5">
+      <h1><a href="index.html" class="logo">Splash</a></h1>
+      <ul class="list-unstyled components mb-5">
+        <li class="active">
+          <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
+          <ul class="collapse list-unstyled" id="homeSubmenu">
+            <li>
+                <a href="#">Home 1</a>
+            </li>
+            <li>
+                <a href="#">Home 2</a>
+            </li>
+            <li>
+                <a href="#">Home 3</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+            <a href="#">About</a>
+        </li>
+        <li>
+          <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
+          <ul class="collapse list-unstyled" id="pageSubmenu">
+            <li>
+                <a href="#">Page 1</a>
+            </li>
+            <li>
+                <a href="#">Page 2</a>
+            </li>
+            <li>
+                <a href="#">Page 3</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">Portfolio</a>
+        </li>
+        <li>
+          <a href="#">Contact</a>
+        </li>
+      </ul>
+
+      <div class="mb-5">
+        <h3 class="h6">Subscribe for newsletter</h3>
+        <form action="#" class="colorlib-subscribe-form">
+          <div class="form-group d-flex">
+            <div class="icon"><span class="icon-paper-plane"></span></div>
+            <input type="text" class="form-control" placeholder="Enter Email Address">
+          </div>
+        </form>
+      </div>
+
+      <div class="footer">
+        <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+          Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib.com</a>
+          <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+      </div>
+
+    </div>
+  </nav>
 </header>
