@@ -1107,9 +1107,6 @@ Mein aktuelles Abo.</p>
 <template id="content">
   <figure class="content-display">
     <img id="mitte" />
-    <figcaption>
-      <a class="credit"></a>
-    </figcaption>
   </figure>
 </template>
 </div>
@@ -1546,14 +1543,6 @@ Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? W
           const img = content.querySelector('img');
           img.src = data.src;
           img.alt = data.alt;
-
-          const credit = content.querySelector('.credit');
-          credit.href = data.creditLink;
-          credit.innerText = `Credit: ${data.credit}`;
-
-          const caption = content.querySelector('figcaption');
-          caption.innerText = data.message;
-          caption.appendChild(credit);
 
           container.appendChild(content);
         });
