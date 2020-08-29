@@ -829,27 +829,115 @@ Einrichtungsassistent</p>
                             <button class="js-scroll-trigger button_booking" id="middle-4">Abo's buchen</button>
                             </div>
 
-                            <div ng-app="appModule">
-  <div class="container">
-    <div class="row">
+                            <div class="container">
+                                <form method="POST" id="signup-form" class="signup-form" enctype="multipart/form-data">
+                                    <h3></h3>
+                                    <fieldset>
+                                        <span class="step-current"> <span class="step-current-content"><span class="step-number"><span>01</span>/03</span></span> </span>
+                                        <div class="fieldset-flex">
+                                            <figure>
+                                                <img src="images/signup-img-1.png" alt="">
+                                            </figure>
+                                            <div class="fieldset-content">
+                                                <h2>What do you think about AU services ?</h2>
+                                                <div class="form-flex">
+                                                    <label for="rating_quanlity">Overall Quality</label>
+                                                    <div class="form-rating">
+                                                        <input type="radio" id="rating_quanlity_5" name="rating_quanlity" value="5" checked /><label for="rating_quanlity_5" title="Rocks!"></label>
+                                                        <input type="radio" id="rating_quanlity_4" name="rating_quanlity" value="4" checked /><label for="rating_quanlity_4" title="Pretty good"></label>
+                                                        <input type="radio" id="rating_quanlity_3" name="rating_quanlity" value="3" checked /><label for="rating_quanlity_3" title="Meh"></label>
+                                                        <input type="radio" id="rating_quanlity_2" name="rating_quanlity" value="2" /><label for="rating_quanlity_2" title="Kinda bad"></label>
+                                                        <input type="radio" id="rating_quanlity_1" name="rating_quanlity" value="1" /><label for="rating_quanlity_1" title="Sucks big time"></label>
+                                                    </div>
+                                                </div>
+                                                <div class="form-flex">
+                                                    <label for="rating_use">Ease of Use</label>
+                                                    <div class="form-rating">
+                                                        <input type="radio" id="rating_use_5" name="rating_use" value="5" /><label for="rating_use_5" title="Rocks!"></label>
+                                                        <input type="radio" id="rating_use_4" name="rating_use" value="4" /><label for="rating_use_4" title="Pretty good"></label>
+                                                        <input type="radio" id="rating_use_3" name="rating_use" value="3" /><label for="rating_use_3" title="Meh"></label>
+                                                        <input type="radio" id="rating_use_2" name="rating_use" value="2" /><label for="rating_use_2" title="Kinda bad"></label>
+                                                        <input type="radio" id="rating_use_1" name="rating_use" value="1" /><label for="rating_use_1" title="Sucks big time"></label>
+                                                    </div>
+                                                </div>
+                                                <div class="form-flex">
+                                                    <label for="rating_features">Features & Functionality</label>
+                                                    <div class="form-rating">
+                                                        <input type="radio" id="rating_features_5" name="rating_features" value="5" /><label for="rating_features_5" title="Rocks!"></label>
+                                                        <input type="radio" id="rating_features_4" name="rating_features" value="4" /><label for="rating_features_4" title="Pretty good"></label>
+                                                        <input type="radio" id="rating_features_3" name="rating_features" value="3" /><label for="rating_features_3" title="Meh"></label>
+                                                        <input type="radio" id="rating_features_2" name="rating_features" value="2" /><label for="rating_features_2" title="Kinda bad"></label>
+                                                        <input type="radio" id="rating_features_1" name="rating_features" value="1" /><label for="rating_features_1" title="Sucks big time"></label>
+                                                    </div>
+                                                </div>
+                                                <div class="form-flex">
+                                                    <label for="rating_support">Custormer Support</label>
+                                                    <div class="form-rating">
+                                                        <input type="radio" id="rating_support_5" name="rating_support" value="5" /><label for="rating_support_5" title="Rocks!"></label>
+                                                        <input type="radio" id="rating_support_4" name="rating_support" value="4" /><label for="rating_support_4" title="Pretty good"></label>
+                                                        <input type="radio" id="rating_support_3" name="rating_support" value="3" /><label for="rating_support_3" title="Meh"></label>
+                                                        <input type="radio" id="rating_support_2" name="rating_support" value="2" /><label for="rating_support_2" title="Kinda bad"></label>
+                                                        <input type="radio" id="rating_support_1" name="rating_support" value="1" /><label for="rating_support_1" title="Sucks big time"></label>
+                                                    </div>
+                                                </div>
+                                                <div class="form-flex">
+                                                    <label for="rating_value">Value of Money</label>
+                                                    <div class="form-rating">
+                                                        <input type="radio" id="rating_value_5" name="rating_value" value="5" /><label for="rating_value_5" title="Rocks!"></label>
+                                                        <input type="radio" id="rating_value_4" name="rating_value" value="4" /><label for="rating_value_4" title="Pretty good"></label>
+                                                        <input type="radio" id="rating_value_3" name="rating_value" value="3" /><label for="rating_value_3" title="Meh"></label>
+                                                        <input type="radio" id="rating_value_2" name="rating_value" value="2" /><label for="rating_value_2" title="Kinda bad"></label>
+                                                        <input type="radio" id="rating_value_1" name="rating_value" value="1" /><label for="rating_value_1" title="Sucks big time"></label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </fieldset>
 
-      <div class="col-md-12 heading">
-        <h1>Stepper</h1>
-        <small>A ready to use AngularJS Directive</small>
-      </div>
+                                    <h3></h3>
+                                    <fieldset>
+                                        <span class="step-current"><span class="step-current-content"><span class="step-number"><span>02</span>/03</span></span></span>
+                                        <div class="fieldset-flex">
+                                            <figure>
+                                                <img src="images/signup-img-2.png" alt="">
+                                            </figure>
+                                            <div class="fieldset-content">
+                                                <div class="form-textarea">
+                                                    <label for="your_review" class="form-label">Your Review</label>
+                                                    <textarea name="your_review" id="your_review" placeholder="Write your comment here"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </fieldset>
 
-      <div class="col-md-6 col-md-offset-3 content">
-        <stepper-directive></stepper-directive>
-      </div>
-
-       <div class="col-md-6 col-md-offset-3">
-        <small>* Bootstrap and Material Design for Bootstrap are not required</small><br>
-        <small>** UI Bootstrap is being used only for the collapse animation. Can be easily replaced by some piece of css</small>
-      </div>
-
-    </div>
-  </div>
-</div>
+                                    <h3></h3>
+                                    <fieldset>
+                                        <span class="step-current"><span class="step-current-content"><span class="step-number"><span>03</span>/03</span></span></span>
+                                        <div class="fieldset-flex">
+                                            <figure>
+                                                <img src="images/signup-img-3.png" alt="">
+                                            </figure>
+                                            <div class="fieldset-content">
+                                                <label class="form-label">Enter your information manually below</label>
+                                                <div class="form-row">
+                                                    <div class="form-group">
+                                                        <input type="text" name="first_name" id="first_name" placeholder="First Name" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input type="text" name="last_name" id="last_name" placeholder="Last Name" />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <input type="email" name="email" id="email" placeholder="Email" />
+                                                </div>
+                                                <div class="form-group">
+                                                    <input type="text" name="phone_number" id="phone_number" placeholder="Phone number" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </form>
+                            </div>
 
 </section>
 
@@ -1604,84 +1692,5 @@ previous_fs.css({
 
 });
 
-angular.module('appModule', ['stepperModule']);
-
-// Stepper Module ready to be included
-// ===================================
-
-angular.module('stepperModule', ['ngAnimate', 'ui.bootstrap'])
-  .directive('stepperDirective', stepperDirective);
-
-function stepperController($scope) {
-  $scope.forms = {
-    "steps": [{
-      step: 1,
-      name: "First Step",
-      // template: 'This is the first step',
-      // template: "template.step1.html", // Load an html file. Ideally with Angular template cache. If you do so you have to replace {{step.template}} with ng-include="step.template" in directive -> template: ....
-      expanded: true
-    }, {
-      step: 2,
-      name: "Second Step",
-      // template: "This is the second step",
-      // template: "template.step2.html", // Load an html file. Ideally with Angular template cache. If you do so you have to replace {{step.template}} with ng-include="step.template" in directive -> template: ....
-      expanded: false
-    }, {
-      step: 3,
-      name: "Third Step",
-      // template: "This is the third step",
-      // template: "template.step3.html", // Load an html file. Ideally with Angular template cache. If you do so you have to replace {{step.template}} with ng-include="step.template" in directive -> template: ....
-      expanded: false
-    }, {
-      step: 4,
-      name: "Fourth Step",
-      // template: "This is the fourth step",
-      // template: "template.step4.html", // Load an html file. Ideally with Angular template cache. If you do so you have to replace {{step.template}} with ng-include="step.template" in directive -> template: ....
-      expanded: false
-    }]
-  }
-}
-
-function stepperDirective() {
-
-  function link($scope, $element, $attrs) {
-    $scope.toggleListItems = function(index) {
-
-      $scope.forms.steps[index].expanded = !$scope.forms.steps[index].expanded;
-
-      for (var i = 0; i < $scope.forms.steps.length; i++) {
-
-        if ($scope.forms.steps[i].expanded === true && i != index) {
-          $scope.forms.steps[i].expanded = false;
-        }
-      }
-    };
-  }
-
-  var directive = {
-    restrict: 'E',
-    scope: {},
-    controller: stepperController,
-    template: "<div class=\"stepper\">\n" +
-      "<div class=\"step\" ng-repeat=\"step in forms.steps\">\n" +
-      "<div class=\"step-heading\" ng-class=\"{\"active\":!step.expanded}\" ng-click=\"toggleListItems($index)\">\n" +
-      "<div class=\"circle\">{{step.step}}</div>\n" +
-      "<div class=\"title\">{{step.name}}</div>\n" +
-      "</div>" +
-      "<div class=\"line\" ng-hide=\"step.step >=forms.steps.length\">\n" +
-      "</div>\n" +
-      "<div uib-collapse=\"!step.expanded\">\n" +
-      "<div class=\"body\">\n" +
-      "<div>{{step.template}}</div>\n" +
-      "<button ng-hide=\"step.step >=forms.steps.length\" ng-click=\"toggleListItems($index + 1)\" class=\"btn btn-sm btn-bg ripple\" name=\"next\" type=\"button\"> Next </button>\n" +
-      "<button ng-hide=\"step.step <=1\" ng-class=\"{\"btn-bg\": step.step==forms.steps.length}\" ng-click=\"toggleListItems($index - 1)\" class=\"btn btn-sm ripple\" name=\"previous\" type=\"button\"> Previous </button>\n" +
-      "</div>\n" +
-      "</div>\n" +
-      "</div>\n" +
-      "</div>",
-    link: link
-  };
-  return directive;
-}
 
    </script>
