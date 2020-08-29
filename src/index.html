@@ -1173,7 +1173,6 @@ Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? W
   const text3 = document.getElementById('webseite_bearbeiten');
   const text4 = document.getElementById('hilfe');
   const text5 = document.getElementById('abos');
-  const text6 = document.getElementById('einrichten');
     const text7 = document.getElementById('text7');
 
   const block1 = document.getElementById('block1');
@@ -1484,29 +1483,6 @@ Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? W
     container.appendChild(t5);
   };
 
-  const updateUserInfo15 = (user) => {
-    const container = document.querySelector('.user-info-15');
-
-    // cloning the buttons removes existing event listeners
-    const t6 = text6.cloneNode(true);
-
-    // empty the user info div
-    container.innerHTML = '';
-
-    if (user) {
-      t6.innerText = 'Einrichten';
-    }
-
-    else {
-      // if no one is logged in, show login/signup options
-      t6.innerText = '';
-    }
-
-    // add the updated buttons back to the user info div
-    container.appendChild(t6);
-  };
-
-
   const updateUserInfo17 = (user) => {
     const container = document.querySelector('.user-info-17');
 
@@ -1543,8 +1519,6 @@ Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? W
     // add the updated buttons back to the user info div
     container.appendChild(b7);
   };
-
-
 
   const loadSubscriptionContent = async (user) => {
     const token = user ? await netlifyIdentity.currentUser().jwt(true) : false;
@@ -1601,9 +1575,6 @@ Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? W
     updateUserInfo9(user);
     updateUserInfo12(user);
     updateUserInfo13(user);
-
-    updateUserInfo15(user);
-
     updateUserInfo17(user);
 
     loadSubscriptionContent(user);
