@@ -742,19 +742,68 @@ body {
   padding-top: 3rem;
 }
 
-.outer-container {
-    font-family: "Roboto";
-    font-size: 1.6rem;
+
+// Stepper styles
+.stepper {
+  padding-top: 30px;
+  padding-bottom: 30px;
+
+  .step {
+    position: relative;
+    min-height: 32px;
+
+    & > div:last-child {
+      margin-left: 32px;
+      padding-left: 16px;
+    }
+
+    .step-heading {
+      position: static;
+      height: 33px;
+      color: #fff;
+      padding-bottom: 50px;
+      cursor: pointer;
+      &.active .circle {
+        background: #e91e63;
+      }
+      .circle {
+        background: #f48fb1;
+        width: 32px;
+        height: 32px;
+        line-height: 32px;
+        border-radius: 16px;
+        position: relative;
+        color: #fff;
+        text-align: center;
+        float: left;
+      }
+      .title {
+        line-height: 32px;
+        padding-left: 15px;
+        float: left;
+      }
+    }
+    .body {
+      padding-bottom: 30px;
+    }
+    .line {
+      position: absolute;
+      border-left: 1px solid #fff;
+      left: 16px;
+      bottom: 0px;
+      top: 32px;
+    }
+
+    .btn {
+      color: #fff !important;
+
+      &.btn-bg {
+        background: #f48fb1;
+      }
+    }
+  }
 }
 
-.outer-container {
-    padding:60px;
-}
-
-
-.step-content {
-    padding:40px 0;
-}
 </style>
 
 <section class="s-services" id="einrichtung">
@@ -780,62 +829,26 @@ Einrichtungsassistent</p>
                             <button class="js-scroll-trigger button_booking" id="middle-4">Abo's buchen</button>
                             </div>
 
-                            <div class="outer-container">
-    <div id="wizard" class="aiia-wizard" style="display: none;">
+                            <div ng-app="appModule">
+  <div class="container">
+    <div class="row">
 
-        <div class="aiia-wizard-step">
-            <h1>Introduction</h1>
-            <div class="step-content">
-                <p>
-                    Oh... I know you'll probably say..."Why would you make a plugin that already exists?". :) Well, why not? It's true, there are some great plugins out there that do just that. In fact this plugin was inspired by the excellent "jQuery Steps" plugin, created by Rafael Staib. And I am sure that if you Google you'll find more of them...
-                </p>
-                <p>
-                    However I decided to do one myself as an experiment and because for some reason Rafael's plugin was mising some things that I needed at the moment and there was also a bug when initializing other jQuery plugins within the Steps plugin. For example the Google maps plugin would not initialize for some reason.
-                </p>
-                <p>
-                    With your comments and perhaps your contributions maybe I can make things better and take it to another level, so please, feel free to give your thoughts - positive and negative. I'll be very grateful.
-                </p>
-            </div>
-        </div>
+      <div class="col-md-12 heading">
+        <h1>Stepper</h1>
+        <small>A ready to use AngularJS Directive</small>
+      </div>
 
-        <div class="aiia-wizard-step">
-            <h1>Responsive</h1>
-            <div class="step-content">
-                The aiiaWizard plugin is Twitter Bootstrap 3.x oriented, thus responsive. It takes your input form elements (or any other HTML element for that matter) and breaks them down into as many steps as you set them to. In fact, in some way the result is very similar to the "Twitter Bootstrap tab plugin, but instead of tabs and corresponding content panels, you have progress buttons and steps. Steps are the elements that hold your form / HTML content.
-            </div>
-        </div>
+      <div class="col-md-6 col-md-offset-3 content">
+        <stepper-directive></stepper-directive>
+      </div>
 
-        <div class="aiia-wizard-step">
-            <h1>Not a carousel</h1>
-            <div class="step-content">
-                You can also compare this plugin to a carousel, but then again it is not a carousel. Well, maybe I'll update the plugin so that it will have different modes (tabs, slider, carousel...). But right now it serves for one purpose only and that is creating a Wizard with steps, plain and simple. The aiiaPlugin may as well be a hybrid between the Tabs Twitter Bootstrap and the carousel plugin if you like.
-            </div>
-        </div>
-
-        <div class="aiia-wizard-step">
-            <h1>Methods</h1>
-            <div class="step-content">
-                This plugin allows you to interract with it or to retrieve some information from. The following methods are available:
-                <ul>
-                    <li>isFinalElementShown,</li>
-                    <li>previous,</li>
-                    <li>next,</li>
-                    <li>first,</li>
-                    <li>getActiveStep</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="aiia-wizard-step">
-            <h1>Callbacks</h1>
-            <div class="step-content">
-                As any good plugin, this one allows you to run your code when the plugin does something. This is a list of currently available  callbacks:
-
-
-            </div>
-        </div>
+       <div class="col-md-6 col-md-offset-3">
+        <small>* Bootstrap and Material Design for Bootstrap are not required</small><br>
+        <small>** UI Bootstrap is being used only for the collapse animation. Can be easily replaced by some piece of css</small>
+      </div>
 
     </div>
+  </div>
 </div>
 
 </section>
@@ -1591,699 +1604,84 @@ previous_fs.css({
 
 });
 
-$(document).ready(function () {
-    $("#wizard").aiiaWizard();
-});
+angular.module('appModule', ['stepperModule']);
+
+// Stepper Module ready to be included
+// ===================================
+
+angular.module('stepperModule', ['ngAnimate', 'ui.bootstrap'])
+  .directive('stepperDirective', stepperDirective);
+
+function stepperController($scope) {
+  $scope.forms = {
+    "steps": [{
+      step: 1,
+      name: "First Step",
+      // template: 'This is the first step',
+      // template: "template.step1.html", // Load an html file. Ideally with Angular template cache. If you do so you have to replace {{step.template}} with ng-include="step.template" in directive -> template: ....
+      expanded: true
+    }, {
+      step: 2,
+      name: "Second Step",
+      // template: "This is the second step",
+      // template: "template.step2.html", // Load an html file. Ideally with Angular template cache. If you do so you have to replace {{step.template}} with ng-include="step.template" in directive -> template: ....
+      expanded: false
+    }, {
+      step: 3,
+      name: "Third Step",
+      // template: "This is the third step",
+      // template: "template.step3.html", // Load an html file. Ideally with Angular template cache. If you do so you have to replace {{step.template}} with ng-include="step.template" in directive -> template: ....
+      expanded: false
+    }, {
+      step: 4,
+      name: "Fourth Step",
+      // template: "This is the fourth step",
+      // template: "template.step4.html", // Load an html file. Ideally with Angular template cache. If you do so you have to replace {{step.template}} with ng-include="step.template" in directive -> template: ....
+      expanded: false
+    }]
+  }
+}
+
+function stepperDirective() {
+
+  function link($scope, $element, $attrs) {
+    $scope.toggleListItems = function(index) {
+
+      $scope.forms.steps[index].expanded = !$scope.forms.steps[index].expanded;
+
+      for (var i = 0; i < $scope.forms.steps.length; i++) {
+
+        if ($scope.forms.steps[i].expanded === true && i != index) {
+          $scope.forms.steps[i].expanded = false;
+        }
+      }
+    };
+  }
+
+  var directive = {
+    restrict: 'E',
+    scope: {},
+    controller: stepperController,
+    template: "<div class=\"stepper\">\n" +
+      "<div class=\"step\" ng-repeat=\"step in forms.steps\">\n" +
+      "<div class=\"step-heading\" ng-class=\"{\"active\":!step.expanded}\" ng-click=\"toggleListItems($index)\">\n" +
+      "<div class=\"circle\">{{step.step}}</div>\n" +
+      "<div class=\"title\">{{step.name}}</div>\n" +
+      "</div>" +
+      "<div class=\"line\" ng-hide=\"step.step >=forms.steps.length\">\n" +
+      "</div>\n" +
+      "<div uib-collapse=\"!step.expanded\">\n" +
+      "<div class=\"body\">\n" +
+      "<div>{{step.template}}</div>\n" +
+      "<button ng-hide=\"step.step >=forms.steps.length\" ng-click=\"toggleListItems($index + 1)\" class=\"btn btn-sm btn-bg ripple\" name=\"next\" type=\"button\"> Next </button>\n" +
+      "<button ng-hide=\"step.step <=1\" ng-class=\"{\"btn-bg\": step.step==forms.steps.length}\" ng-click=\"toggleListItems($index - 1)\" class=\"btn btn-sm ripple\" name=\"previous\" type=\"button\"> Previous </button>\n" +
+      "</div>\n" +
+      "</div>\n" +
+      "</div>\n" +
+      "</div>",
+    link: link
+  };
+  return directive;
+}
 
-;(function ($, window, document, undefined) {
-
-	var settings;
-
-	////////////////////////////////////////// Public methods
-
-	var pub = {
-
-		init: function (options) {
-
-			return this.each(function () {
-
-				var $this = $(this),
-					data = $this.data('aiiaWizard'),
-					aiiaWizard = $('<div />', {
-						text: $this.attr('title')
-					});
-
-				//#region If the plugin hasn't been initialized yet
-				if (!data) {
-
-					$(this).data('aiiaWizard', {});
-
-					$this.hide();
-
-					///////////////////////// Main configurable options object
-
-					settings = $.extend(true, $.fn.aiiaWizard.defaults, options);
-					var globalMinHeight = settings.aiiaWizard.minHeight;
-					var buttonFinishText = settings.aiiaWizard.localization.buttons.finish;
-					var buttonLoadingText = settings.aiiaWizard.localization.buttons.loading;
-					var activeStep = settings.aiiaWizard.activeStep;
-
-					$(this).data('aiiaWizard').settings = settings;
-
-					///////////////////////// Prepare Wizard components
-
-					var $stepsWrapper = getStepsWrapperTemplate(globalMinHeight);
-					var $buttons = getButtonsTemplate(settings);
-					var $steps = $this.find(".aiia-wizard-step");
-
-					$buttonNext = $buttons.find(".aiia-wizard-button-next");
-					$buttonPrevious = $buttons.find(".aiia-wizard-button-previous");
-
-					///////////////////////// Place Wizard component
-
-					$stepsWrapper.append($steps);       // Place steps in the steps wrapper
-					$this.append($stepsWrapper);        // Place the steps wrapper that now contains all the steps in the original container
-					$this.append($buttons);             // Place Buttons right after the steps wrapper
-
-					///////////////////////// Shape Step elements
-
-					$steps.css({
-						'position': 'absolute',
-						'min-height': globalMinHeight + 'px',
-						'width': '100%'
-					});
-
-					////////////////////////// Mark each step element with its current position to
-					////////////////////////// easily keep track of the order (starting with 1)
-
-					$.each($steps, function (i, step) {
-						$(step).attr('data-position', i + 1);
-						//markStepAsCompleted(i - 1, $this, settings);
-					})
-
-					var $progressButtonsTemplate = getProgressButtonsTemplate($steps, settings);
-					$this.prepend($progressButtonsTemplate);
-
-					/////////////////////////// Find the active step or set the first step active as default
-
-					if (!$(".active").length) {
-						$steps.eq(activeStep - 1).addClass("active");
-						highlightActiveElement($this);
-					}
-
-					var $activeStep = $stepsWrapper.find(".active");
-					var activeElementPosition = parseInt($activeStep.data('position'), 10);
-
-					$.each($steps, function (i, step) {
-
-						var $step = $(step);
-						var $newStepTitleTemplate = getStepTitleTemplate(i, $step, settings);
-						$step.prepend($newStepTitleTemplate);
-
-						if ((i + 1) < activeElementPosition) {
-							moveStepLeft($step);
-							markStepAsCompleted(i + 1, $this, settings);
-						} else if ((i + 1) > activeElementPosition) {
-							moveStepRight($step);
-						} else {
-							showStep($step); // Only one element should satisfy this condition
-							highlightActiveElement($this);
-							markStepAsCompleted(i + 1, $this, settings);
-						}
-
-					});
-
-					var $progressButtonsBorderBottom = getProgressButtonsBorderBottomTemplate(settings);
-					$progressButtonsTemplate.after($progressButtonsBorderBottom);
-
-					/////////////////////////// We can now show the plugin component
-					$this.show();
-
-					/////////////////////////// Activate buttons accordingly to which step is active
-
-					// If final step is shown
-					if (activeElementPosition === $steps.length) {
-						setFinishButton($this);
-					}
-
-					// If first step is shown
-					if (activeElementPosition === 1) {
-						$this.find('.aiia-wizard-button-previous').hide();
-					}
-
-					/////////////////////////// Register event handlers
-
-					$this.find('.aiia-wizard-button-previous').click(function (e) {
-						e.preventDefault();
-						var $elementToSlide = $this.find(".aiia-wizard-steps-wrapper .active");
-						$this.trigger("onButtonPreviousClick.aiiaWizard", this);
-
-						if ($.isFunction(settings.onButtonPreviousClick)) {
-							// Trigger the override callback it the callback is set at the plugin initialization...
-							settings.onButtonPreviousClick.call(this);
-						} else {
-							// ...slide right imediatelly otherwise.
-							slideRight($elementToSlide, settings, $this);
-						}
-					});
-
-					$this.on("slideRightSuccess.aiiaWizard", function () {
-						resizeWizardStepsWrapper($this);
-					});
-
-					$this.on("slideLeftSuccess.aiiaWizard", function () {
-						resizeWizardStepsWrapper($this);
-					});
-
-					$this.find('.aiia-wizard-button-next').click(function (e) {
-						e.preventDefault();
-						var $elementToSlide = $this.find(".aiia-wizard-steps-wrapper .active");
-
-						if ($.isFunction(settings.onButtonNextClick)) {
-							// Trigger the override callback it the callback is set at the plugin initialization...
-							settings.onButtonNextClick.call(this);
-						} else {
-							// ...slide left imediatelly otherwise.
-							slideLeft($elementToSlide, settings, $this);
-						}
-
-					});
-
-					/////////////////////////// Testing Success Icon
-
-					var $progressButtonsPlaceholder = $progressButtonsTemplate.find(".aiia-wizard-progress-buttons-placeholder");
-					var $progressButtons = $progressButtonsPlaceholder.children();
-
-					/////////////////////////// Store plugin data
-
-					$this.data('aiiaWizard').target = $this;
-					$this.data('aiiaWizard').aiiaWizard = aiiaWizard;
-					$this.data('aiiaWizard').settings = settings;
-
-					resizeWizardStepsWrapper($this);
-
-					$.isFunction(settings.onInitSuccess) && settings.onInitSuccess.call(this);
-					$this.trigger("initSuccess.aiiaWizard", this);
-				}
-				//#endregion
-			});
-		},
-		isFinalElementShown: function (a, b) {
-			var activeElementPosition = getActiveElementPosition($(this));
-			if (activeElementPosition === countElements($(this))) {
-				return true;
-			} else {
-				return false;
-			}
-		},
-		hideButtonNext: function () {
-			// TODO: implement
-		},
-		hideButtonPrevious: function () {
-			// TODO: implement
-		},
-		previous: function () {
-			previous($plugin);
-		},
-		next: function () {
-			$plugin = $(this);
-			var settings = $plugin.data('aiiaWizard').settings;
-			var $elementToSlide = $plugin.find(".aiia-wizard-steps-wrapper .active");
-			slideLeft($elementToSlide, settings, $plugin);
-		},
-		first: function (a) {
-			previous(a, true);
-			$plugin.on("slideRightSuccess.aiiaWizard", function (event, goToFirst) {
-				if (goToFirst == true)
-					previous(a, true);
-			});
-
-		},
-		final: function () {
-			// TODO: implement
-		},
-		// disables the "previous" button for the provided step
-		disablePreviousButton: function (stepNumber) {
-			// TODO: implement
-		},
-
-		// enables the "previous" button for the provided step
-		enablePreviousButton: function (stepNumber) {
-			// TODO: implement
-		},
-		getActiveStep: function () {
-			$plugin = $(this);
-			return parseInt($plugin.find(".aiia-wizard-steps-wrapper .active").attr("data-position"), 10);
-		}
-	};
-
-	////////////////////////////////////////// Private functions
-
-	function resizeWizardStepsWrapper($this) {
-		var $wizardStepsWrapper = $this.find(".aiia-wizard-steps-wrapper");
-		var $activeStep = $wizardStepsWrapper.find(".active");
-
-		$wizardStepsWrapper.clearQueue().animate({
-			"height": $activeStep.height() + "px"
-		});
-	}
-
-	function slideLeft($elementToSlide, settings, $plugin, slideSuccessCallback) {
-
-		if ($elementToSlide.next().length) {
-
-			$elementToSlide.clearQueue().animate({
-				'margin-left': '-100%'
-			});
-
-			var $next = $elementToSlide.next();
-
-			$next.clearQueue().animate({
-				'margin-left': 0
-			}, function () {
-
-				$(".aiia-wizard-step").removeClass("active");
-				$next.addClass("active");
-
-				var activeElementPosition = highlightActiveElement($plugin);
-				var stepsCount = $plugin.find(".aiia-wizard-step").length;
-
-				markStepAsCompleted(activeElementPosition, $plugin, settings);
-
-				if (activeElementPosition === stepsCount) {
-					setFinishButton($plugin);
-					$.isFunction(settings.onSlideLeftLimitReached) && settings.onSlideLeftLimitReached.call($plugin);
-					$plugin.trigger("slideLeftLimitReached.aiiaWizard", this);
-				} else {
-					$plugin.find('.aiia-wizard-button-previous').show();
-				}
-
-				var $progressButtons = $plugin.find(".aiia-wizard-progress-buttons-placeholder").children();
-
-				$.isFunction(settings.onSlideLeftFinished) && settings.onSlideLeftFinished.call($plugin);
-				$plugin.trigger("slideLeftSuccess.aiiaWizard", this);
-			});
-
-		}
-
-	}
-
-	function slideRight($elementToSlide, settings, $plugin, goToFirst) {
-
-		if ($elementToSlide.prev().length) {
-
-			// Move the target element to the right first (out of the visual field)...
-			$elementToSlide.clearQueue().animate({
-				'margin-left': '100%'
-			});
-
-			// ...find the previous step element and move it into the visual field, thus making it the new active element.
-			var $prev = $elementToSlide.prev();
-
-			$prev.clearQueue().animate({
-				'margin-left': 0
-			}, function () {
-
-				$plugin.find(".aiia-wizard-step").removeClass("active");
-
-				$prev.addClass("active");
-
-				var activeElementPosition = highlightActiveElement($plugin);
-				unmarkStepAsCompleted(activeElementPosition, $plugin);
-
-				if (activeElementPosition === 1) {
-					$plugin.find('.aiia-wizard-button-previous').hide();
-
-					$.isFunction(settings.onSlideRightLimitReached) && settings.onSlideRightLimitReached.call($plugin);
-					$plugin.trigger("slideRightLimitReached.aiiaWizard", this);
-				} else {
-					if ($plugin.find('.aiia-wizard-button-next').hasClass('btn-success')) {
-						unsetFinishButton($plugin, settings);
-					}
-				}
-
-				$.isFunction(settings.onSlideRightFinished) && settings.onSlideRightFinished.call($plugin);
-				$plugin.trigger("slideRightSuccess.aiiaWizard", goToFirst);
-
-			});
-
-		}
-	}
-
-	function getButtonsTemplate(settings) {
-		var $buttons = $("" +
-			"<div class='aiia-wizard-buttons-wrapper row'>" +
-				"<div class='col-md-12'>" +
-					"<button class='btn btn-primary pull-left aiia-wizard-button-previous'></button>" +
-					"<button class='btn btn-primary pull-right aiia-wizard-button-next' data-loading-text='" + settings.aiiaWizard.localization.buttons.loading + "'></button>" +
-				"</div>" +
-			"</div>" +
-		"").css({
-			'display': 'block'
-		});
-
-		var $iconPrevious = $("<span class='glyphicon glyphicon-chevron-left pull-left'></span>");
-		var $iconPreviousText = $("<span>" + settings.aiiaWizard.localization.buttons.previous + "</span>");
-		$iconPrevious.css(settings.aiiaWizard.buttons.previous.icon.css);
-		$iconPreviousText.css(settings.aiiaWizard.buttons.previous.text.css);
-
-		var $iconNext = $("<span class='glyphicon glyphicon-chevron-right pull-right'></span>");
-		var $iconNextText = $("<span>" + settings.aiiaWizard.localization.buttons.next + "</span>");
-		$iconNext.css(settings.aiiaWizard.buttons.next.icon.css);
-		$iconNextText.css(settings.aiiaWizard.buttons.next.text.css);
-
-		$buttons.find(".btn").css(settings.aiiaWizard.buttons.css);
-
-		$buttons.find(".aiia-wizard-button-previous")
-			//.append($iconPrevious)
-			.append($iconPreviousText);
-
-		$buttons.find(".aiia-wizard-button-next")
-			//.append($iconNext)
-			.append($iconNextText);
-
-		return $buttons;
-	}
-
-	function highlightActiveElement($plugin) {
-
-		// find the active element position
-		var $stepsWrapper = $plugin.find(".aiia-wizard-steps-wrapper");
-		var $activeElement = $stepsWrapper.find(".active");
-		var activeElementPosition = parseInt($activeElement.data('position'), 10);
-
-		var $progressButtons = $plugin.find(".aiia-wizard-progress-buttons-placeholder");
-		$progressButtons.find(".active").removeClass("active");
-		$progressButtons.find("li[data-position='" + activeElementPosition + "']").addClass("active");
-
-		return activeElementPosition;
-	}
-
-	function getStepsWrapperTemplate(globalMinHeight) {
-		var result = $("<div class='aiia-wizard-steps-wrapper'></div>")
-			.css({
-				'position': 'relative',
-				'overflow': 'hidden',
-				'width': '100%',
-				'min-height': globalMinHeight + 'px'
-			});
-		return result;
-	}
-
-	function getProgressButtonsTemplate($steps, settings) {
-
-		var $progessButtonsWrapper = $("" +
-			"<div class='aiia-wizard-progress-buttons-wrapper row'>" +
-				"<div class='col-md-12'>" +
-					"<ul class='nav nav-pills nav-justified aiia-wizard-progress-buttons-placeholder'>" +
-					"</ul>" +
-				"</div>" +
-			"</div>" +
-		"").css({
-			'display': 'block'
-		});
-
-		$.each($steps, function (i, step) {
-			var $step = $(step);
-			var cls = "";
-			var pos = parseInt($step.data('position'), 10);
-
-			var $progressButton = $("" +
-				"<li data-position='" + $step.attr('data-position') + "'><a href='#'><h1>" + $step.data('position') + ". </h1>" + $step.find('h1').html() + "</a></li>" +
-			"");
-
-			if ($step.hasClass("active") && settings.aiiaWizard.progressButtons.markActive) {
-				$progressButton.removeClass('default');
-				$progressButton.addClass('active');
-			}
-
-			$progressButton.css(settings.aiiaWizard.progressButtons.css);
-
-			$progessButtonsWrapper.find(".aiia-wizard-progress-buttons-placeholder").append($progressButton);
-
-		});
-
-		return $progessButtonsWrapper
-	}
-
-	function getProgressButtonsBorderBottomTemplate(settings) {
-
-		var $hr = $("<hr/>");
-
-		$hr.css(settings.aiiaWizard.progressButtons.borderBottom.css);
-
-		return $hr;
-
-	}
-
-	function getStepTitleTemplate(i, $step, settings) {
-
-		var stepNumber = i + 1;
-		var $stepTitle = $step.find("h1");
-		var stepTitleText = $stepTitle.html();
-
-		var $stepNumber = $("<h1 class='pull-left'>" + stepNumber + "</h1>");
-		var $stepText = $("<span>" + stepTitleText + "</span>")
-		$stepTitle.remove();
-
-		var $newStepTitle = $("" +
-			"<div class='row aiia-wizard-step-title'>" +
-				"<div class='col-md-12'>" +
-					"<span class='aiia-wizard-step-title-number'>" + stepNumber + "</span>" +
-					"<span class='aiia-wizard-step-title-text'>" + stepTitleText + "</span>" +
-				"</div>" +
-			"</div>" +
-			"" +
-		"");
-
-		$newStepTitle.find(".aiia-wizard-step-title-number").css(settings.aiiaWizard.steps.title.number.css);
-		$newStepTitle.find(".aiia-wizard-step-title-text").css(settings.aiiaWizard.steps.title.text.css);
-
-		return $newStepTitle;
-	}
-
-	function moveStepLeft($s) {
-		$s.css({
-			'margin-left': '-100%'  // move all lower steps to the left
-		});
-	}
-
-	function moveStepRight($s) {
-		$s.css({
-			'margin-left': '100%'  // move all lower steps to the left
-		});
-	}
-
-	function showStep($s) {
-		$s.css({
-			'margin-left': 0
-		});
-	}
-
-	function getActiveElementPosition($pluginElement) {
-		var stringResult = $pluginElement
-			.find(".aiia-wizard-steps-wrapper")
-			.find(".active").data('position');
-
-		return parseInt(stringResult, 10);
-	}
-
-	function countElements($pluginElement) {
-		return $pluginElement.find(".aiia-wizard-step").length;
-	}
-
-	function setFinishButton($pluginElement, text) {
-		var $finishButton = $pluginElement.find(".aiia-wizard-button-next");
-
-		var txt = $pluginElement.data('aiiaWizard').settings.aiiaWizard.localization.buttons.finish;
-		if (text)
-			txt = text;
-
-		$finishButton.css(settings.aiiaWizard.buttons.finish.text.css);
-
-		$finishButton
-			.removeClass('btn-primary')
-			.addClass('btn-success')
-			.html(txt);
-	}
-
-	function unsetFinishButton($pluginElement, settings) {
-		var $finishButton = $pluginElement.find(".aiia-wizard-button-next");
-		var txt = $pluginElement.data('aiiaWizard').settings.aiiaWizard.localization.buttons.next;
-		var $iconNext = $("<span class='glyphicon glyphicon-chevron-right pull-right'></span>");
-		var $iconNextText = $("<span>" + settings.aiiaWizard.localization.buttons.next + "</span>");
-		$iconNext.css(settings.aiiaWizard.buttons.next.icon.css);
-
-		$iconNextText.css(settings.aiiaWizard.buttons.next.text.css);
-
-		$finishButton
-			.removeClass('btn-success')
-			.addClass('btn-primary')
-			.html("")
-			.append($iconNextText)
-			//.append($iconNext)
-	}
-
-	function markStepAsCompleted(activeElementPosition, $plugin, settings) {
-
-		$plugin.find("[data-position='" + (activeElementPosition - 1) + "']").addClass("completed");
-
-
-		// find the target progressButton to mark as completed
-		var $progressButton = $plugin.find(".aiia-wizard-progress-buttons-placeholder").find("[data-position='" + (activeElementPosition - 1) + "']");
-
-		// create a new success icon to place it on the progress button
-		var $successIcon = $("<span class='" + settings.aiiaWizard.progressButtons.completed.icon.cssClass + " aiia-wizard-icon-step-completed'></span>")
-			.css(settings.aiiaWizard.progressButtons.completed.icon.css);
-
-		var $a = $progressButton.find("a");
-		// When the step is completed, the progress button must show it with a new style (gray by default)...
-		$a.css(settings.aiiaWizard.progressButtons.completed.css);
-		// ...and with a success icon appended.
-		$a.append($successIcon);
-	}
-
-	function unmarkStepAsCompleted(activeElementPosition, $plugin) {
-
-		var $progressButton = $plugin.find(".aiia-wizard-progress-buttons-placeholder").find("[data-position='" + activeElementPosition + "']");
-		$progressButton.find(".aiia-wizard-icon-step-completed").remove();
-		var $a = $progressButton.find("a");
-		$a.removeAttr("style");
-	}
-
-	function previous($plugin, goToFirst) {
-		var settings = $plugin.data('aiiaWizard').settings;
-		var $elementToSlide = $plugin.find(".aiia-wizard-steps-wrapper .active");
-		var activeStep = parseInt($plugin.find(".aiia-wizard-steps-wrapper .active").attr("data-position"), 10);
-		if (activeStep > 0) {
-			slideRight($elementToSlide, settings, $plugin, goToFirst);
-		}
-	}
-
-
-	////////////////////////////////////////// Plugin definition
-
-	$.fn.aiiaWizard = function (method) {
-
-		if (pub[method]) {
-			return pub[method].apply(this, Array.prototype.slice.call(arguments, 1));
-		} else if (typeof method === 'object' || !method) {
-			return pub.init.apply(this, arguments);
-		} else {
-			$.error('Method ' + method + ' does not exist on jQuery.aiiaWizard');
-		}
-
-	};
-
-	////////////////////////////////////////// Plugin Options
-
-	$.fn.aiiaWizard.defaults = {
-		aiiaWizard: {
-			minHeight: 400,
-			activeStep: 1,
-			localization: {
-				buttons: {
-					next: 'Next',
-					previous: 'Previous',
-					finish: 'Finish',
-					loading: 'Loading...'
-				}
-			},
-			progressButtons: {
-				borderBottom: {
-					css: {
-						'border-width': '4px',
-						'border-color': '#E6E6E6'
-					}
-				},
-				css: {
-					'padding': '0 43px',
-
-				},
-				markActive: false,
-				completed: {
-					css: {
-						'background-color': '#E6E6E6'
-					},
-					icon: {
-						cssClass: 'glyphicon glyphicon-ok-sign',
-						css: {
-							'position': 'absolute',
-							'top': '-20px',
-							'right': '-17px',
-							'font-size': '4em',
-							'color': 'green'
-						}
-					}
-				}
-
-			},
-			steps: {
-				title: {
-					number: {
-						css: {
-							'background-color': '#E6E6E6',
-							'-webkit-border-radius': '300px',
-							'-moz-border-radius': '300px',
-							'border-radius': '300px',
-							'color': '#FFFFFF',
-							'float': 'left',
-							'font-size': '36px',
-							'height': '70px',
-							'margin-right': '10px',
-							'text-align': 'center',
-							'width': '70px',
-							'font-weight': 'bold',
-							'padding-top': '8px'
-						}
-					},
-					text: {
-						css: {
-							'color': '#158CBA',
-							'font-size': '36px',
-							'float': 'left',
-							'font-size': '36px',
-							'margin-top': '8px'
-						}
-					}
-				},
-				content: {
-
-				}
-			},
-			buttons: {
-				previous: {
-					text: {
-						css: {
-							//'float': 'right',
-							//'font-size': '14px',
-							//'margin-top': '2px',
-							//'margin-left': '7px'
-						}
-					},
-					icon: {
-						css: {
-							//'font-size': '24px'
-						}
-					}
-
-				},
-				next: {
-					text: {
-						css: {
-							//'float': 'left',
-							//'font-size': '14px',
-							//'margin-top': '2px',
-							//'margin-right': '7px'
-						}
-					},
-					icon: {
-						css: {
-							//'font-size': '14px'
-						}
-					}
-				},
-				'css': {
-					//'padding-bottom': '10px'
-				},
-				finish: {
-					text: {
-						css: {
-							//'font-size': '20px',
-							//'float': 'left',
-							//'font-size': '20px',
-							//'margin-top': '2px',
-							//'margin-right': '7px'
-						}
-					}
-				},
-				'css': {
-					//'padding-bottom': '10px'
-				}
-
-			}
-		}
-	};
-
-})( jQuery, window, document );
    </script>
