@@ -249,24 +249,26 @@ fieldset.current {
           background-color: #d2d2d2; }
     .actions ul li:nth-child(2), .actions ul li:last-child {
       float: right;
-      padding-right: 70px; }
+      padding-right: 20px; }
     .actions ul li a {
-      width: 140px;
-      height: 50px;
-      color: #fff;
-      background: #6dbdfe;
-      align-items: center;
-      -moz-align-items: center;
-      -webkit-align-items: center;
-      -o-align-items: center;
-      -ms-align-items: center;
-      justify-content: center;
-      -moz-justify-content: center;
-      -webkit-justify-content: center;
-      -o-justify-content: center;
-      -ms-justify-content: center;
-      text-decoration: none;
-      text-transform: uppercase; }
+      display: inline-block;
+      font-family: 'Gothic A1', sans-serif;
+      font-size: 17px;
+      letter-spacing: -0.1px;
+      /* height: 5.4rem; */
+      line-height: 5rem;
+      /* padding: 0 3rem; */
+      /* margin: 0 0.3rem -0.8rem 0; */
+      background-color: #22313f;
+      border-color: #22313f;
+      padding-left: 30px;
+      padding-right: 30px;
+      color: white;
+      text-transform: none;
+      border-radius: 30px;
+      /* margin-left: 30%; */
+      /* padding-left: 30px; */
+    }
       .actions ul li a:hover {
         background-color: #3aa6fe; }
 
