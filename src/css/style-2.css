@@ -182,8 +182,8 @@ fieldset {
   border: none;
   margin: 0px;
   padding: 0px;
-  margin-left: 35px;
-      margin-right: 35px;}
+  margin-left: 35px!important;
+      margin-right: 35px!important;}
 
 fieldset.current {
   padding-top: 60px; }
