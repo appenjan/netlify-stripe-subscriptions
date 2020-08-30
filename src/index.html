@@ -671,8 +671,8 @@ body {
 
 .card {
     display: none;
-    background-color: #f6f9fc;
-    border: 1px solid #f6f9fc;
+    background-color: white;
+    border: 1px solid white;
     box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.2);
     border-radius: 25px!important;
 }
@@ -785,36 +785,19 @@ textarea {
   border-left: 1px solid white;
     border-right: 1px solid white;
 }
-.button-wrapper {
-  position: relative;
-  width: 150px;
-  text-align: center;
-  margin: 20% auto;
-}
-
-.button-wrapper span.label {
-  position: relative;
-  z-index: 0;
-  display: inline-block;
-  width: 100%;
-  background: #00bfff;
-  cursor: pointer;
-  color: #fff;
-  padding: 10px 0;
-  text-transform:uppercase;
-  font-size:12px;
-}
-
-#upload {
-    display: inline-block;
-    position: absolute;
-    z-index: 1;
-    width: 100%;
-    height: 50px;
-    top: 0;
-    left: 0;
-    opacity: 0;
-    cursor: pointer;
+.overlay{
+  position: absolute;
+      background: #f6f9fc;
+      /* opacity: .3; */
+      left: 0;
+      right: 0;
+      /* top: 402px; */
+      height: 208px;
+      z-index: 999;
+      bottom: -0.7px;
+      z-index: 1;
+      shape-outside: polygon(25% 0, 100% 0, 100% 100%, 0 100%);
+      clip-path: polygon(0% 100%, 102% 0, 1332% 100%, 0% 100%);
 }
 </style>
 
@@ -1035,12 +1018,8 @@ textarea {
                                    <input class="input--style-1" type="text" name="phone" placeholder="z.B 055 222 22 22">
                                </div>
                                <div class="input-group">
-                                 <div class="button-wrapper">
-                                  <span class="label">
-                                    Datei hochladen
-                                  </span>
-                                    <input type="file" name="upload" id="upload" class="upload-box" placeholder="Datei hochladen">
-                                  </div>
+                                   <label class="label">Dateiupload*:</label>
+                                   <input type="file" id="file" name="file" multiple>
                                </div>
                                <div class="form-group">
                                <label class="label">Möchtest du uns sonst noch etwas mitteilen?</label>
