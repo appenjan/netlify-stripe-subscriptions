@@ -1119,9 +1119,9 @@ Mein aktuelles Abo.</p>
                       <label class="label">E-Mail-Adresse:</label>
                       <input class="input--style-1" type="email" name="email" value="z.B hello@sitogo.ch">
                   </div>
-            <div class="input-group">
-                <label class="label">Dateiupload*:</label>
-                <input type="file" id="file_2" name="file" multiple>
+            <div class="custom-file">
+              <input type="file" class="custom-file-input" id="customFile">
+              <label class="custom-file-label" for="customFile">Datei auswählen</label>
             </div>
 
             <div class="input-group">
@@ -1882,6 +1882,14 @@ Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? W
 
 
    })(jQuery);
+
+   <script>
+// Add the following code if you want the name of the file appear on select
+$(".custom-file-input").on("change", function() {
+  var fileName = $(this).val().split("\\").pop();
+  $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+});
+</script>
 
 
    </script>
