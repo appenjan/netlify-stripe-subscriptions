@@ -742,65 +742,300 @@ body {
   padding-top: 3rem;
 }
 
+@import "compass/css3";
+@import "compass/reset";
+$height: 26em;
+$factor: 1.618;
+$duration: 0.6s;
+$red: #ff3b99;
+$blue: #5eb9cc;
+$green: #b2ff41;
+$orange: #ff9d00;
+$textColor: #444;
 
-// Stepper styles
-.stepper {
-  padding-top: 30px;
-  padding-bottom: 30px;
+body {
+  font-family: $base-font;
+  font-size: 16px;
 
-  .step {
+  text-align: center;
+
+  color: $textColor;
+  background: #d0d0d0;
+}
+
+header {
+  margin-bottom: 2em;
+}
+
+h1 {
+  font-size: 2em;
+
+  margin: 2em 0 1em;
+}
+
+strong {
+  font-weight: 700;
+}
+p {
+  line-height: 1.4em;
+}
+article header {
+  margin: 0;
+}
+
+.full-height {
+  height: $height;
+  align-items: center;
+}
+.flexy-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  position: relative;
+}
+.flexy-column {
+  flex-direction: column;
+  &.reverse {
+    flex-direction: column-reverse;
+  }
+}
+.flexy-item_child {
+  flex: 1 0 100%;
+}
+
+.pure-steps {
+  display: inline-block;
+  width: 20em;
+  color: white;
+  margin-bottom: 3em;
+  strong {
+    color: $green;
+    font-weight: 300;
+  }
+  .pure-steps_group {
     position: relative;
-    min-height: 32px;
-
-    & > div:last-child {
-      margin-left: 32px;
-      padding-left: 16px;
-    }
-
-    .step-heading {
-      position: static;
-      height: 33px;
-      color: #fff;
-      padding-bottom: 50px;
-      cursor: pointer;
-      &.active .circle {
-        background: #e91e63;
-      }
-      .circle {
-        background: #f48fb1;
-        width: 32px;
-        height: 32px;
-        line-height: 32px;
-        border-radius: 16px;
-        position: relative;
-        color: #fff;
-        text-align: center;
-        float: left;
-      }
-      .title {
-        line-height: 32px;
-        padding-left: 15px;
-        float: left;
-      }
-    }
-    .body {
-      padding-bottom: 30px;
-    }
-    .line {
+    min-height: $height;
+    border-radius: 0.4em;
+    overflow: hidden;
+    box-shadow: 0 1.7em 5.5em -0.94em rgba(black, 0.3),
+      0 2em 3em 0.5em rgba(black, 0.1), 0 1.8em 2em -1.5em rgba(black, 0.2);
+    background-image: linear-gradient(
+      -120deg,
+      #26e289 0,
+      #1a5fa2 100%,
+      red 200%
+    );
+    background-position: 0 0;
+    background-size: 300%;
+    will-change: background, box-shadow;
+    transition: all ($duration / 2) ease-out;
+    .pure-steps_group-step {
       position: absolute;
-      border-left: 1px solid #fff;
-      left: 16px;
-      bottom: 0px;
-      top: 32px;
-    }
+      left: 0;
+      top: 0;
+      width: 100%;
+      transform: translate(100%);
+      opacity: 0;
+      will-change: transform, opacity;
+      transition: all $duration ease-in-out;
+      text-align: left;
+      &:last-child {
+        text-align: center;
+      }
+      .pure-steps_group-step_legend {
+        font-size: 1.5em;
+        font-weight: 700;
+        padding: 1.5em 1.34em 1em;
+        line-height: 1em;
+        position: relative;
+      }
+      .pure-steps_group-step_item {
+        padding: 0 2em 1em;
+        label {
+          font-size: 0.8em;
+          display: block;
+          // padding-bottom: .6em;
+          opacity: 0.6;
+        }
+        input {
+          font-size: 1em;
+          box-sizing: border-box;
+          width: 100%;
+          border: 0;
+          line-height: 1.5em;
+          background-color: transparent;
+          background-image: linear-gradient(0deg, transparent 0, #e5e5e5 1px),
+            linear-gradient(0deg, transparent 0, #b2ff41 1px);
+          background-size: 100% 1px, 0% 1px;
+          background-repeat: no-repeat;
+          outline: none;
+          will-change: background;
+          transition: background ($duration / 2) ease-in-out;
+          color: white;
+          font-family: $base-font;
+          font-weight: 300;
+          $placeholderColor: rgba(white, 0.6);
+          &:focus {
+            color: white;
+            background-size: 0% 1px, 100% 1px;
 
-    .btn {
-      color: #fff !important;
+            & + label {
+              opacity: 1;
+              color: $green;
+            }
+          }
+          &::-webkit-input-placeholder {
+            color: $placeholderColor;
+          }
 
-      &.btn-bg {
-        background: #f48fb1;
+          &:-moz-placeholder {
+            /* Firefox 18- */
+            color: $placeholderColor;
+          }
+
+          &::-moz-placeholder {
+            /* Firefox 19+ */
+            color: $placeholderColor;
+          }
+
+          &:-ms-input-placeholder {
+            color: $placeholderColor;
+          }
+        }
       }
     }
+  }
+
+  .pure-steps_radio {
+    display: none;
+  }
+  .pure-steps_group-triggers {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 3.6em;
+    border-radius: 0 0 0.4em 0.4em;
+    background-color: rgba(black, 0.1);
+    will-change: opacity;
+    transition: opacity ($duration / 2) ease-in-out;
+    &:before {
+      content: "";
+      display: inline-block;
+      position: absolute;
+      left: 0;
+      width: 0%;
+      height: 0.1em;
+      background: rgba($green, 0.4);
+      will-change: width;
+      transition: width $duration ease-in-out;
+    }
+    .pure-steps_group-triggers_item {
+      display: none;
+      label {
+        display: block;
+        padding: 1.2em;
+        color: white;
+      }
+    }
+  }
+
+  $pureSteps: 4; // staring index: 1
+  @for $i from 1 to $pureSteps {
+    .pure-steps_radio:nth-child(#{$i}):checked ~ .pure-steps_group {
+      $bgPosition: (100 / $pureSteps) * $i;
+      background-position: ($bgPosition * 1%) 0;
+      @if $i == ($pureSteps - 1) {
+        .pure-steps_group-triggers {
+          opacity: 0;
+          transition-delay: $duration;
+        }
+        .pure-steps_group-step {
+          align-items: center;
+          height: 100%;
+          .pure-steps_preload {
+            display: block;
+            height: 0.1em;
+            width: 100%;
+            box-sizing: border-box;
+            margin: 0 2em;
+            background-image: linear-gradient(
+              0deg,
+              rgba($red, 0.4) 0%,
+              rgba($orange, 0.4) 50%,
+              rgba($green, 0.4) 100%
+            );
+            background-size: 0 10em;
+            background-position: top center;
+            background-repeat: no-repeat;
+            will-change: background-image;
+            transition: background-image 3s linear;
+
+            animation: preloadLine 3s ease-out forwards;
+
+            svg {
+              font-size: 1.2em;
+              width: auto;
+              height: 1em;
+              padding: 1em;
+              border-radius: 2em;
+              background-color: #5bd670;
+              fill: white;
+              margin-top: -1.5em;
+              transform: scale(0);
+              animation: preloadTic 0.8s linear forwards;
+              animation-delay: 3s;
+            }
+          }
+        }
+      }
+      .pure-steps_group-triggers {
+        &:before {
+          width: 33.333% * $i;
+        }
+        .pure-steps_group-triggers_item:nth-child(#{$i + 1}) {
+          display: block;
+        }
+      }
+    }
+    .pure-steps_radio:nth-child(#{$i}):checked
+      ~ .pure-steps_group
+      .pure-steps_group-step:nth-child(#{$i}) {
+      opacity: 1;
+      transform: translate(0);
+    }
+  }
+}
+
+@keyframes preloadLine {
+  0% {
+    background-position: bottom center;
+    background-size: 0 10em;
+  }
+  100% {
+    background-position: top center;
+    background-size: 100% 10em;
+  }
+}
+@keyframes preloadTic {
+  0% {
+    transform: scale(0);
+  }
+  20% {
+    transform: scale(0.2);
+    animation-timing-function: ease-out;
+  }
+  50% {
+    transform: scale(1.3);
+    animation-timing-function: ease-in;
+  }
+  65% {
+    transform: scale(0.9);
+    animation-timing-function: ease-out;
+  }
+  80%,
+  100% {
+    transform: scale(1);
   }
 }
 
@@ -829,105 +1064,67 @@ Einrichtungsassistent</p>
                             <button class="js-scroll-trigger button_booking" id="middle-4">Abo's buchen</button>
                             </div>
 
-                            <div class="page-wrapper bg-img-1 p-t-275 p-b-100">
-                                <div class="wrapper wrapper--w690">
-                                    <div class="card card-1">
-                                        <div class="card-heading">
-                                            <h2 class="title">Form Wizard</h2>
-                                        </div>
-                                        <div class="card-body">
-                                            <form class="wizard-container" method="POST" action="#" id="js-wizard-form">
-                                                <div class="progress" id="js-progress">
-                                                    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 40%;">
-                                                        <span class="progress-val">40%</span>
-                                                    </div>
-                                                </div>
-                                                <ul class="nav nav-tab">
-                                                    <li class="active">
-                                                        <a href="#tab1" data-toggle="tab">1</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#tab2" data-toggle="tab">1</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#tab3" data-toggle="tab">1</a>
-                                                    </li>
-                                                </ul>
-                                                <div class="tab-content">
-                                                    <div class="tab-pane active" id="tab1">
-                                                        <div class="input-group">
-                                                            <label class="label">Full name*:</label>
-                                                            <input class="input--style-1" type="text" name="fullname" placeholder="ex: Taylor Fuller">
-                                                        </div>
-                                                        <div class="input-group">
-                                                            <label class="label">Email*:</label>
-                                                            <input class="input--style-1" type="email" name="email" placeholder="ex: example@email.com">
-                                                        </div>
-                                                        <div class="input-group">
-                                                            <label class="label">Phone number*:</label>
-                                                            <input class="input--style-1" type="text" name="phone" placeholder="">
-                                                        </div>
-                                                        <div class="btn-next-con">
-                                                            <a class="btn-next" href="#">Next</a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="tab-pane" id="tab2">
-                                                        <div class="input-group">
-                                                            <label class="label">Building Number:</label>
-                                                            <input class="input--style-1" type="text" name="buil-num" placeholder="02">
-                                                        </div>
-                                                        <div class="input-group">
-                                                            <label class="label">Street:</label>
-                                                            <input class="input--style-1" type="text" name="street" placeholder="ex: Philadelphia Avenue">
-                                                        </div>
-                                                        <div class="input-group">
-                                                            <label class="label">A Town:</label>
-                                                            <input class="input--style-1" type="text" name="town" placeholder="The Town">
-                                                        </div>
-                                                        <div class="input-group">
-                                                            <label class="label">Zip code:</label>
-                                                            <input class="input--style-1" type="text" name="code">
-                                                        </div>
-                                                        <div class="btn-next-con">
-                                                            <a class="btn-back" href="#">back</a>
-                                                            <a class="btn-next" href="#">Next</a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="tab-pane" id="tab3">
-                                                        <div class="input-group">
-                                                            <label class="label">Card Holder Name:</label>
-                                                            <input class="input--style-1" type="text" name="cardName" value="Matthew Wood">
-                                                        </div>
-                                                        <div class="input-group">
-                                                            <label class="label">Card Number:</label>
-                                                            <div class="input-group-icon">
-                                                                <input class="input--style-1" type="text" name="cardNum" value="4224-3228-6160-5079">
-                                                                <i class="zmdi zmdi-card input-icon"></i>
-                                                            </div>
-                                                        </div>
-                                                        <div class="input-group">
-                                                            <label class="label">CVC:</label>
-                                                            <div class="input-group-icon">
-                                                                <input class="input--style-1" type="text" name="town" placeholder="The Town">
-                                                                <i class="zmdi zmdi-card input-icon"></i>
-                                                            </div>
-                                                        </div>
-                                                        <div class="input-group">
-                                                            <label class="label">Expiration(MM/YYYY):</label>
-                                                            <input class="input--style-1" type="text" name="exp" placeholder="MM/YYYY">
-                                                        </div>
-                                                        <div class="btn-next-con">
-                                                            <a class="btn-back" href="#">back</a>
-                                                            <a class="btn-last" href="#">Submit</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
 
+
+</section>
+
+<section>
+  <article>
+    <form class="pure-steps">
+      <input type="radio" name="steps" class="pure-steps_radio" id="step-0" checked="">
+      <input type="radio" name="steps" class="pure-steps_radio" id="step-1">
+      <input type="radio" name="steps" class="pure-steps_radio" id="step-2">
+      <div class="pure-steps_group">
+        <ol>
+          <li class="pure-steps_group-step">
+            <header>
+              <h2 class="pure-steps_group-step_legend">Welcome</h2>
+              <p class="pure-steps_group-step_item">The <strong>"Step By Step"</strong> pattern is usually 100% developed with JavaScript but you can use CSS too.</p>
+              <p class="pure-steps_group-step_item">Enjoy this example of "what can be done" <strong>just with SASS,</strong> simulating a "sign-up" process.</p>
+              <p class="pure-steps_group-step_item"></p>
+            </header>
+          </li>
+          <li class="pure-steps_group-step">
+            <fieldset>
+              <legend class="pure-steps_group-step_legend">Sign Up</legend>
+              <p class="pure-steps_group-step_item flexy-item flexy-column reverse">
+                <input type="text" placeholder="Type your email here" value="" id="input_email">
+                <label for="input_email">Email</label>
+              </p>
+              <p class="pure-steps_group-step_item flexy-item flexy-column reverse">
+                <input type="text" placeholder="Type your nick here" value="" id="input_nick">
+                <label for="input_nick">Nick</label>
+              </p>
+              <p class="pure-steps_group-step_item flexy-item flexy-column reverse">
+                <input type="password" placeholder="Type your password here" value="" id="input_password">
+                <label for="input_password">Password</label>
+              </p>
+            </fieldset>
+          </li>
+          <li class="pure-steps_group-step flexy-item">
+            <div class="pure-steps_preload">
+              <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve">
+                <path d="M31.8,3.6c-0.2-0.5-0.4-0.9-0.9-1.2C30.4,2,29.7,1.8,29,1.9c-0.6,0.1-1.2,0.4-1.6,1l-8.5,11.2l0,0l-7.2,9.5l-7.1-9.4 c-0.5-0.7-1.3-1-2.1-1c-0.5,0-1,0.2-1.4,0.5c-0.5,0.4-0.9,1-1,1.7s0.1,1.2,0.5,1.8l9.1,12.1l0,0c0.1,0.2,0.3,0.3,0.4,0.4 c0.4,0.3,0.9,0.5,1.4,0.5c0.8,0,1.6-0.3,2.1-1L22.1,18l0,0l9.1-12.1C32,5.2,32.1,4.4,31.8,3.6z"></path>
+              </svg>
+            </div>
+          </li>
+        </ol>
+        <ol class="pure-steps_group-triggers">
+          <li class="pure-steps_group-triggers_item">
+            <label for="step-0">Restart</label>
+          </li>
+          <li class="pure-steps_group-triggers_item">
+            <label for="step-1">Sign Up</label>
+          </li>
+          <li class="pure-steps_group-triggers_item">
+            <label for="step-2">Jump in</label>
+          </li>
+        </ol>
+      </div>
+      <br>
+      <label for="step-0">Restart</label>
+    </form>
+  </article>
 </section>
 
 <section id="angebot" class="s-about light-gray">
