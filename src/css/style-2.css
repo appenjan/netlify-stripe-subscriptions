@@ -185,13 +185,6 @@ fieldset {
 fieldset.current {
   padding-top: 60px; }
 
-.content {
-  padding-right: 70px;
-  padding-left: 80px;
-  height: 410px; }
-  .content h3 {
-    display: none; }
-
 .steps {
   border-bottom: 1px solid #ebebeb; }
   .steps ul {
@@ -452,11 +445,6 @@ input[type=radio] {
 
   .form-select {
     margin-bottom: 65px; }
-
-  .content {
-    height: 550px;
-    padding-right: 30px;
-    padding-left: 30px; }
 
   .actions {
     bottom: 20px; }
