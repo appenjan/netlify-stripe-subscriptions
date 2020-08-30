@@ -808,61 +808,157 @@ button {
                 <div class="p-3 justify-content-center text-center">
                     <h4 class="heading">Feedback</h4>
                     <div class="row justify-content-center mb-4">
-                      <ul class="nav nav-tabs flex-nowrap" role="tablist">
-                   <li role="presentation" class="nav-item">
-                       <a href="#step1" class="nav-link active" data-toggle="tab" aria-controls="step1" role="tab" title="Step 1"> 1 </a>
-                   </li>
-                   <li role="presentation" class="nav-item">
-                       <a href="#step2" class="nav-link disabled" data-toggle="tab" aria-controls="step2" role="tab" title="Step 2"> 2 </a>
-                   </li>
-                   <li role="presentation" class="nav-item">
-                       <a href="#step3" class="nav-link disabled" data-toggle="tab" aria-controls="step3" role="tab" title="Step 3"> 3 </a>
-                   </li>
-                   <li role="presentation" class="nav-item">
-                       <a href="#complete" class="nav-link disabled" data-toggle="tab" aria-controls="complete" role="tab" title="Complete"> 4 </a>
-                   </li>
-               </ul>
-               <form role="form">
-                   <div class="tab-content py-2">
-                       <div class="tab-pane active" role="tabpanel" id="step1">
-                           <h3>Step 1</h3>
-                           <p>This is step 1. Click continue...</p>
-                           <button type="button" class="btn btn-primary next-step float-right">Next</button>
-                       </div>
-                       <div class="tab-pane" role="tabpanel" id="step2">
-                           <h3>Step 2</h3>
-                           <p>This is step 2</p>
-                           <ul class="float-right">
-                               <li class="list-inline-item">
-                                   <button type="button" class="btn btn-outline-primary prev-step">Previous</button>
-                               </li>
-                               <li class="list-inline-item">
-                                   <button type="button" class="btn btn-primary next-step">Save and continue</button>
-                               </li>
-                           </ul>
-                       </div>
-                       <div class="tab-pane" role="tabpanel" id="step3">
-                           <h3>Step 3</h3>
-                           <p>This is step 3</p>
-                           <ul class="float-right">
-                               <li class="list-inline-item">
-                                   <button type="button" class="btn btn-outline-primary prev-step">Previous</button>
-                               </li>
-                               <li class="list-inline-item">
-                                   <button type="button" class="btn btn-outline-primary next-step">Skip</button>
-                               </li>
-                               <li class="list-inline-item">
-                                   <button type="button" class="btn btn-primary btn-info-full next-step">Save and continue</button>
-                               </li>
-                           </ul>
-                       </div>
-                       <div class="tab-pane" role="tabpanel" id="complete">
-                           <h3>Complete!</h3>
-                           <p>You have successfully completed all steps.</p>
-                       </div>
-                       <div class="clearfix"></div>
-                   </div>
-               </form>
+                      <form name="contact_kickoff"  method="POST" data-netlify="true" action="/confirm.html" enctype='multipart/form-data' >
+                                <div class="input-group">
+                                    <label class="label">Hast du bereits eine Webseite?*</label>
+                                    <div class="segmented-control" style="width: 100%; ">
+                                      <input type="radio" name="sc-1-5" value="Webseite vorhanden" id="sc-1-5-1" >
+                                      <input type="radio" name="sc-1-5" value="Webseite nicht vorhanden" id="sc-1-5-2">
+                                      <label for="sc-1-5-1" data-value="Ja, ich habe bereits eine">Ja, ich habe bereits eine.</label>
+                                      <label for="sc-1-5-2" data-value="Nein, ich habe noch keine *">Nein, ich habe noch keine</label>
+                                    </div>
+                                </div>
+                                <div class="input-group">
+                                    <input class="input--style-1" type="text" name="webseite" placeholder="z.B. www.sitogo.ch">
+                                </div>
+                                <div class="input-group" name="domain_host">
+                                    <label class="label">Hast du eine Domain?*</label>
+                                    <div class="segmented-control" style="width: 100%; ">
+                                      <input type="radio" name="sc-1-6" value="Domain vorhanden" id="sc-1-6-1" >
+                                      <input type="radio" name="sc-1-6" value="Domain nicht vorhanden" id="sc-1-6-2" >
+                                      <label for="sc-1-6-1" data-value="Ja, ich habe bereits eine">Ja, ich habe bereits eine.</label>
+                                      <label for="sc-1-6-2" data-value="Nein, ich habe noch keine *">Nein, ich habe noch keine *</label>
+                                    </div>
+                                </div>
+                                <div class="input-group">
+                                    <input class="input--style-1" type="text" name="domain" placeholder="z.B. www.sitogo.ch">
+                                </div>
+                                <div class="input-group">
+                                    <input class="input--style-1" type="text" name="domain_wunsch" placeholder="Habst du bereits eine Wunschdomain?">
+                                </div>
+                                <div class="input-group">
+                                    <label class="label">Hast du einen Referenzseite, welche dir besonders gefällt?*</label>
+                                    <div class="segmented-control" style="width: 100%; ">
+                                      <input type="radio" name="sc-1-7" value="Referenzseite vorhanden" id="sc-1-7-1" >
+                                      <input type="radio" name="sc-1-7" value="Referenzseite vorhanden" id="sc-1-7-2" >
+                                      <label for="sc-1-7-1" data-value="Ja, ich habe bereits eine">Ja, ich habe eine.</label>
+                                      <label for="sc-1-7-2" data-value="Nein, ich habe noch keine *">Nein, ich habe keine *</label>
+                                    </div>
+                                </div>
+                                <div class="input-group">
+                                    <input class="input--style-1" type="text" name="referenzseite" placeholder="z.B. www.sitogo.ch">
+                                </div>
+                                <div class="input-group">
+                                    <label class="label">Welchen Stil bevorzugst du?*</label>
+                                    <div class="segmented-control" style="width: 100%; ">
+                                      <input type="radio" name="sc-1-9" value="Webseitestil Minimalistisch" id="sc-1-9-1" >
+                                      <input type="radio" name="sc-1-9" value="Webseitestil Traditionell" id="sc-1-9-2">
+                                      <input type="radio" name="sc-1-9" value="Webseitestil Formell" id="sc-1-9-3" >
+                                      <input type="radio" name="sc-1-9" value="Webseitestil Frech" id="sc-1-9-4">
+                                      <label for="sc-1-9-1" data-value="Minimalistisch">Minimalistisch.</label>
+                                      <label for="sc-1-9-2" data-value="Traditionell">Traditionell</label>
+                                      <label for="sc-1-9-3" data-value="Formell">Formell</label>
+                                      <label for="sc-1-9-4" data-value="Frech">Frech</label>
+                                    </div>
+                                </div>
+
+                                <div class="input-group">
+                                    <label class="label">Hast du eine gewünschte Primärfarbe?*</label>
+                                    <div class="segmented-control" style="width: 100%; ">
+                                      <input type="radio" name="sc-1-10" value="Primärfarbe vorhanden" id="sc-1-10-1" >
+                                      <input type="radio" name="sc-1-10" value="Primärfarbe nicht vorhanden" id="sc-1-10-2" >
+                                      <label for="sc-1-10-1" data-value="Ja, ich habe eine">Ja, ich habe eine</label>
+                                      <label for="sc-1-10-2" data-value="Nein, ich habe keine">Nein, ich habe keine</label>
+                                    </div>
+                                </div>
+                                <div class="input-group">
+                                    <input class="input--style-1" type="text" name="primärfarbe" placeholder="z.B. Farbe, HEX, RAL, etc.">
+                                </div>
+                                <div class="input-group">
+                                    <label class="label">Hast du eine gewünschte Sekundärfarbe?*</label>
+                                    <div class="segmented-control" style="width: 100%; ">
+                                      <input type="radio" name="sc-1-11" value="Sekundärfarbe vorhanden" id="sc-1-11-1" >
+                                      <input type="radio" name="sc-1-11" value="Sekundärfarbe nicht vorhanden" id="sc-1-11-2" >
+                                      <label for="sc-1-11-1" data-value="Ja, ich habe eine">Ja, ich habe eine</label>
+                                      <label for="sc-1-11-2" data-value="Nein, ich habe keine">Nein, ich habe keine</label>
+                                    </div>
+                                </div>
+                                <div class="input-group">
+                                    <input class="input--style-1" type="text" name="sekundärfarbe" placeholder="z.B. Farbe, HEX, RAL, etc.">
+                                </div>
+                                <div class="input-group">
+                                    <label class="label">Sind deine Texte für die Webseite schon vorhanden?*</label>
+                                    <div class="segmented-control" style="width: 100%; ">
+                                      <input type="radio" name="sc-1-12" value="Ja vorhanden" id="sc-1-12-1" >
+                                      <input type="radio" name="sc-1-12" value="Nein nicht vorhanden" id="sc-1-12-2" >
+                                      <label for="sc-1-12-1" data-value="Ja, ich habe diese bereits">Ja, ich habe diese bereits</label>
+                                      <label for="sc-1-12-2" data-value="Nein, ich habe noch keine">Nein, ich habe noch keine</label>
+                                    </div>
+                                </div>
+
+                                <div class="input-group">
+                                    <div class="segmented-control" style="width: 100%; ">
+                                      <input type="radio" name="sc-1-8" value="Geschäftskunde" id="sc-1-8-1" checked>
+                                      <input type="radio" name="sc-1-8" value="Privatkunde" id="sc-1-8-2" >
+                                      <label for="sc-1-8-1" data-value="Geschäftskunde">Geschäftskunde</label>
+                                      <label for="sc-1-8-2" data-value="Privatkunde">Privatkunde</label>
+                                    </div>
+                                </div>
+                                <div class="input-group" name="firma_in">
+                                    <label class="label">Firmenname:</label>
+                                    <input class="input--style-1" type="text" name="firma" placeholder="z.B. Sitogo AG">
+                                </div>
+                                  <div class="input-group">
+                                      <label class="label">Strasse, Nr.:</label>
+                                      <input class="input--style-1" type="text" name="street" placeholder="z.B. Dorfstrasse 46">
+                                  </div>
+                                  <div class="input-group">
+                                      <label class="label">Stadt:</label>
+                                      <input class="input--style-1" type="text" name="town" placeholder="z.B. Rüti ZH">
+                                  </div>
+                                  <div class="input-group">
+                                      <label class="label">PLZ:</label>
+                                      <input class="input--style-1" type="text" name="code" placeholder="z.B. 8630">
+                                  </div>
+
+                                  <div class="input-group">
+                                      <label class="label">Vorname*:</label>
+                                      <input class="input--style-1" type="text" name="fullname" placeholder="z.B. Max">
+                                  </div>
+                                  <div class="input-group">
+                                      <label class="label">Nachname*:</label>
+                                      <input class="input--style-1" type="text" name="fullname" placeholder="z.B. Mustermann">
+                                  </div>
+                                  <div class="input-group">
+                                      <label class="label">E-Mail-Adresse*:</label>
+                                      <input class="input--style-1" type="email" name="email" placeholder="z.B hello@sitogo.ch">
+                                  </div>
+                                  <div class="input-group">
+                                      <label class="label">Telefonnummer*:</label>
+                                      <input class="input--style-1" type="text" name="phone" placeholder="z.B 055 222 22 22">
+                                  </div>
+                                  <div class="input-group">
+                                      <label class="label">Dateiupload*:</label>
+                                      <input type="file" id="file" name="file" multiple>
+                                  </div>
+                                  <div class="form-group">
+                                  <label class="label">Möchtest du uns sonst noch etwas mitteilen?</label>
+                                  <textarea name="inputMessage4" class="form-about-yourself form-control SafariFix" id="inputMessage4"></textarea>
+                                  </div>
+
+                                <div class="form-group">
+                                  <label class="label">Wie bist du auf uns aufmerksam geworden?</label>
+                                  <select class="form-control" id="inputKontakt" name="inputKontakt" required>
+                                    <option selected="true" value="Frau" disabled></option>
+                                    <option value="Google, Bing">Google, Bing</option>
+                                    <option value="Empfehlungen">Empfehlungen</option>
+                                    <option value="Zeitungen">Zeitungen</option>
+                                    <option value="Firmenauto">Firmenauto</option>
+                                    <option value="Social Media">Social Media</option>
+                                  </select>
+                                  </div>
+                                    <button onclick="window.location.href = 'https://portal.sitogo.ch/confirm/';" class="btn-last button_tuto" type="submit">Absenden</button>
+</form>
                               </div>
                             </div> <button class="btn btn-success mb-5 prev button_tuto_back">Zurück</button>
                             <button id="next2" class="btn btn-success rounded-0 mb-5 next" onclick="validate(0)">Submit</button>
@@ -1627,35 +1723,5 @@ Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? W
 
    });
 
-   $(document).ready(function () {
-    //Initialize tooltips
-    $('.nav-tabs > li a[title]').tooltip();
-
-    //Wizard
-    $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
-        var $target = $(e.target);
-        if ($target.parent().hasClass('disabled')) {
-            return false;
-        }
-    });
-
-    $(".next-step").click(function (e) {
-        var $active = $('.nav-tabs li>.active');
-        $active.parent().next().find('.nav-link').removeClass('disabled');
-        nextTab($active);
-    });
-
-    $(".prev-step").click(function (e) {
-        var $active = $('.nav-tabs li>a.active');
-        prevTab($active);
-    });
-});
-
-function nextTab(elem) {
-    $(elem).parent().next().find('a[data-toggle="tab"]').click();
-}
-function prevTab(elem) {
-    $(elem).parent().prev().find('a[data-toggle="tab"]').click();
-}
 
    </script>
