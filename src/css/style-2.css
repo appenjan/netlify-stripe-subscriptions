@@ -241,7 +241,7 @@ fieldset.current {
       display: none; }
     .actions ul li:first-child {
       float: left;
-      padding-left: 80px; }
+      padding-left: 20px; }
       .actions ul li:first-child a {
         background: #ebebeb;
         color: #999999; }
