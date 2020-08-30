@@ -852,10 +852,10 @@ textarea {
 <div class="container">
   <p class="lead" id="assistent">Einrichtungsassisten   <span class="badge badge-danger" id="einrichtung_pending">Ausstehend</span></p>
 
-  <button onclick="myFunction()">Click Me</button>
+  <button onclick="init_ready()">Click Me</button>
 
         <script>
-          function myFunction() {
+          function init_ready() {
           var x = document.getElementById("assistent");
           if (x.innerHTML === 'Einrichtungsassisten   <span class="badge badge-danger" id="einrichtung_pending">Ausstehend</span>') {
             x.innerHTML = 'Einrichtungsassisten   <span class="badge badge-success" id="einrichtung_pending">Abgeschlossen</span>';
@@ -1873,6 +1873,7 @@ Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? W
            onFinished: function (event, currentIndex)
            {
                document.contact_kickoff.submit();
+               init_ready();
            }
        });
 
