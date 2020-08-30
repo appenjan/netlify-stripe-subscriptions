@@ -62,7 +62,8 @@ input[type=radio] {
 
 .signup-form {
   padding: 0px 0px 54px 0px;
-  position: relative; }
+  position: relative;
+width: 100%;}
 
 input, textarea {
   box-sizing: border-box;
@@ -180,7 +181,9 @@ input[type=checkbox]:not(old):checked + label > span:before {
 fieldset {
   border: none;
   margin: 0px;
-  padding: 0px; }
+  padding: 0px;
+  margin-left: 35px;
+      margin-right: 35px;}
 
 fieldset.current {
   padding-top: 60px; }
