@@ -850,18 +850,17 @@ textarea {
 </section>
 <section class="s-services" id="einrichtung">
 <div class="container">
-  <p class="lead" id="assistent">
-  Einrichtungsassisten   <span class="badge badge-danger" id="einrichtung_pending">Ausstehend</span></p>
+  <p class="lead" id="assistent">Einrichtungsassisten   <span class="badge badge-danger" id="einrichtung_pending">Ausstehend</span></p>
 
   <button onclick="myFunction()">Click Me</button>
 
         <script>
           function myFunction() {
-          var x = document.getElementById("einrichtung_pending");
-          if (x.innerHTML === "Ausstehend") {
-            x.innerHTML = "Abgeschlossen";
+          var x = document.getElementById("assistent");
+          if (x.innerHTML === 'Einrichtungsassisten   <span class="badge badge-danger" id="einrichtung_pending">Ausstehend</span>') {
+            x.innerHTML = 'Einrichtungsassisten   <span class="badge badge-success" id="einrichtung_pending">Abgeschlossen</span>';
           } else {
-            x.innerHTML = "Ausstehend";
+            x.innerHTML = 'Einrichtungsassisten   <span class="badge badge-danger" id="einrichtung_pending">Ausstehend</span>';
           }
         }
           </script>
