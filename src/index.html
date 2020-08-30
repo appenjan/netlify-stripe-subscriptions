@@ -649,7 +649,7 @@ body {
 }
 #home{
   padding-top: 7rem;
-  padding-bottom: 3rem;
+  padding-bottom: 17rem;
 
 }
 #einrichtung{
@@ -799,6 +799,21 @@ textarea {
       shape-outside: polygon(25% 0, 100% 0, 100% 100%, 0 100%);
       clip-path: polygon(0% 100%, 102% 0, 1332% 100%, 0% 100%);
 }
+.overlay_white{
+  position: absolute;
+      background: white;
+      /* opacity: .3; */
+      left: 0;
+      right: 0;
+      /* top: 402px; */
+      height: 208px;
+      z-index: 999;
+      bottom: -0.7px;
+      z-index: 1;
+      shape-outside: polygon(25% 0, 100% 0, 100% 100%, 0 100%);
+      clip-path: polygon(0% 100%, 102% 0, 1332% 100%, 0% 100%);
+}
+
 </style>
 
 <section class="s-services" id="home">
@@ -816,6 +831,7 @@ textarea {
         </div>
           </div>
     </div>
+    <div class="overlay"></div>
 </section>
 <section class="s-services" id="einrichtung">
 <div class="container">
@@ -1046,6 +1062,7 @@ textarea {
                 </div>
             </div>
         </div>
+        <div class="overlay_white"></div>
 </section>
 
 
@@ -1093,6 +1110,7 @@ Mein aktuelles Abo.</p>
 </template>
 </div>
 </div>
+<div class="overlay"></div>
 </section>
 
 <section class="s-about" id="contentpflege">
@@ -1120,6 +1138,7 @@ Mein aktuelles Abo.</p>
 </form>
 </div>
 </div>
+<div class="overlay_white"></div>
 </section>
 
 <div class="user-info-9">
@@ -1132,6 +1151,7 @@ Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? W
 
 </div>
 </div>
+<div class="overlay"></div>
 </section>
 </div>
 
