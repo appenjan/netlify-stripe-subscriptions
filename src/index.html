@@ -859,7 +859,11 @@ textarea {
           var x = document.getElementById("assistent");
           if (x.innerHTML === 'Einrichtungsassisten   <span class="badge badge-danger" id="einrichtung_pending">Ausstehend</span>') {
             x.innerHTML = 'Einrichtungsassisten   <span class="badge badge-success" id="einrichtung_pending">Abgeschlossen</span>';
-          } else {
+          }
+          if (x.innerHTML === 'Einrichtungsassisten   <span class="badge badge-success" id="einrichtung_pending">Abgeschlossen</span>') {
+            x.innerHTML = 'Einrichtungsassisten   <span class="badge badge-success" id="einrichtung_pending">Abgeschlossen</span>';
+          }
+          else {
             x.innerHTML = 'Einrichtungsassisten   <span class="badge badge-danger" id="einrichtung_pending">Ausstehend</span>';
           }
         }
