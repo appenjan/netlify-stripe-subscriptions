@@ -1521,26 +1521,9 @@ Du hast Fragen zu deinem Abo oder es funktioniert etwas nicht mit der Zahlung? W
    str2 = "next2";
    str3 = "next3";
 
-   if(!str1.localeCompare($(this).attr('id')) && document.getElementById("customCheck1").checked == 1) {
    val1 = true;
-   }
-   else {
-   val1 = false;
-   }
-
-   if(!str2.localeCompare($(this).attr('id')) && document.getElementById("sub").value != "") {
    val21 = true;
-   }
-   else {
-   val21 = false;
-   }
-
-   if(!str2.localeCompare($(this).attr('id')) && document.getElementById("msg").value != "") {
    val22 = true;
-   }
-   else {
-   val22 = false;
-   }
 
    if((!str1.localeCompare($(this).attr('id')) && val1 == true) || (!str2.localeCompare($(this).attr('id')) && val21 == true && val22 == true) || !str3.localeCompare($(this).attr('id'))) {
    current_fs = $(this).parent().parent();
