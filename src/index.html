@@ -38,7 +38,7 @@ margin-right: auto;
       padding-right: 7.5px;
     }
     .form-control {
-    border-radius: 40px;
+    border-radius: 40px!important;
     padding: 1.375rem .75rem;
 }
 .thumbnail{
@@ -750,8 +750,8 @@ textarea {
 }
 .transparent{
   background-color: transparent;
-  border-left: 1px solid ##4b77be;
-    border-right: 1px solid ##4b77be;
+  border-left: 1px solid #4b77be;
+    border-right: 1px solid #4b77be;
 }
 </style>
 
@@ -928,6 +928,20 @@ textarea {
                                  <label class="label">Firmenname:</label>
                                  <input class="input--style-1" type="text" name="firma" placeholder="z.B. Sitogo AG">
                              </div>
+                             <div class="row">
+                                 <div class="col-md-6">
+                             <div class="input-group">
+                                 <label class="label">Vorname*:</label>
+                                 <input class="input--style-1" type="text" name="fullname" placeholder="z.B. Max">
+                             </div>
+                             </div>
+                              <div class="col-md-6">
+                             <div class="input-group">
+                                 <label class="label">Nachname*:</label>
+                                 <input class="input--style-1" type="text" name="fullname" placeholder="z.B. Mustermann">
+                             </div>
+                             </div>
+                             </div>
                                <div class="input-group">
                                    <label class="label">Strasse, Nr.:</label>
                                    <input class="input--style-1" type="text" name="street" placeholder="z.B. Dorfstrasse 46">
@@ -946,20 +960,6 @@ textarea {
                                </div>
                              </div>
                              </div>
-                               <div class="row">
-                                   <div class="col-md-6">
-                               <div class="input-group">
-                                   <label class="label">Vorname*:</label>
-                                   <input class="input--style-1" type="text" name="fullname" placeholder="z.B. Max">
-                               </div>
-                               </div>
-                                <div class="col-md-6">
-                               <div class="input-group">
-                                   <label class="label">Nachname*:</label>
-                                   <input class="input--style-1" type="text" name="fullname" placeholder="z.B. Mustermann">
-                               </div>
-                               </div>
-                               </div>
                                <div class="input-group">
                                    <label class="label">E-Mail-Adresse*:</label>
                                    <input class="input--style-1" type="email" name="email" placeholder="z.B hello@sitogo.ch">
@@ -1064,7 +1064,7 @@ Mein aktuelles Abo.</p>
                 <input type="file" id="file_2" name="file" multiple>
             </div>
 
-            <div class="form-group">
+            <div class="input-group">
             <label class="label">Was dürfen wir auf deiner Webseite anpassen?</label>
             <textarea name="inputMessage4" class="form-about-yourself form-control SafariFix" id="inputMessage4"></textarea>
             </div>
