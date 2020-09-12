@@ -828,6 +828,12 @@ textarea {
     /* margin-left: 30%; */
     /* padding-left: 30px; */
 }
+.etikette{
+  background-color: red;
+  padding: 10px;
+    border-radius: 22px;
+    font-weight: 600;
+}
 </style>
 
 <section class="s-services" id="home">
@@ -849,7 +855,7 @@ textarea {
 </section>
 <section class="s-services" id="einrichtung">
 <div class="container">
-  <p class="lead" id="assistent">Einrichtungsassisten   <span style="background-color:red" id="einrichtung_pending">Ausstehend</span></p>
+  <p class="lead" id="assistent">Einrichtungsassisten   <span class="etikette" id="einrichtung_pending">Ausstehend</span></p>
 
       <button id="status" onclick="myFunction()">Change</button>
 
@@ -858,7 +864,7 @@ textarea {
 
       function myFunction() {
         if (btn.innerHTML=="Ausstehend")
-          btn.innerHTML = "<span style=\"background-color:green\">" + "Abgeschlossen";
+          btn.innerHTML = "<span style=\"background-color:green;padding: 10px;border-radius: 22px;font-weight: 600;\">" + "Abgeschlossen";
         else btn.innerHTML ="Ausstehend";
 
         // save the current label to localStorage via setItem()
