@@ -849,7 +849,7 @@ textarea {
 </section>
 <section class="s-services" id="einrichtung">
 <div class="container">
-  <p class="lead" id="assistent">Einrichtungsassisten   <span class="badge badge-danger" id="einrichtung_pending">Ausstehend</span></p>
+  <p class="lead" id="assistent">Einrichtungsassisten   <span class="badge" style="background-color:red" id="einrichtung_pending">Ausstehend</span></p>
 
       <button id="status" onclick="myFunction()">Change</button>
 
@@ -857,9 +857,9 @@ textarea {
       var btn = document.getElementById("einrichtung_pending");
 
       function myFunction() {
-        if (btn.innerHTML=="Ausstehend")
-          btn.innerHTML = "Abgeschlossen";
-        else btn.innerHTML = "Ausstehend";
+        if (btn.innerHTML=="<span style=\"background-color:green\">" + "Ausstehend")
+          btn.innerHTML = "<span style=\"background-color:green\">" + "Abgeschlossen";
+        else btn.innerHTML = "<span style=\"background-color:red\">" + "Ausstehend";
 
         // save the current label to localStorage via setItem()
         window.localStorage.setItem('btnLabel', btn.innerHTML);
