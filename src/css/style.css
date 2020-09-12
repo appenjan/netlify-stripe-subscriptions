@@ -8147,7 +8147,7 @@ h1, h2, h3, h4, h5,
       padding: 10px 0;
       display: block;
       color: black;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+      }
       #sidebar ul li a:hover {
         color: black; }
     #sidebar ul li.active > a {
@@ -8180,8 +8180,8 @@ h1, h2, h3, h4, h5,
       height: 40px;
       border-radius: 50%; }
       #sidebar .custom-menu .btn.btn-primary {
-        background: #6749b9;
-        border-color: #6749b9; }
+        background: #22313f;
+        border-color: #22313f; }
         #sidebar .custom-menu .btn.btn-primary:hover, #sidebar .custom-menu .btn.btn-primary:focus {
           background: #6749b9 !important;
           border-color: #6749b9 !important; }
