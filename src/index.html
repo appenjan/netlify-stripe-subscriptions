@@ -855,7 +855,7 @@ textarea {
 </section>
 <section class="s-services" id="einrichtung">
 <div class="container">
-  <p class="lead" id="assistent">Einrichtungsassisten   <span style="background-color:red;padding: 10px;border-radius: 22px;font-weight: 600;font-size: 17px;">Ausstehend</span></p>
+  <p class="lead" id="assistent">Einrichtungsassisten   <span style="background-color:red;padding: 10px;border-radius: 22px;font-weight: 600;font-size: 17px;color=white">Ausstehend</span></p>
 
       <button id="status" onclick="myFunction()">Change</button>
 
@@ -863,9 +863,9 @@ textarea {
       var btn = document.getElementById("assistent");
 
       function myFunction() {
-        if (btn.innerHTML=="Einrichtungsassisten" + "<span style=\"background-color:red;padding: 10px;border-radius: 22px;font-weight: 600;font-size: 17px;\">" + "Ausstehend" + "</span>")
-          btn.innerHTML = "Einrichtungsassisten" + "<span style=\"background-color:green;padding: 10px;border-radius: 22px;font-weight: 600;font-size: 17px;\">" + "Abgeschlossen" + "</span>";
-        else btn.innerHTML ="Einrichtungsassisten" + "<span style=\"background-color:red;padding: 10px;border-radius: 22px;font-weight: 600;font-size: 17px;\">" + "Ausstehend" + "</span>";
+        if (btn.innerHTML=="Einrichtungsassisten   " + "<span style=\"background-color:red;padding: 10px;border-radius: 22px;font-weight: 600;font-size: 17px;color=white;\">" + "Ausstehend" + "</span>")
+          btn.innerHTML = "Einrichtungsassisten   " + "<span style=\"background-color:green;padding: 10px;border-radius: 22px;font-weight: 600;font-size: 17px;color=white;\">" + "Abgeschlossen" + "</span>";
+        else btn.innerHTML ="Einrichtungsassisten   " + "<span style=\"background-color:red;padding: 10px;border-radius: 22px;font-weight: 600;font-size: 17px;color=white;\">" + "Ausstehend" + "</span>";
 
         // save the current label to localStorage via setItem()
         window.localStorage.setItem('btnLabel', btn.innerHTML);
