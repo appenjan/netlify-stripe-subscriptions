@@ -8053,7 +8053,7 @@ a {
   -webkit-transition: .3s all ease;
   -o-transition: .3s all ease;
   transition: .3s all ease;
-  color: #866ec7; }
+  color: black; }
   a:hover, a:focus {
     text-decoration: none !important;
     outline: none !important;
