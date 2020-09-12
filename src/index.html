@@ -855,11 +855,12 @@ textarea {
       <button id="status" onclick="myFunction()">Change</button>
 
       <script>
-      var btn = document.getElementById("einrichtung_pending");
+      var btn = document.getElementById("assistent");
 
       function myFunction() {
-        if (btn.innerHTML=="Ausstehend") btn.innerHTML = "Abgeschlossen";
-        else btn.innerHTML = "Ausstehend";
+        if (btn.innerHTML=="Einrichtungsassisten   <span class="badge badge-danger" id="einrichtung_pending">Ausstehend</span>")
+            btn.innerHTML = "Einrichtungsassisten   <span class="badge badge-success" id="einrichtung_pending">Abgeschlossen</span>";
+        else btn.innerHTML = "Einrichtungsassisten   <span class="badge badge-danger" id="einrichtung_pending">Ausstehend</span>";
 
         // save the current label to localStorage via setItem()
         window.localStorage.setItem('btnLabel', btn.innerHTML);
