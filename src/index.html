@@ -847,7 +847,7 @@ textarea {
             <div class="user-info-12">
             <button class="smoothscroll js-scroll-trigger small" id="regist">Jetzt registrieren</button>
             </div>
-            <button class="smoothscroll js-scroll-trigger button_start" onclick="window.location.href = 'https://portal.sitogo.ch/#einrichtung';">Jetzt starten</button>
+            <button class="smoothscroll js-scroll-trigger button_start" data-toggle="modal" data-target="#myModal2">Jetzt starten</button>
         </div>
           </div>
     </div>
@@ -1183,6 +1183,103 @@ Mein aktuelles Abo.</p>
 </div>
 <div class="overlay_white"></div>
 </section>
+
+
+    <!-- Modal -->
+<div id="myModal2" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="row">
+            <div class="col-full contact-main" >
+        <h4 class="modal-title">Kontaktformular<br></h4>
+        </div>
+        </div>
+      </div>
+      <div class="modal-body">
+
+                <div class="row">
+
+                    <div class="col-full contact-main" >
+
+                        <form id="contactform" enctype="multipart/form-data" action="mailer.php" method="POST">
+                                    <div class="row">
+                                  <div class="col-6">
+                                     <div class="form-group">
+                                   <select class="form-control" id="inputAnrede" name="inputAnrede">
+                                     <option value="Herr">Herr</option>
+                                     <option value="Frau">Frau</option>
+                                   </select>
+                                   </div>
+                                   </div>
+                                   <div class="col-6">
+                                   <div class="form-group">
+                                       <input type="text" class="form-control" id="firma" name="firma" placeholder="Firma">
+                                   </div>
+                                   </div>
+                                   </div>
+                                    <div class="row">
+                                      <div class="col-6">
+                                      <div class="form-group">
+                                          <input type="text" class="form-control" id="vorname" name="vorname" placeholder="Vorname *">
+                                      </div>
+                                      </div>
+                                      <div class="col-6">
+                                      <div class="form-group">
+                                          <input type="text" class="form-control" id="nachname" name="nachname" placeholder="Nachname *">
+                                      </div>
+                                      </div>
+                                      </div>
+
+                                        <div class="row">
+                                          <div class="col-6">
+                                          <div class="form-group">
+                                              <input type="text" class="form-control" id="telefon" name="telefon" placeholder="Telefon">
+                                          </div>
+                                          </div>
+                                          <div class="col-6">
+                                          <div class="form-group">
+                                              <input type="email" class="form-control" id="email" name="email" placeholder="E-Mail *">
+                                          </div>
+                                          </div>
+                                        </div>
+                                        <div class="row">
+                                      <div class="col-md-12">
+                                     <div class="form-group">
+                                     <select class="form-control" id="anliegen" name="anliegen">
+                                       <option selected="true" value="Frau" disabled>Was können wir für Dich tun? *</option>
+                                       <option value="starter">Webdesign-Paket | Starter</option>
+                                       <option value="medium">Webdesign-Paket | Medium</option>
+                                       <option value="exclusive">Webdesign-Paket | Exclusive</option>
+                                       <option value="sonstiges">Sonstiges</option>
+                                     </select>
+                                     </div>
+                                     </div>
+                                     </div>
+                    <div class="row">
+                      <div class="col-12">
+                                      <div class="form-group">
+                                          <textarea name="message" class="form-control" id="message" cols="30" rows="4" placeholder="Möchtest Du uns sonst noch etwas sagen?"></textarea>
+                                      </div><br>
+                                    </div>
+                                    </div>
+                                    <div class="row">
+                                      <div class="col-12">
+                                      <button id="btn_bestellen2" href="#bestellen" data-callback='onSubmit' class="g-recaptcha btn btn-outline-sub" data-sitekey="6LdfK7sZAAAAAMJTwiDE3uOwk2ljEbzDsSNu0wbY" data-badge="inline">Anfrage abschicken.</button>
+                                    </div>
+                                    </div>
+                                  </form>
+                    </div> <!-- end contact-main -->
+
+                </div> <!-- end row -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Schliessen</button>
+      </div>
+    </div>
+
 
 <script>
   const button1 = document.getElementById('left');
