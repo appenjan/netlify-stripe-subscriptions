@@ -852,25 +852,25 @@ textarea {
 <div class="container">
   <p class="lead" id="assistent">Einrichtungsassisten   <span class="badge badge-danger" id="einrichtung_pending">Ausstehend</span></p>
 
-<button id="status" onclick="myFunction()">Oczekująca</button>
+      <button id="status" onclick="myFunction()">Change</button>
 
-<script>
-var btn = document.getElementById("status");
+      <script>
+      var btn = document.getElementById("einrichtung_pending");
 
-function myFunction() {
-  if (btn.innerHTML=="Oczekująca") btn.innerHTML = "Zakończona";
-  else btn.innerHTML = "Oczekująca";
+      function myFunction() {
+        if (btn.innerHTML=="Ausstehend") btn.innerHTML = "Abgeschlossen";
+        else btn.innerHTML = "Abgeschlossen";
 
-  // save the current label to localStorage via setItem()
-  window.localStorage.setItem('btnLabel', btn.innerHTML);
-}
+        // save the current label to localStorage via setItem()
+        window.localStorage.setItem('btnLabel', btn.innerHTML);
+      }
 
-// on page load, get the saved label from localStorage via getItem()
-var btnLabel = window.localStorage.getItem('btnLabel');
-if (btnLabel) {
-  btn.innerHTML = btnLabel;
-}
-</script>
+      // on page load, get the saved label from localStorage via getItem()
+      var btnLabel = window.localStorage.getItem('btnLabel');
+      if (btnLabel) {
+        btn.innerHTML = btnLabel;
+      }
+      </script>
 
     <div class="row d-flex justify-content-center text-center">
         <div class="col-lg-12">
