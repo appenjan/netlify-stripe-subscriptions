@@ -534,7 +534,7 @@ background-color: black;
   color: white;
   text-transform: none;
   border-radius: 30px;
-  margin-left: 77%;
+  margin-left: 82s%;
 }
 
 .button_tuto_back {
@@ -670,6 +670,7 @@ body {
     border: 1px solid white;
     box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.2);
     border-radius: 25px!important;
+    z-index: 1050;
 }
 
 .step-container {
@@ -848,6 +849,9 @@ textarea {
             <button class="smoothscroll js-scroll-trigger small" id="regist">Jetzt registrieren</button>
             </div>
             <button class="smoothscroll js-scroll-trigger button_start" type="button" data-toggle="modal" data-target="#myModal2">Jetzt starten</button>
+            <script>
+              netlifyIdentity.open('login')              
+            </script>
         </div>
           </div>
     </div>
@@ -1448,7 +1452,7 @@ Mein aktuelles Abo.</p>
   const text3 = document.getElementById('webseite_bearbeiten');
   const text4 = document.getElementById('hilfe');
   const text5 = document.getElementById('abos');
-    const text7 = document.getElementById('text7');
+  const text7 = document.getElementById('text7');
 
   const block1 = document.getElementById('block1');
   const block2 = document.getElementById('block2');
