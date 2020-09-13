@@ -34,152 +34,24 @@ margin-right: auto;
 </style>
 
 <body>
-  <div id="fb-root"></div>
-         <script>
-           window.fbAsyncInit = function() {
-             FB.init({
-               xfbml            : true,
-               version          : 'v8.0'
-             });
-           };
 
-           (function(d, s, id) {
-           var js, fjs = d.getElementsByTagName(s)[0];
-           if (d.getElementById(id)) return;
-           js = d.createElement(s); js.id = id;
-           js.src = 'https://connect.facebook.net/de_DE/sdk/xfbml.customerchat.js';
-           fjs.parentNode.insertBefore(js, fjs);
-         }(document, 'script', 'facebook-jssdk'));</script>
-
-
-         <div class="fb-customerchat"
-           attribution=setup_tool
-           page_id="642866886354938"
-     theme_color="#0084ff"
-     greeting_dialog_display='hide'
-     logged_in_greeting="Hallo! Wie können wir Dir helfen?"
-     logged_out_greeting="Hallo! Wie können wir Dir helfen?">
-         </div>
-
-  <section class="s-services">
-  <div class="container">
-    <div class="row section-header" >
-        <div class="col-full">
-            <h3 id="kapitel_header" class="subhead">Kundenportal.</h3>
-                <div class="user-info-5">
-            <h1 class="display-1" id="portal_header">Willkommen auf mySitogo. Hier kannst du dein Abo online verwalten, deine Webseite anpassen oder Änderungswünsche mitteilen.</h1>
-            </div>
-            <div class="user-info-12">
-            <button class="smoothscroll js-scroll-trigger small" id="regist">Jetzt registrieren</button>
-            </div>
-        </div>
-    </div>
-</div>
-</section>
-
-<section class="s-services" id="block1">
-<div class="container" >
-<div class="row section-header">
-<p class="lead">Digitales Kickoff</p>
-<form name="contact" method="POST" data-netlify="true">
-  <div class="form-group">
-                               <label for="inputBeziehung">Geschäftsbeziehung</label>
-                             <select class="form-control" id="inputBeziehung" name="inputBeziehung">
-                               <option value="0">Bitte wählen</option>
-                               <option value="Privatkunde">Privatkunde</option>
-                               <option value="Geschaeftskunde">Gesch&auml;ftskunde</option>
-                             </select>
-                             </div>
-
-                             <div class="form-group" id="Geschaeftskunde">
-                             <div class="form-group" >
-                                 <input type="text" name="inputFirma" value="Firma *" class="form-last-name form-control SafariFix" id="inputFirma">
-                               </div>
-                               </div>
-                               <div class="form-group">
-                                 <label for="inputAnrede">Persönliche Angaben</label>
-                               <select class="form-control" id="inputAnrede" name="inputAnrede">
-                                 <option value="Frau">Frau</option>
-                                 <option value="Herr">Herr</option>
-                               </select>
-                               </div>
-                         <div class="form-group">
-                             <input type="text" name="inputVorname" placeholder="Vorname *" class="form-first-name form-control SafariFix" id="inputVorname">
-                           </div>
-                           <div class="form-group">
-                             <input type="text" name="inputName" placeholder="Nachname *" class="form-last-name form-control SafariFix" id="inputName" >
-                           </div>
-                           <div class="col-md-8 number_right">
-                           <div class="form-group">
-                             <input type="text" name="inputStrasse" placeholder="Strasse *" class="form-first-name form-control SafariFix" id="inputStrasse">
-                           </div>
-                           </div>
-                           <div class="col-md-4 number_left">
-                           <div class="form-group">
-                             <input type="text" name="inputNummer" placeholder="Nummer *" class="form-last-name form-control SafariFix" id="inputNummer">
-                           </div>
-                           </div>
-                           <div class="col-md-8 number_right">
-                           <div class="form-group">
-                               <input type="text" name="inputOrt" placeholder="Ort *" class="form-first-name form-control SafariFix" id="inputOrt">
-                           </div>
-                           </div>
-                           <div class="col-md-4 number_left">
-                           <div class="form-group">
-                               <input type="text" name="inputPLZ" placeholder="PLZ *" class="form-last-name form-control SafariFix" id="inputPLZ">
-                           </div>
-
-                         </div>
-                           <div class="form-group">
-                             <input type="text" name="inputLand" placeholder="Land *" class="form-last-name form-control SafariFix" id="inputLand">
-                           </div>
-
-                           <div class="col-md-2 number_right">
-                             <div class="form-group">
-                               <select class="form-control" id="inputVorwahl" name="inputVorwahl" required>
-                                 <option value="+41">+41 (Schweiz)</option>
-                                 <option value="+49">+49 (Deutschland)</option>
-                                 <option value="+43">+43 (Österreich)</option>
-                                 <option value="+423">+423 (Liechtenstein)</option>
-                               </select>
-                               </div>
-
-                         </div>
-                           <div class="col-md-10 number_left">
-                             <div class="form-group">
-                               <input type="text" name="inputTelefon" placeholder="Telefon *" class="form-last-name form-control SafariFix" id="inputTelefon">
-                             </div>
-                           </div>
-
-
-                           <div class="form-group">
-                             <input type="text" name="inputEmail" placeholder="E-Mail *" class="form-last-name form-control SafariFix" id="inputEmail">
-                           </div>
-
-                           <div class="form-group">
-                             <label class="sr-only" for="form-about-yourself">Möchten Sie uns sonst noch etwas mitteilen?</label>
-                             <textarea name="inputMessage4" placeholder="Möchten Sie uns sonst noch etwas mitteilen?"
-                                   class="form-about-yourself form-control SafariFix" id="inputMessage4"></textarea>
-                           </div>
-
-                           <div class="form-group">
-                             <select class="form-control" id="inputKontakt" name="inputKontakt" required>
-                               <option selected="true" value="Frau" disabled>Wie sind Sie auf uns aufmerksam geworden? *</option>
-                               <option value="Google, Bing">Google, Bing</option>
-                               <option value="Empfehlungen">Empfehlungen</option>
-                               <option value="Zeitungen">Zeitungen</option>
-                               <option value="Firmenauto">Firmenauto</option>
-                               <option value="Social Media">Social Media</option>
-                             </select>
-                             </div>
-  <p>
-    <button type="submit">Send</button>
-  </p>
-</form>
-
-</div>
-</div>
-</section>
+   <section class="s-services" id="home">
+     <div class="container">
+       <div class="row section-header" >
+           <div class="col-full">
+               <h3 id="kapitel_header" class="subhead">Kundenportal</h3>
+                   <div class="user-info-5">
+               <h1 class="display-1" id="portal_header">Willkommen auf mySitogo. Verwalte dein Abo. Passe deine Webseite an. Erledige die Contentpflege.</h1>
+               </div>
+               <div class="user-info-12">
+               <button class="smoothscroll js-scroll-trigger small" id="regist">Jetzt registrieren</button>
+               </div>
+               <button class="smoothscroll js-scroll-trigger button_start" type="button" onclick="https://portal.sitogo.ch/#einrichtung">Jetzt starten</button>
+           </div>
+             </div>
+       </div>
+       <div class="overlay"></div>
+   </section>
 
 <script>
   const button1 = document.getElementById('left');
