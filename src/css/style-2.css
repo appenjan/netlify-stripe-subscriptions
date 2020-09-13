@@ -243,10 +243,10 @@ fieldset.current {
       float: left;
       padding-left: 20px; }
       .actions ul li:first-child a {
-        background: #ebebeb;
-        color: #999999; }
+        background: #22313A;
+        color: white; }
         .actions ul li:first-child a:hover {
-          background-color: #d2d2d2; }
+          background-color: #22313A; }
     .actions ul li:nth-child(2), .actions ul li:last-child {
       float: right;
       padding-right: 20px; }
