@@ -1211,7 +1211,6 @@ Mein aktuelles Abo.</p>
   const text1 = document.getElementById('portal_header');
   const text2 = document.getElementById('mein_konto');
   const text3 = document.getElementById('webseite_bearbeiten');
-  const text4 = document.getElementById('hilfe');
   const text5 = document.getElementById('abos');
   const text7 = document.getElementById('text7');
 
@@ -1429,28 +1428,6 @@ Mein aktuelles Abo.</p>
     container.appendChild(t3);
   };
 
-  const updateUserInfo8 = (user) => {
-    const container = document.querySelector('.user-info-8');
-
-    // cloning the buttons removes existing event listeners
-    const t4 = text4.cloneNode(true);
-
-    // empty the user info div
-    container.innerHTML = '';
-
-    if (user) {
-      t4.innerText = 'Hilfe';
-    }
-
-    else {
-      // if no one is logged in, show login/signup options
-      t4.innerText = '';
-    }
-
-    // add the updated buttons back to the user info div
-    container.appendChild(t4);
-  };
-
   const updateUserInfo9 = (user) => {
     const container = document.querySelector('.user-info-9');
 
@@ -1604,7 +1581,6 @@ Mein aktuelles Abo.</p>
     updateUserInfo5(user);
     updateUserInfo6(user);
     updateUserInfo7(user);
-    updateUserInfo8(user);
     updateUserInfo12(user);
     updateUserInfo13(user);
     updateUserInfo17(user);
