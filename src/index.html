@@ -1312,6 +1312,12 @@ Mein aktuelles Abo.</p>
 </div>
 
 <script>
+  $('#myModal').on('shown.bs.modal', function() {
+    $('#myInput').focus()
+  })  
+</script>
+
+<script>
   const button1 = document.getElementById('left');
   const button2 = document.getElementById('right');
   const button3 = document.getElementById('middle');
