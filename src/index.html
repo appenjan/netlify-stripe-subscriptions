@@ -809,47 +809,6 @@ textarea {
       shape-outside: polygon(25% 0, 100% 0, 100% 100%, 0 100%);
       clip-path: polygon(0% 100%, 102% 0, 1332% 100%, 0% 100%);
 }
-.modal {
-  display: none;
-  position:fixed;
-  top: 50%;
-  left: 50%;
-  transform:translate(-50%,-50%);
-  background: #fff;
-  width: 320px;
-  height: 320px;
-  text-align: center;
-  box-sizing:border-box;
-  box-shadow:0 0 20px rgba(0,0,0,.2);
-
-  &.visible {
-    display: block;
-  }
-}
-
-.modal__header {
-  color:white;
-  background: #333;
-  line-height: 50px;
-  text-align: center;
-  position: relative;
-  height:50px;
-  box-sizing:border-box;
-
-  a {
-    position: absolute;
-    top: 0;
-    right: 0;
-    text-decoration: none;
-    color:white;
-    font-weight: bold;
-    display: block;
-    padding: 0 20px;
-    font-size:16px;
-    background: #555;
-    height: 100%;
-  }
-}
 
 .button_weiter {
     display: inline-block;
@@ -1183,18 +1142,8 @@ textarea {
 Mein aktuelles Abo.</p>
 </div>
 
-<a href="#" class="js-open-modal">open modal</a>
+        <button id="kontaktaufnahme" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Kontakt aufnehmen</button>
 
-<div class="modal">
-  <div class="modal__header">
-    modal header
-    <a href="#" class="js-close-modal">X</a>
-  </div>
-  <p>
-    hey there, I'm the modal
-  </p>
-
-</div>
 <div class="corgi-content" id="block5">
   <div class="content">
     <p>Abo Easy</p>
@@ -1265,25 +1214,6 @@ Mein aktuelles Abo.</p>
 </section>
 
 <!-- The Modal -->
-
-<script>
-              jQuery(function ($) {
-  $(".js-open-modal").click(function(){
-  $(".modal").addClass("visible");
-});
-
-$(".js-close-modal").click(function(){
-  $(".modal").removeClass("visible");
-});
-
-$(document).click(function(event) {
-  //if you click on anything except the modal itself or the "open modal" link, close the modal
-  if (!$(event.target).closest(".modal,.js-open-modal").length) {
-    $("body").find(".modal").removeClass("visible");
-  }
-});
- });
-</script>
 
 
 
