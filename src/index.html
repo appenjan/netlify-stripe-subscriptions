@@ -1312,9 +1312,9 @@ Mein aktuelles Abo.</p>
 </div>
 
 <script>
-  $('#myModal').on('shown.bs.modal', function() {
-    $('#myInput').focus()
-  })  
+  $("#kontaktaufnahme").click(function(){
+      $("#myModal").modal({backdrop: false});
+  });
 </script>
 
 <script>
