@@ -1142,9 +1142,7 @@ textarea {
 Mein aktuelles Abo.</p>
 </div>
 
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-  Open modal
-</button>
+        <button id="kontaktaufnahme" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Kontakt aufnehmen</button>
 
 <div class="corgi-content" id="block5">
   <div class="content">
@@ -1216,27 +1214,100 @@ Mein aktuelles Abo.</p>
 </section>
 
 <!-- The Modal -->
-<div class="modal" id="myModal">
+<div id="myModal" class="modal fade" role="dialog">
   <div class="modal-dialog">
+
+    <!-- Modal content-->
     <div class="modal-content">
-
-      <!-- Modal Header -->
       <div class="modal-header">
-        <h4 class="modal-title">Modal Heading</h4>
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <div class="row">
+            <div class="col-full contact-main" >
+        <h4 class="modal-title">Kontaktformular<br></h4>
+        </div>
+        </div>
       </div>
-
-      <!-- Modal body -->
       <div class="modal-body">
-        Modal body..
-      </div>
 
-      <!-- Modal footer -->
+                <div class="row">
+
+                    <div class="col-full contact-main" >
+
+                        <form id="contactform" enctype="multipart/form-data" action="mailer.php" method="POST">
+                                    <div class="row">
+                                  <div class="col-6">
+                                     <div class="form-group">
+                                   <select class="form-control" id="inputAnrede" name="inputAnrede">
+                                     <option value="Herr">Herr</option>
+                                     <option value="Frau">Frau</option>
+                                   </select>
+                                   </div>
+                                   </div>
+                                   <div class="col-6">
+                                   <div class="form-group">
+                                       <input type="text" class="form-control" id="firma" name="firma" placeholder="Firma">
+                                   </div>
+                                   </div>
+                                   </div>
+                                    <div class="row">
+                                      <div class="col-6">
+                                      <div class="form-group">
+                                          <input type="text" class="form-control" id="vorname" name="vorname" placeholder="Vorname *">
+                                      </div>
+                                      </div>
+                                      <div class="col-6">
+                                      <div class="form-group">
+                                          <input type="text" class="form-control" id="nachname" name="nachname" placeholder="Nachname *">
+                                      </div>
+                                      </div>
+                                      </div>
+
+                                        <div class="row">
+                                          <div class="col-6">
+                                          <div class="form-group">
+                                              <input type="text" class="form-control" id="telefon" name="telefon" placeholder="Telefon">
+                                          </div>
+                                          </div>
+                                          <div class="col-6">
+                                          <div class="form-group">
+                                              <input type="email" class="form-control" id="email" name="email" placeholder="E-Mail *">
+                                          </div>
+                                          </div>
+                                        </div>
+                                        <div class="row">
+                                      <div class="col-md-12">
+                                     <div class="form-group">
+                                     <select class="form-control" id="anliegen" name="anliegen">
+                                       <option selected="true" value="Frau" disabled>Was können wir für Dich tun? *</option>
+                                       <option value="starter">Webdesign-Paket | Starter</option>
+                                       <option value="medium">Webdesign-Paket | Medium</option>
+                                       <option value="exclusive">Webdesign-Paket | Exclusive</option>
+                                       <option value="sonstiges">Sonstiges</option>
+                                     </select>
+                                     </div>
+                                     </div>
+                                     </div>
+                    <div class="row">
+                      <div class="col-12">
+                                      <div class="form-group">
+                                          <textarea name="message" class="form-control" id="message" cols="30" rows="4" placeholder="Möchtest Du uns sonst noch etwas sagen?"></textarea>
+                                      </div><br>
+                                    </div>
+                                    </div>
+                                    <div class="row">
+                                      <div class="col-12">
+                                      <button id="btn_bestellen2" href="#bestellen" data-callback='onSubmit' class="g-recaptcha btn btn-outline-sub" data-sitekey="6LdfK7sZAAAAAMJTwiDE3uOwk2ljEbzDsSNu0wbY" data-badge="inline">Anfrage abschicken.</button>
+                                    </div>
+                                    </div>
+                                  </form>
+                    </div> <!-- end contact-main -->
+
+                </div> <!-- end row -->
+      </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Schliessen</button>
       </div>
-
     </div>
+
   </div>
 </div>
 
